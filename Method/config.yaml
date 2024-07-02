@@ -1,0 +1,392 @@
+debug: True
+SAVE_VIDEO: False
+SAVE_RENDER: True
+INFERENCE_GSAM: False
+USE_CUROBO: False
+USE_GRASPNET: False
+HEADLESS: True
+SAVE_ROOT: "output/gym_outputs_task_gen_obja_0304_rot"
+USE_ARTI: False
+USE_SUDOAI: False
+RANDOM_TASK: True
+WITH_ROTATION: False
+GEN_TASK: True
+USE_3D: True
+USE_MESH_COLLISION: True
+dataset: 
+  - "ycb"
+  - "objaverse"
+
+SEED: 42
+steps: 1000
+num_envs: 1
+env_spacing: 1.0
+controller: curobo
+
+# cam
+cam:
+  use_cam: True
+  cam_w: 2160 # 1080
+  cam_h: 1440 # 720
+  cam_far_plane: 100
+  cam_near_plane: 0.05
+  cam_horizontal_fov: 60 # pixel
+  cam_poss: # small table
+    - [1, 0, 1.2]
+    - [0.5, 0.7, 1]
+    - [0.5, -0.7, 1]
+    - [0, 0, 1.2]
+  cam_targets: 
+    - [0.5, 0, 0.15]
+    - [0.5, 0, 0.3]
+    - [0.5, 0, 0.3]
+    - [0.5, 0, 0.15]
+  # cam_poss: # large table
+  #   - [1.2, 0, 1.8]
+  #   - [0.4, 1.2, 1]
+  #   - [0.4, -1.2, 1]
+  #   - [-0.4, 0, 1.8]
+  # cam_targets: 
+  #   - [0.4, 0, 0.15]
+  #   - [0.4, 0.2, 0.3]
+  #   - [0.4, -0.2, 0.3]
+  #   - [0.4, 0, 0.15]
+  point_cloud_bound:
+    - [-1, 1]
+    - [-1, 1]
+    - [0.1, 1.0]
+  sampling_method: random_fps # random_fps, random, fps
+  sampling_num: 20000
+
+asset:
+  # asset
+  asset_root: assets
+  asset_files: 
+    - urdf/ycb/025_mug/025_mug.urdf
+    - urdf/ycb/010_potted_meat_can/010_potted_meat_can.urdf
+    - urdf/ycb/011_banana/011_banana.urdf
+  obj_pose_ps: # small table
+    - [0.5, 0, 0.4]
+    - [0.5, 0, 0.4]
+    - [0.5, 0, 0.4]
+  position_noise: [0.2, 0.25] # meter # small table
+  # position_noise: [0.15, 0.2] # meter
+  rotation_noise: 15 # degree
+  asset_seg_ids: 
+    - 2
+    - 3
+    - 4
+  obj_scale: 0.8
+
+  # articulated asset
+  arti_gapartnet_ids: 
+    - 45594
+  arti_obj_pose_ps: 
+    - [0.4, -0.6, 0.6]
+  arti_position_noise: 0.1 # meter
+  arti_rotation_noise: 15 # degree
+  arti_obj_scale: 0.4
+  arti_rotation: -40
+
+  # table_pose_p: [0.4, 0, 0.5]
+  # table_scale: [1.2, 2, 0.3]
+
+  table_pose_p: [0.5, 0, 0.15]
+  table_scale: [0.6, 0.8, 0.3]
+  table_seg_id: 0
+
+  # robot
+  franka_asset_file: urdf/franka_description/robots/franka_panda.urdf
+  franka_pose_p: [0, 0, 0]
+  franka_seg_id: 1
+
+gsam:
+  # GroundedSAM
+  box_threshold: 0.3
+  text_threshold: 0.25
+  text_prompt:  "banana"
+  device: "cuda"
+  sam_version: "vit_h"
+  sam_checkpoint: "assets/ckpts/sam_vit_h_4b8939.pth"
+  grounded_checkpoint: "assets/ckpts/groundingdino_swint_ogc.pth"
+  config: "../vision/GroundedSAM/GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py"
+
+graspnet:
+  save_files: False
+  dataset_root: ""
+  checkpoint_path: gym/graspness_implementation/ckpt/minkuresunet_kinect.tar
+  dump_dir: ./logs/
+  seed_feat_dim: 512
+  camera: kinect
+  num_point: 15000
+  batch_size: 1
+  voxel_size: 0.005
+  collision_thresh: 0.00001
+  voxel_size_cd: 0.01
+  infer: True
+  vis: True
+
+tasks:
+
+  # - place_banana_on_the_stars_china_flag:
+  #   instruction: Place cup on the USA Flag.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     # - banana
+  #     - USA Flag
+  #     - China Flag
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     # - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/usa_material.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+  #   selected_obj_poses:
+  #     - [0.4, 0.25, 0.4]
+  #     - [0.08, -0.3, 0.4]
+  #     - [0.1, 0.25, 0.4]
+  #     - [0.05, -0.0, 0.38]
+  #     - [0.3, -0.2, 0.38]
+  #   target_obj_name: banana
+  #   target_obj_urdf: ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #   target_obj_pose: [0.15, 0.05, 0.4]
+
+  # - Open the pot:
+  #   USE_ARTI: True
+  #   instruction: place the pot lid with handle to other place
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     - banana
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #   arti_gapartnet_ids: 
+  #     - 100058_free_lid
+  #   arti_obj_scale: 0.1
+  #   arti_obj_pose_ps: 
+  #     - [0.1, -0.15, 0.38]
+  #   selected_obj_poses:
+  #     - [0.4, 0.25, 0.4]
+  #     - [0.08, -0.3, 0.4]
+  #     - [0.2, 0.25, 0.4]
+  #   target_obj_name: strawberry
+  #   target_obj_urdf: ycb_16k_backup/012_strawberry_google_16k/012_strawberry_google_16k.urdf
+  #   target_obj_pose: [0.05, 0.15, 0.4]
+
+  # - place_banana_on_the_stars_china_flag:
+  #   instruction: Place the banana on the USA flag.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     # - banana
+  #     - USA Flag
+  #     - China Flag
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     # - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/usa_material.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+  #   selected_obj_poses:
+  #     - [0.25, 0.25, 0.4]
+  #     - [0.08, -0.3, 0.4]
+  #     # - [0.1, 0.25, 0.4]
+  #     - [0.05, -0.0, 0.38]
+  #     - [0.2, -0.2, 0.38]
+  #   target_obj_name: banana
+  #   target_obj_urdf: ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #   target_obj_pose: [0.15, 0.05, 0.4]
+
+  # - place_strawberry_on_the_stars_china_flag:
+  #   instruction: Place the strawberry on the stars of the China flag.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     - banana
+  #     - USA Flag
+  #     - China Flag
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/usa_material.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+  #   selected_obj_poses:
+  #     - [0.4, 0.25, 0.4]
+  #     - [0.08, -0.3, 0.4]
+  #     - [0.1, 0.25, 0.4]
+  #     - [0.05, -0.0, 0.38]
+  #     - [0.3, -0.2, 0.38]
+  #   target_obj_name: strawberry
+  #   target_obj_urdf: ycb_16k_backup/012_strawberry_google_16k/012_strawberry_google_16k.urdf
+  #   target_obj_pose: [0.15, 0.05, 0.4]
+
+  # - place_strawberry_on_the_usa_flag:
+  #   instruction: Place the strawberry on the USA flag.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     - banana
+  #     - USA Flag
+  #     - China Flag
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/usa_material.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+  #   selected_obj_poses:
+  #     - [0.4, 0.25, 0.4]
+  #     - [0.08, -0.3, 0.4]
+  #     - [0.1, 0.25, 0.4]
+  #     - [0.1, -0.0, 0.38]
+  #     - [0.3, -0.2, 0.38]
+  #   target_obj_name: strawberry
+  #   target_obj_urdf: ycb_16k_backup/012_strawberry_google_16k/012_strawberry_google_16k.urdf
+  #   target_obj_pose: [0.05, 0.15, 0.4]
+
+  # - place_strawberry_to_bowl:
+  #   instruction: Place the strawberry into the bowl.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     - pear
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     - ycb_16k_backup/016_pear_google_16k/016_pear_google_16k.urdf
+  #   selected_obj_poses:
+  #     - [0.1, 0.05, 0.4]
+  #     - [0.08, 0.1, 0.4]
+  #     - [0.15, -0.15, 0.4]
+  #   target_obj: 012_strawberry_google_16k
+  #   target_obj_pose: [0.05, 0.15, 0.4]
+
+  - place_cracker_box_on_the_flag:
+    instruction: Place the cracker box on the flag with how human usually place the object, bottom down and top up.
+    selected_obj_names:
+      - bowl
+      - cups
+      - banana
+      - Chinese Flag
+    selected_obj_urdfs:
+      - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+      - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+      - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+      - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+    selected_obj_poses:
+      - [0.6, 0.35, 0.4]
+      - [0.48, 0.3, 0.4]
+      - [0.3, -0.25, 0.4]
+      - [0.4, -0.0, 0.38]
+    target_obj_name: cracker box
+    target_obj_urdf: ycb_16k_backup/003_cracker_box_google_16k/003_cracker_box_google_16k.urdf
+    target_obj_pose: [0.35, 0.15, 0.4]
+
+  # - place_strawberry_on_the_flag:
+  #   instruction: Place the strawberry on the flag.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     - banana
+  #     - Chinese Flag
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+  #   selected_obj_poses:
+  #     - [0.3, 0.35, 0.4]
+  #     - [0.18, 0.3, 0.4]
+  #     - [0.0, -0.25, 0.4]
+  #     - [0.1, -0.0, 0.38]
+  #   target_obj_name: strawberry
+  #   target_obj_urdf: ycb_16k_backup/012_strawberry_google_16k/012_strawberry_google_16k.urdf
+  #   target_obj_pose: [0.05, 0.15, 0.4]
+
+  # - place_strawberry_into_the_bowl:
+  #   instruction: Place the strawberry into the bowl.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     - banana
+  #     - Chinese Flag
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+  #   selected_obj_poses:
+  #     - [0.4, -0.25, 0.4]
+  #     - [0.48, 0.3, 0.4]
+  #     - [0.55, -0.25, 0.4]
+  #     - [0.4, -0.0, 0.38]
+  #   target_obj_name: strawberry
+  #   target_obj_urdf: ycb_16k_backup/012_strawberry_google_16k/012_strawberry_google_16k.urdf
+  #   target_obj_pose: [0.35, 0.15, 0.4]
+
+  # - place_strawberry_at_the_corner_of_the_flag:
+  #   instruction: Place the strawberry at the corner of the flag.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     - banana
+  #     - Chinese Flag
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+  #   selected_obj_poses:
+  #     - [0.3, 0.35, 0.4]
+  #     - [0.18, 0.3, 0.4]
+  #     - [0.0, -0.25, 0.4]
+  #     - [0.1, -0.0, 0.38]
+  #   target_obj_name: strawberry
+  #   target_obj_urdf: ycb_16k_backup/012_strawberry_google_16k/012_strawberry_google_16k.urdf
+  #   target_obj_pose: [0.05, 0.15, 0.4]
+
+  # - place_strawberry_at_the_center_of_the_flag:
+  #   instruction: Place the strawberry oat the center of the flag.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     - banana
+  #     - Chinese Flag
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+  #   selected_obj_poses:
+  #     - [0.3, 0.35, 0.4]
+  #     - [0.18, 0.3, 0.4]
+  #     - [0.0, -0.25, 0.4]
+  #     - [0.1, -0.0, 0.38]
+  #   target_obj_name: strawberry
+  #   target_obj_urdf: ycb_16k_backup/012_strawberry_google_16k/012_strawberry_google_16k.urdf
+  #   target_obj_pose: [0.05, 0.15, 0.4]
+  
+  # - place_baseball_on_the_flag:
+  #   instruction: Place the baseball on the flag.
+  #   selected_obj_names:
+  #     - bowl
+  #     - cups
+  #     - banana
+  #     - Chinese Flag
+  #   selected_obj_urdfs:
+  #     - ycb_16k_backup/024_bowl_google_16k/024_bowl_google_16k.urdf
+  #     - ycb_16k_backup/065-c_cups_google_16k/065-c_cups_google_16k.urdf
+  #     - ycb_16k_backup/011_banana_google_16k/011_banana_google_16k.urdf
+  #     - obj_flag/caa7053c0ee64ce8ac7ed1c8276af0de/china_material.urdf
+  #   selected_obj_poses:
+  #     - [0.1, 0.05, 0.4]
+  #     - [0.18, 0.1, 0.4]
+  #     - [0.2, -0.05, 0.4]
+  #     - [0.3, -0.0, 0.38]
+  #   target_obj_name: baseball
+  #   target_obj_urdf: ycb_16k_backup/055_baseball_google_16k/055_baseball_google_16k.urdf
+  #   target_obj_pose: [0.05, 0.15, 0.4]
