@@ -1,0 +1,277 @@
+{
+    "upright": {
+        "level": 0,
+        "prompt": " the object is placed upright on the table and corresponds with how humans usually place the object, bottom down and top up.",
+        "object_number": 91
+    },
+    "tip_left": {
+        "level": 1,
+        "prompt": " the marker is placed in a stable pose on the table. Its tip end is pointing towards left and its cap end is pointing towards right.",
+        "object_number": 2
+    },
+    "tip_right": {
+        "level": 1,
+        "prompt": " the marker is placed in a stable pose on the table. Its tip end is pointing towards right and its cap end is pointing towards left.",
+        "object_number": 2
+    },
+    "clip_sideways": {
+        "level": 1,
+        "prompt": " the binder clip is lying sideways on the table, which means that one side face of the black triangular prism is facing the table.",
+        "object_number": 1
+    },
+    "plug_left": {
+        "level": 1,
+        "prompt": " the silver plug end of the USB is oriented towards left, and the larger end is on the right.",
+        "object_number": 3
+    },
+    "plug_right": {
+        "level": 1,
+        "prompt": " the silver plug end of the USB is oriented towards right, and the larger end is on the left.",
+        "object_number": 3
+    },
+    "upside_down": {
+        "level": 0,
+        "prompt": " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.",
+        "object_number": 26
+    },
+    "handle_left": {
+        "level": 1,
+        "prompt": " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).",
+        "object_number": 33
+    },
+    "handle_right": {
+        "level": 1,
+        "prompt": " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the right(pointing towards right).",
+        "object_number": 33
+    },
+    "toy_left": {
+        "level": 1,
+        "prompt": "the toy is facing left, with its head oriented towards left",
+        "object_number": 4
+    },
+    "toy_right": {
+        "level": 1,
+        "prompt": "the toy is facing right, with its head oriented towards right",
+        "object_number": 4
+    },
+    "clasp_left": {
+        "level": 1,
+        "prompt": " the wallet is lying flat on the table, and the clasp is on the left(if the wallet has a clasp)",
+        "object_number": 3
+    },
+    "clasp_right": {
+        "level": 1,
+        "prompt": " the wallet is lying flat on the table, and the clasp is on the right(if the wallet has a clasp)",
+        "object_number": 3
+    },
+    "earpiece_near": {
+        "level": 1,
+        "prompt": " the headphone is lying on the table, and the two earpieces are closer to the nearer bringe of the table while the headband is farther from the viewer(Imagine yourself as a viewer in front of the screen, judge 'far' and 'near' by the distance the item is from you).",
+        "object_number": 3
+    },
+    "earpiece_far": {
+        "level": 1,
+        "prompt": " the headphone is lying on the table, and the two earpieces are farther away from the nearer bringe of the table while the headband is nearer to the viewer(Imagine yourself as a viewer in front of the screen, judge 'far' and 'near' by the distance the item is from you).",
+        "object_number": 3
+    },
+    "upright_lens_forth": {
+        "level": 2,
+        "prompt": " the camera is upright on the table, and it is oriented in a pose that the lens is facing forth, which means that the lens is directed right towards the viewer, in full view.",
+        "object_number": 2
+    },
+    "remote_control_forth": {
+        "level": 2,
+        "prompt": " the remote control is lying flat on the tablel, and its buttons are all facing up, which means that the particular side of the remote-control that has all the buttons on it is parallel to the table plane.",
+        "object_number": 6
+    },
+    "upright_textual": {
+        "level": 2,
+        "prompt": " the object is placed upright on the table and corresponds with how humans usually place the object, bottom down and top up. Also, if there's texture on the object, the text is likely to be in an upright and legible manner as well.",
+        "object_number": 12
+    },
+    "sideways_textual": {
+        "level": 2,
+        "prompt": " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on one of its sides.",
+        "object_number": 7
+    },
+    "upside_down_textual": {
+        "level": 2,
+        "prompt": " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an opposite position. Also, if there's texture on the object, the text is likely to be in an upside down manner as well.",
+        "object_number": 7
+    },
+    "watch_upright": {
+        "level": 2,
+        "prompt": " the watch is placed steadily on the table, and its contact with the table is in the shape of a circle, which means that the bringe of the watch bracelet is in touch with the table and while the plane of the watch dial is perpendicular to the table.",
+        "object_number": 3
+    },
+    "tape_measure_upright": {
+        "level": 0,
+        "prompt": " the tape measure is placed upright on the table.",
+        "object_number": 4
+    },
+    "multimeter_forth": {
+        "level": 2,
+        "prompt": " the multimeter is placed steadily on the table, with all the buttons facing up, and is oriented in a 'pointing forward' way that all the texts are legible from a viewer's perspective, meaning that the grey screen is farther away while the red buttons are closer to the nearer bringe of the table.",
+        "object_number": 1
+    },
+    "sideways": {
+        "level": 0,
+        "prompt": " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ",
+        "object_number": 19
+    },
+    "phone_forth": {
+        "level": 2,
+        "prompt": " the rectangular phone is placed steadily on the table, with the screen facing up, and is oriented in a 'pointing forward' way so that from a viewer's perspective, its two long edges are in a left-right position while the two short edges are in a front-back / near-far position.",
+        "object_number": 2
+    },
+    "scoop_left": {
+        "level": 1,
+        "prompt": " the ladle is lying on the table, with its scoop on the left(pointing towards left) and its handle on the right. ",
+        "object_number": 5
+    },
+    "scoop_right": {
+        "level": 1,
+        "prompt": " the ladle is lying on the table, with its scoop on the right(pointing towards right) and its handle on the left.",
+        "object_number": 5
+    },
+    "card_forth_textual": {
+        "level": 2,
+        "prompt": " the card is lying on the table, with the side with texts facing up so that the letters are legible from a viewer's perspective.",
+        "object_number": 2
+    },
+    "handle_left_jaw_right": {
+        "level": 1,
+        "prompt": " the caliper is lying on the table and oriented in a way so that the longest stick(bar) part is horizontal, with the curved jaw part on the right side and the handle part on the left side.",
+        "object_number": 1
+    },
+    "handle_right_jaw_left": {
+        "level": 1,
+        "prompt": " the caliper is lying on the table and oriented in a way so that the longest stick(bar) part is horizontal, with the curved jaw part on the left side and the handle part on the right side.",
+        "object_number": 1
+    },
+    "upright_label_forth": {
+        "level": 2,
+        "prompt": "the binder is standing upright on the table and oriented in a way so that its smaller side is in contact with the tabletop and the larger face is perpendicular to the tabletop, and the label should be in sight as well.",
+        "object_number": 2
+    },
+    "lying_flat": {
+        "level": 2,
+        "prompt": " the object is lying flat on the table, with its larger face in contact with the tabletop.",
+        "object_number": 9
+    },
+    "blade_left": {
+        "level": 1,
+        "prompt": " the blade of the knife is on the left(oriented towards left), while the handle is on the right.",
+        "object_number": 4
+    },
+    "blade_right": {
+        "level": 1,
+        "prompt": " the blade of the knife is on the right(oriented towards right), while the handle is on the left.",
+        "object_number": 4
+    },
+    "bulb_left_handle_right": {
+        "level": 1,
+        "prompt": " the flashlight is lying on the table(not standing up), with its bulb side on the left (oriented towards left) and its handle on the right.",
+        "object_number": 1
+    },
+    "bulb_right_handle_left": {
+        "level": 1,
+        "prompt": " the flashlight is lying on the table(not standing up), with its bulb side on the right (oriented towards right) and its handle on the left.",
+        "object_number": 1
+    },
+    "lighter_forth": {
+        "level": 1,
+        "prompt": " the lighter is lying steadily on the table(not standing up), with its grey head pointing forth.",
+        "object_number": 2
+    },
+    "spout_left": {
+        "level": 1,
+        "prompt": " the pot is upright on the table with its spout pointing towards left.",
+        "object_number": 2
+    },
+    "spout_right": {
+        "level": 1,
+        "prompt": " the pot is upright on the table with its spout pointing towards right.",
+        "object_number": 2
+    },
+    "ballpoint_left": {
+        "level": 1,
+        "prompt": " the ballpoint of the pen is on the left(oriented towards left), while the clicker is on the right.",
+        "object_number": 2
+    },
+    "ballpoint_right": {
+        "level": 1,
+        "prompt": " the ballpoint of the pen is on the right(oriented towards right), while the clicker is on the left.",
+        "object_number": 2
+    },
+    "cap_forth": {
+        "level": 1,
+        "prompt": " the cap is placed upright on the table with its visor(brim) in full contact with the table, and the visor is in front of the half-sphere part of the cap, oriented towards the viewer.",
+        "object_number": 1
+    },
+    "hat_sideways": {
+        "level": 0,
+        "prompt": " the hat is placed in a tilted manner(not upright), with the sphere part in contact with the table.",
+        "object_number": 1
+    },
+    "upper_rim": {
+        "level": 1,
+        "prompt": " the lens of the glasses in not in contact with the table while the temples(arms) and upper rim of the glasses are in contact with the table, which means that the glasses is in an upside down position compared to how humans generally wear them. ",
+        "object_number": 2
+    },
+    "lower_rim": {
+        "level": 1,
+        "prompt": " the lens of the glasses in not in contact with the table while the temples(arms) and lower rim of the glasses are in contact with the table, which means that the glasses is in a position consistent with how humans generally wear them. ",
+        "object_number": 2
+    },
+    "prong_left": {
+        "level": 1,
+        "prompt": " the prong of the fork is on the left(oriented towards left), while the handle is on the right.",
+        "object_number": 2
+    },
+    "prong_right": {
+        "level": 1,
+        "prompt": " the prong of the fork is on the right(oriented towards right), while the handle is on the left.",
+        "object_number": 2
+    },
+    "blades_left": {
+        "level": 1,
+        "prompt": " the blades of the scissors are on the left(oriented towards left), while the handle is on the right.",
+        "object_number": 2
+    },
+    "blades_right": {
+        "level": 1,
+        "prompt": " the blades of the scissors are on the right(oriented towards right), while the handle is on the left.",
+        "object_number": 2
+    },
+    "cap_left_bottom_right": {
+        "level": 1,
+        "prompt": " the bottle is lying sideways on the table, with its cap oriented towards left and the bottom side on the right.",
+        "object_number": 8
+    },
+    "cap_right_bottom_left": {
+        "level": 1,
+        "prompt": " the bottle is lying sideways on the table, with its cap oriented towards right and the bottom side on the left.",
+        "object_number": 8
+    },
+    "roll_upright": {
+        "level": 0,
+        "prompt": " the paper roll is standing upright on the table, in the shape of a cylinder, and the axis(height) of the cylinder is perpendicular to the tabletop.",
+        "object_number": 3
+    },
+    "roll_sideways": {
+        "level": 0,
+        "prompt": " the paper roll is lying sideways on the table, with its lateral surface in contact with the tabletop.",
+        "object_number": 3
+    },
+    "cap_left": {
+        "level": 1,
+        "prompt": " the cap of the marker is on the left(oriented towards left), while its body (the area we generally grab it) is on the right.",
+        "object_number": 1
+    },
+    "cap_right": {
+        "level": 1,
+        "prompt": " the cap of the marker is on the right(oriented towards right), while its body (the area we generally grab it) is on the left.",
+        "object_number": 1
+    }
+}
