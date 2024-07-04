@@ -24,7 +24,10 @@ sys.path.append("../vision")
 sys.path.append(". /gym")
 
 if True:
-    from vision.grounded_sam_demo import prepare_GroundedSAM_for_inference, inference_one_image
+    try:
+        from vision.grounded_sam_demo import prepare_GroundedSAM_for_inference, inference_one_image
+    except:
+        pass
     from gym.vlm_utils import infer_path
     
 import trimesh

@@ -18,7 +18,7 @@ from transforms3d.euler import euler2quat
 from scipy.spatial.transform import Rotation
 if False:
     from clip_baseline.obj_pose_opt import sample_poses_grid
-from rotation_for_overall import RotationEngine
+# from rotation_for_overall import RotationEngine
 
 sys.path.append(sys.path[-1]+"/gym")
 # set printoptions
@@ -41,8 +41,8 @@ def init_gym(cfgs, task_cfg=None, random_task = True, index = 0):
         
     if random_task:
         # read json
-        with open("benchmark/dictionary/category_dictionary.json", "r") as f: category_dictionary = json.load(f)
-        with open("benchmark/dictionary/instruction_dictionary.json", "r") as f: instruction_dictionary = json.load(f)
+        with open("../Benchmark/benchmark_catalogue/category_dictionary.json", "r") as f: category_dictionary = json.load(f)
+        with open("../Benchmark/benchmark_catalogue/instruction_dictionary_0702.json", "r") as f: instruction_dictionary = json.load(f)
 
         urdf_paths = []
         obj_name = []
@@ -50,7 +50,7 @@ def init_gym(cfgs, task_cfg=None, random_task = True, index = 0):
 
         if "ycb" in cfgs["dataset"]:
             # all the ycb urdf data
-            json_dict = json.load(open("benchmark/dictionary/object_dictionary_complete.json"))
+            json_dict = json.load(open("../Benchmark/benchmark_catalogue/object_dictionary_complete_0702.json"))
             all_uuid = json_dict.keys()
             
             #ycb_urdf_paths = glob.glob("assets/ycb_16k_backup/*/*.urdf")
@@ -68,7 +68,7 @@ def init_gym(cfgs, task_cfg=None, random_task = True, index = 0):
             obj_name+=ycb_obj_name
             uuids += ycb_uuids
         if "objaverse" in cfgs["dataset"]:
-            json_dict = json.load(open("benchmark/dictionary/object_dictionary_complete.json"))
+            json_dict = json.load(open("../Benchmark/benchmark_catalogue/object_dictionary_complete_0702.json"))
             
             all_uuid = json_dict.keys()
             # all the objaverse data
@@ -233,7 +233,7 @@ def init_gym(cfgs, task_cfg=None, random_task = True, index = 0):
     cfgs["asset"]["obj_pose_ps"] = selected_ob_poses
     cfgs["asset"]["obj_pose_rs"] = selected_ob_pose_rs
     
-    if cfgs["WITH_ROTATION"]:
+    if cfgs["WITH_ROTATION"] and cfgs["run_our_method"]:
         engine = RotationEngine()
         asset_folder = target_obj_urdf.split("/")[0]
         obj_folder = target_obj_urdf.split("/")[1]
@@ -331,6 +331,7 @@ elif args.mode == "gen_task_rot":
     cfgs["INFERENCE_GSAM"] = False
     cfgs["WITH_ROTATION"] = True
     cfgs["SAVE_ROOT"] = f"output/{args.task_root}"
+    cfgs["run_our_method"] = False
     for  i in range(10000):
         gym, cfgs, task_config_now= init_gym(cfgs, index=i, random_task=True)
 

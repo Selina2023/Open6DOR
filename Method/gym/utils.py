@@ -12,7 +12,10 @@ import random
 import sys
 sys.path.append("../")
 sys.path.append("../vision")
-from vision.grounded_sam_demo import prepare_GroundedSAM_for_inference
+try:
+    from vision.grounded_sam_demo import prepare_GroundedSAM_for_inference
+except:
+    pass
 
 import open3d as o3d
 import numpy as np
