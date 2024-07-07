@@ -8,6 +8,7 @@ import numpy as np
 from mathutils import Vector, Matrix
 import copy
 import sys
+import json
 import glob
 import time
 # import scipy
@@ -1134,7 +1135,7 @@ class BlenderRenderer(object):
 
 
 
-def open6dor_render(output_root_path, task_name, mesh_root, pose_data, background_material_id = 44, env_map_id = 25, cam_quaternion = [0, 0, 0.342, 0.940], cam_translation = [-0.15, 0.4, 0.7]): 
+def open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id = 44, env_map_id = 25, cam_quaternion = [0, 0, 0.342, 0.940], cam_translation = [-0.15, 0.4, 0.7]): 
     max_instance_num = 20
 
 
@@ -1156,12 +1157,12 @@ def open6dor_render(output_root_path, task_name, mesh_root, pose_data, backgroun
     # read objects from floder
 
 #########################
-    obj_codes = pose_data.files
-    obj_poses = [pose_data[obj_code] for obj_code in obj_codes]
+
+    obj_poses = [obj_poses[obj_code] for obj_code in obj_ids]
 
     # import pdb; pdb.set_trace()
-    for obj_i, obj_code in enumerate(obj_codes):
-        instance_path = os.path.join(mesh_root, obj_code, f'textured.obj') #.obj
+    for obj_i, obj_code in enumerate(obj_ids):
+        instance_path = os.path.join(mesh_root, obj_code, f'material.obj') #.obj
         instance_name = obj_code
 
         obj_name = ""
@@ -1177,7 +1178,7 @@ def open6dor_render(output_root_path, task_name, mesh_root, pose_data, backgroun
         obj = bpy.data.objects[obj_name] 
         obj.name = instance_name
         obj.data.name = instance_name
-        obj_pose = obj_poses[obj_i] # 4 * 4
+        obj_pose = obj_poses[obj_code] # 4 * 4
         obj_loc = obj_pose[:3, 3]
 
         obj_rot = obj_pose[:3, :3]
@@ -1237,11 +1238,11 @@ def open6dor_render(output_root_path, task_name, mesh_root, pose_data, backgroun
     file_write_obj.write('task_index:')
     file_write_obj.write(task_name)
     file_write_obj.write('\nobjects:')
-    for obj_code in obj_codes:
+    for obj_code in obj_ids:
         file_write_obj.write('\n')
         file_write_obj.write(obj_code)
         file_write_obj.write(':\n')
-        file_write_obj.write(str(pose_data[obj_code]))
+        file_write_obj.write(str(obj_poses[obj_code]))
 
     file_write_obj.write('\ncamera:\n')
 
@@ -1279,15 +1280,64 @@ def open6dor_render(output_root_path, task_name, mesh_root, pose_data, backgroun
     print(len(bpy.data.materials))
 
 
+
+def quaternion_to_matrix(q):
+    """
+    Convert a quaternion into a 3x3 rotation matrix.
+    """
+    qw, qx, qy, qz = q
+    return np.array([
+        [1 - 2*qy*qy - 2*qz*qz, 2*qx*qy - 2*qz*qw, 2*qx*qz + 2*qy*qw],
+        [2*qx*qy + 2*qz*qw, 1 - 2*qx*qx - 2*qz*qz, 2*qy*qz - 2*qx*qw],
+        [2*qx*qz - 2*qy*qw, 2*qy*qz + 2*qx*qw, 1 - 2*qx*qx - 2*qy*qy]
+    ])
+
+def create_transformation_matrix(position, quaternion):
+    """
+    Create a 4x4 transformation matrix from position and quaternion.
+    """
+    x, y, z = position
+    q = quaternion
+    
+    rotation_matrix = quaternion_to_matrix(q)
+    
+    transformation_matrix = np.identity(4)
+    transformation_matrix[:3, :3] = rotation_matrix
+    transformation_matrix[:3, 3] = [x, y, z]
+    
+    return transformation_matrix
+
+
+
 if __name__ == '__main__':
     output_root_path = "/home/ubuntu/Desktop/projects/DexGraspNet1B-render/rendering/output/Open6DOR/test"
     task_name = "0004"
-    mesh_root = "../../DexGraspNet1B-render/mesh_data_new/meshdata"
-    scene_file = f"/home/ubuntu/Desktop/projects/DexGraspNet1B-render/mesh_data_new/renderdata/{task_name}/object_pose_dict.npz"
-    pose_data = np.load(scene_file, allow_pickle=True)
+    # mesh_root = "../../DexGraspNet1B-render/mesh_data_new/meshdata"
+    mesh_root = "/Users/selina/Desktop/projects/ObjectPlacement/assets/mesh/final_norm"
+    # scene_file = f"/home/ubuntu/Desktop/projects/DexGraspNet1B-render/mesh_data_new/renderdata/{task_name}/object_pose_dict.npz"
+    config_file = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/dataset/tasks/test/output/gym_outputs_task_gen_obja_0304_rot/center/Place_the_mouse_at_the_center_of_all_the_objects_on_the_table.__upright/20240630-202931_no_interaction"
+    config = json.load(open(config_file, "r"))
+    pos_s = config["init_obj_pos"]
+    obj_paths = config["selected_urdfs"] # e.g. "objaverse_final_norm/02f7f045679d402da9b9f280030821d4/material_2.urdf"
+
+    obj_ids = [path.split("/")[-2] for path in obj_paths]
+
+    obj_poses = {}
+
+
+    for i in len(obj_ids):
+        pos = pos_s[i]
+        id = obj_ids[i]
+        position = pos[:3]
+        quaternion = pos[3:7] 
+        transformation_matrix = create_transformation_matrix(position, quaternion)
+        obj_poses[id] = transformation_matrix
+
+    # obj_poses = np.load(scene_file, allow_pickle=True)
+
  
     background_material_id = 44
     env_map_id = 25
     cam_quaternion = [0, 0, 0.342, 0.940]
     cam_translation = [-0.15, 0.4, 0.7]
-    open6dor_render(output_root_path, task_name, mesh_root, pose_data, background_material_id, env_map_id, cam_quaternion, cam_translation)
+    open6dor_render(output_root_path, task_name, mesh_root, obj_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)
