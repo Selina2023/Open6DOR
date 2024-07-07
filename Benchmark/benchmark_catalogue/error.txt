@@ -1,0 +1,29 @@
+"ae7142127dd84ebbbe7762368ace452c": { shoe->mug }
+072-b no upright, wrong category(toy->glue gun)
+019 trans
+024 trans
+040 trans
+065-a trans
+065-b trans
+065-c trans
+065-d trans
+065-f trans
+065-g trans
+065-j trans
+d5a5f0a954f94bcea3168329d1605fe9: shoe->mu
+048 hammer trans
+033 trans
+8a6cb4f7b0004f53830e270dc6e1ff1d handle_left/right xx(no handle)
+025 trans
+rewrite "tip_left" and "tip_right"'s prompt
+f47fdcf9615d4e94a71e6731242a4c94 wierd mesh
+dbb07d13a33546f09ac8ca98b1ddef20 wallet has no clasp (instruction)
+032 trans
+d9675ab05c39447baf27e19ea07d484e lighter pointing forth(facing the viewer)-instruction
+note! "forth" rotation equivalence
+note! "spout left" needs to be upright
+note! "cap" forth rotation equivalence
+note! "cap" forth rotation equivalence
+022 wierd mesh
+
+blender no texture: 9660e0c0326b4f7386014e27717231ae, ycb 04 08 09, 5de830b2cccf4fe7a2e6b400abf26ca7

@@ -5,6 +5,7 @@ output/
 assets/
 output_new/
 results_overall/
+*.zip
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
