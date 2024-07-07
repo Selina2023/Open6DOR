@@ -1,5 +1,6 @@
 {
     "envelope_box": {
+        "scale": 3,
         "count": 1,
         "object_uuids": [
             "40b28d1cbfbd4e9f9acf653b748324ee"
@@ -9,6 +10,7 @@
         ]
     },
     "keyboard": {
+        "scale": 3,
         "count": 4,
         "object_uuids": [
             "a25c537932e84ef693de2cdbfc9dd22d",
@@ -21,6 +23,7 @@
         ]
     },
     "highlighter": {
+        "scale": 2,
         "count": 2,
         "object_uuids": [
             "25481a65cad54e2a956394ff2b2765cd",
@@ -32,6 +35,7 @@
         ]
     },
     "binder_clips": {
+        "scale": 3,
         "count": 1,
         "object_uuids": [
             "5e55c38b24dc4c239448efa1c6b7f49f"
@@ -41,6 +45,7 @@
         ]
     },
     "USB": {
+        "scale": 0,
         "count": 3,
         "object_uuids": [
             "878049e8c3174fa68a56530e5aef7a5a",
@@ -53,6 +58,7 @@
         ]
     },
     "calculator": {
+        "scale": 2,
         "count": 5,
         "object_uuids": [
             "69511a7fad2f42ee8c4b0579bbc8fec6",
@@ -67,6 +73,7 @@
         ]
     },
     "clipboard": {
+        "scale": 3,
         "count": 2,
         "object_uuids": [
             "b31c69728a414e639eef2fccd1c3dd75",
@@ -78,6 +85,7 @@
         ]
     },
     "mixer": {
+        "scale": 3,
         "count": 1,
         "object_uuids": [
             "990d0cb9499540fda49b1ff36be9ba26"
@@ -88,6 +96,7 @@
         ]
     },
     "toy": {
+        "scale": 2,
         "count": 4,
         "object_uuids": [
             "9adc77036b434348ae049776c50df624",
@@ -102,6 +111,7 @@
         ]
     },
     "wallet": {
+        "scale": 1,
         "count": 3,
         "object_uuids": [
             "f47fdcf9615d4e94a71e6731242a4c94",
@@ -114,6 +124,7 @@
         ]
     },
     "headphone": {
+        "scale": 2,
         "count": 3,
         "object_uuids": [
             "f8891134871e48ce8cb5053c4287272b",
@@ -126,6 +137,7 @@
         ]
     },
     "camera": {
+        "scale": 2,
         "count": 2,
         "object_uuids": [
             "f6f8675406b7437faaf96a1f82062028",
@@ -136,6 +148,7 @@
         ]
     },
     "remote_control": {
+        "scale": 1,
         "count": 6,
         "object_uuids": [
             "67a5956349574fac8431b9b12aad8b81",
@@ -150,6 +163,7 @@
         ]
     },
     "box": {
+        "scale": 2,
         "count": 7,
         "object_uuids": [
             "f81ca566b008446eb704cad4844603b6",
@@ -167,6 +181,7 @@
         ]
     },
     "watch": {
+        "scale": 1,
         "count": 3,
         "object_uuids": [
             "243b381dcdc34316a7e78a533572d273",
@@ -178,6 +193,7 @@
         ]
     },
     "hot_glue_gun": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "5ceec13e87774982afe825e7e74a0ce1"
@@ -187,6 +203,7 @@
         ]
     },
     "tape_measure": {
+        "scale": 1,
         "count": 4,
         "object_uuids": [
             "11307d06bb254318b95021d68c6fa12f",
@@ -199,6 +216,7 @@
         ]
     },
     "multimeter": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "79ac684e66b34554ba869bd2fc3c2653"
@@ -208,6 +226,7 @@
         ]
     },
     "glue_gun": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "a1da12b81f034db894496c1ffc4be1f5"
@@ -217,6 +236,7 @@
         ]
     },
     "mobile_phone": {
+        "scale": 1,
         "count": 2,
         "object_uuids": [
             "bad5e04d290841779dad272897f384e1",
@@ -227,6 +247,7 @@
         ]
     },
     "ladle": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "ce27e3369587476c85a436905f1e5c00"
@@ -237,6 +258,7 @@
         ]
     },
     "spoon": {
+        "scale": 2,
         "count": 4,
         "object_uuids": [
             "218768789fdd42bd95eb933046698499",
@@ -250,6 +272,7 @@
         ]
     },
     "microphone": {
+        "scale": 2,
         "count": 3,
         "object_uuids": [
             "f9d07bb386a04de8b0e1a9a28a936985",
@@ -261,6 +284,7 @@
         ]
     },
     "hammer": {
+        "scale": 2,
         "count": 7,
         "object_uuids": [
             "35a76a67ea1c45edabbd5013de70d68d",
@@ -277,6 +301,7 @@
         ]
     },
     "SD_card": {
+        "scale": 1,
         "count": 1,
         "object_uuids": [
             "02f7f045679d402da9b9f280030821d4"
@@ -286,6 +311,7 @@
         ]
     },
     "calipers": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "95c967114b624291bc26bcd705aaa334"
@@ -296,6 +322,7 @@
         ]
     },
     "speaker": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "4445f4442a884999960e7e6660459095"
@@ -305,6 +332,7 @@
         ]
     },
     "binder": {
+        "scale": 3,
         "count": 2,
         "object_uuids": [
             "78e016eeb0bf45d5bea47547128383a8",
@@ -316,6 +344,7 @@
         ]
     },
     "spatula": {
+        "scale": 3,
         "count": 3,
         "object_uuids": [
             "4b27628be0804c0285d0b13dda025a0d",
@@ -328,6 +357,7 @@
         ]
     },
     "knife": {
+        "scale": 2,
         "count": 4,
         "object_uuids": [
             "85db1d392a89459dbde5cdd951c4f6fb",
@@ -341,6 +371,7 @@
         ]
     },
     "hard_drive": {
+        "scale": 2,
         "count": 2,
         "object_uuids": [
             "f8de4975c0f54c1a97203c6a674f6a39",
@@ -351,6 +382,7 @@
         ]
     },
     "book": {
+        "scale": 2,
         "count": 4,
         "object_uuids": [
             "2a371c84c5454f7facba7bb2f5312ad6",
@@ -363,6 +395,7 @@
         ]
     },
     "flashlight": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "123a79642c2646d8b315576828fea84a"
@@ -373,6 +406,7 @@
         ]
     },
     "bowl": {
+        "scale": 2,
         "count": 3,
         "object_uuids": [
             "bf83213efac34b3cb2ad6ac5ddaf05d9",
@@ -385,6 +419,7 @@
         ]
     },
     "paperweight": {
+        "scale": 1,
         "count": 1,
         "object_uuids": [
             "21c10181c122474a8f72a4ad0331f185"
@@ -394,6 +429,7 @@
         ]
     },
     "wrench": {
+        "scale": 2,
         "count": 4,
         "object_uuids": [
             "5bf781c9fd8d4121b735503b13ba2eaf",
@@ -407,6 +443,7 @@
         ]
     },
     "organizer": {
+        "scale": 3,
         "count": 1,
         "object_uuids": [
             "4f52ebe6c8cf432986e47d8de83386ce"
@@ -416,6 +453,7 @@
         ]
     },
     "credit_card": {
+        "scale": 1,
         "count": 1,
         "object_uuids": [
             "5de830b2cccf4fe7a2e6b400abf26ca7"
@@ -425,6 +463,7 @@
         ]
     },
     "lighter": {
+        "scale": 1,
         "count": 2,
         "object_uuids": [
             "d9675ab05c39447baf27e19ea07d484e",
@@ -435,6 +474,7 @@
         ]
     },
     "eraser": {
+        "scale": 1,
         "count": 1,
         "object_uuids": [
             "f0916a69ba514ecc973b44528b9dcc43"
@@ -444,6 +484,7 @@
         ]
     },
     "mug": {
+        "scale": 2,
         "count": 15,
         "object_uuids": [
             "922cd7d18c6748d49fe651ded8a04cf4",
@@ -469,6 +510,7 @@
         ]
     },
     "shoe": {
+        "scale": 2,
         "count": 5,
         "object_uuids": [
             "aa51af2f1270482193471455b504efc6",
@@ -483,6 +525,7 @@
         ]
     },
     "pot": {
+        "scale": 3,
         "count": 2,
         "object_uuids": [
             "af249e607bea40cfa2f275e5e23b8283",
@@ -494,6 +537,7 @@
         ]
     },
     "pen": {
+        "scale": 2,
         "count": 2,
         "object_uuids": [
             "fbeb7c776372466daffa619106e0b2e0",
@@ -505,6 +549,7 @@
         ]
     },
     "cap": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "87e82aa304ce4571b69bdd5182549c72"
@@ -515,6 +560,7 @@
         ]
     },
     "plate": {
+        "scale": 2,
         "count": 3,
         "object_uuids": [
             "8d50c19e138b403e8b2ede9b47d8be3c",
@@ -527,6 +573,7 @@
         ]
     },
     "stapler": {
+        "scale": 1,
         "count": 1,
         "object_uuids": [
             "d2c345be5c084b4e8c92b48f7be69315"
@@ -536,6 +583,7 @@
         ]
     },
     "hat": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "dc02f9c1fd01432fadd6e7d15851dc37"
@@ -546,6 +594,7 @@
         ]
     },
     "mouse": {
+        "scale": 1,
         "count": 4,
         "object_uuids": [
             "e51e63e374ee4c25ae3fb4a9c74bd335",
@@ -558,6 +607,7 @@
         ]
     },
     "wineglass": {
+        "scale": 2,
         "count": 2,
         "object_uuids": [
             "dc707f81a94e48078069c6a463f59fcf",
@@ -569,6 +619,7 @@
         ]
     },
     "clock": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "fdf932b04e6c4e0fbd6e274563b94536"
@@ -578,6 +629,7 @@
         ]
     },
     "glasses": {
+        "scale": 2,
         "count": 2,
         "object_uuids": [
             "f632e59e1b4d4dd1b5889c3f24f5da78",
@@ -589,6 +641,7 @@
         ]
     },
     "fork": {
+        "scale": 2,
         "count": 2,
         "object_uuids": [
             "e98e7fb33743442383812b68608f7006",
@@ -600,6 +653,7 @@
         ]
     },
     "scissors": {
+        "scale": 2,
         "count": 2,
         "object_uuids": [
             "2b1120c4b517409184413ed709c57a66",
@@ -611,6 +665,7 @@
         ]
     },
     "tissue_box": {
+        "scale": 3,
         "count": 6,
         "object_uuids": [
             "6f8040c86eb84e7bba2cd928c0755029",
@@ -625,6 +680,7 @@
         ]
     },
     "bottle": {
+        "scale": 2,
         "count": 8,
         "object_uuids": [
             "d17b8f44d1544364b8ad9fe2554ddfdf",
@@ -644,6 +700,7 @@
         ]
     },
     "toilet_paper_roll": {
+        "scale": 2,
         "count": 3,
         "object_uuids": [
             "ea0cf48616e34708b73c82eb7c7366ca",
@@ -656,6 +713,7 @@
         ]
     },
     "pear": {
+        "scale": 1,
         "count": 2,
         "object_uuids": [
             "f3dd3064db4f4e8880344425970cecad",
@@ -666,6 +724,7 @@
         ]
     },
     "orange": {
+        "scale": 1,
         "count": 1,
         "object_uuids": [
             "a4c9a503f63e440e8d6d924d4e5c36b1"
@@ -675,6 +734,7 @@
         ]
     },
     "apple": {
+        "scale": 1,
         "count": 3,
         "object_uuids": [
             "f53d75bd123b40bca14d12d54286f432",
@@ -686,6 +746,7 @@
         ]
     },
     "can": {
+        "scale": 2,
         "count": 4,
         "object_uuids": [
             "002",
@@ -699,6 +760,7 @@
         ]
     },
     "pitcher_base": {
+        "scale": 3,
         "count": 1,
         "object_uuids": [
             "019"
@@ -712,6 +774,7 @@
         ]
     },
     "skillet": {
+        "scale": 3,
         "count": 1,
         "object_uuids": [
             "027"
@@ -721,6 +784,7 @@
         ]
     },
     "power_drill": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "035"
@@ -730,6 +794,7 @@
         ]
     },
     "marker": {
+        "scale": 2,
         "count": 1,
         "object_uuids": [
             "040"
@@ -740,6 +805,7 @@
         ]
     },
     "screwdriver": {
+        "scale": 2,
         "count": 2,
         "object_uuids": [
             "043",
@@ -751,6 +817,7 @@
         ]
     },
     "cup": {
+        "scale": 2,
         "count": 10,
         "object_uuids": [
             "065-a",
