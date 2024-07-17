@@ -3,11 +3,11 @@ import json
 import imageio
 
 
-overall_paths = glob.glob('tasks/rot_banch_0704_overall/*/*/*/task_config.json')
+overall_paths = glob.glob('task_examples/overall/*/*/*/task_config.json')
 
-pos_paths = glob.glob('tasks/rot_banch_0717_pos/*/*/*/task_config.json')
+pos_paths = glob.glob('task_examples/position/*/*/*/task_config.json')
 
-rot_paths = glob.glob('tasks/rot_banch_0717_rot/*/*/*/task_config.json')
+rot_paths = glob.glob('task_examples/rotation/*/*/*/task_config.json')
 
 
 def load_task(path, image_mode = "GIVEN_IMAGE_ISAACGYM"):
