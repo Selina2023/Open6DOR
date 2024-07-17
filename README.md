@@ -1,5 +1,9 @@
 # Open6DOR
 
+```
+python interaction.py --mode XXX
+```
+
 ```bash
 cd vision/GroundedSAM/GroundingDINO
 pip install -e .
