@@ -62,11 +62,11 @@ def eval_task(task_id, pred_pose):
     pos_gt = []1#TODO 5: load ground truth position from annot
 
 
-    rot_deviation = evaluator.evaluate_rot(rot_gt, pred_rot)
+    rot_deviation = evaluator.evaluate_rot(rot_gt, pred_rot)  #TODO 6: click into evaluate_rot
 
     print(f"Rotation deviation: {rot_deviation} degrees")
 
-    pos_eval = #TODO 6: evaluate position
+    pos_eval = #TODO 7: evaluate position
 
 print(len(overall_paths), len(pos_paths), len(rot_paths))
 for overall_path in overall_paths:
