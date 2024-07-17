@@ -1,6 +1,8 @@
 import glob
 
 paths = glob.glob('Method/output/rot_banch_0704/*/*/*/task_config.json')
+paths = glob.glob('Method/output/rot_banch_0717/*/*/*/task_config.json')
+paths = glob.glob('Method/output/rot_banch_0717_pure_rot/*/*/*/task_config.json')
 
 print("total tasks", len(paths))
 position_tags = set([paths[i].split('/')[-4] for i in range(len(paths))])

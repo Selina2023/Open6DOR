@@ -1,3 +1,4 @@
+*.whl
 anno_test
 Benchmark/renderer/envmap_lib
 Benchmark/renderer/blender-2.93.3*

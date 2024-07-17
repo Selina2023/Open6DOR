@@ -20,6 +20,8 @@ if False:
     from clip_baseline.obj_pose_opt import sample_poses_grid
 # from rotation_for_overall import RotationEngine
 
+from utils.get_assets import get_assets_info
+
 sys.path.append(sys.path[-1]+"/gym")
 # set printoptions
 torch.set_printoptions(precision=4, sci_mode=False)
@@ -32,7 +34,7 @@ args = gymutil.parse_arguments(description="Placement",
         {"name": "--device", "type": str, "default": "cuda"},
         ])
 
-def init_gym(cfgs, task_cfg=None, random_task = True, index = 0):
+def init_gym(cfgs, task_cfg=None, random_task = True, index = 0, no_position = False):
     # init gsam
     if cfgs["INFERENCE_GSAM"]:
         grounded_dino_model, sam_predictor = prepare_gsam_model(device=args.device)
@@ -44,77 +46,27 @@ def init_gym(cfgs, task_cfg=None, random_task = True, index = 0):
         with open("../Benchmark/benchmark_catalogue/category_dictionary.json", "r") as f: category_dictionary = json.load(f)
         with open("../Benchmark/benchmark_catalogue/instruction_dictionary_0702.json", "r") as f: instruction_dictionary = json.load(f)
 
-        urdf_paths = []
-        obj_name = []
-        uuids = []
+        urdf_paths,obj_name,uuids = get_assets_info(dataset_names=cfgs["dataset"])
 
-        if "ycb" in cfgs["dataset"]:
-            # all the ycb urdf data
-            json_dict = json.load(open("../Benchmark/benchmark_catalogue/object_dictionary_complete_0702.json"))
-            all_uuid = json_dict.keys()
-            
-            #ycb_urdf_paths = glob.glob("assets/ycb_16k_backup/*/*.urdf")
-            ycb_urdf_paths = glob.glob("benchmark/mesh/ycb/*/*.urdf")
-            ycb_names = [urdf_path.split("/")[-2] for urdf_path in ycb_urdf_paths]
-            ycb_obj_name = [" ".join(name.split("_")[1:-2]) for name in ycb_names]
-            ycb_uuid = [urdf_path.split("/")[-2].split("_")[0] for urdf_path in ycb_urdf_paths]
-            
-            valid_idx = [i for i in range(len(ycb_uuid)) if ycb_uuid[i] in all_uuid]
-            
-            ycb_uuids = [ycb_uuid[i] for i in valid_idx]
-            ycb_urdf_paths = [ycb_urdf_paths[i] for i in valid_idx]
-            ycb_obj_name = [" ".join(json_dict[ycb_uuid[i]]['category'].split("_")) for i in valid_idx]
-            urdf_paths+=ycb_urdf_paths
-            obj_name+=ycb_obj_name
-            uuids += ycb_uuids
-        if "objaverse" in cfgs["dataset"]:
-            json_dict = json.load(open("../Benchmark/benchmark_catalogue/object_dictionary_complete_0702.json"))
-            
-            all_uuid = json_dict.keys()
-            # all the objaverse data
-            objaverse_urdf_paths = glob.glob("assets/objaverse_final_norm/*/*_2.urdf")
-            objaverse_obj_uuid = [path.split("/")[-2] for path in objaverse_urdf_paths]
-            
-            valid_idx = [i for i in range(len(objaverse_obj_uuid)) if objaverse_obj_uuid[i] in all_uuid]
-            objaverse_obj_uuids = [objaverse_obj_uuid[i] for i in valid_idx]
-            objaverse_urdf_paths = [objaverse_urdf_paths[i] for i in valid_idx]
-            objaverse_obj_name = [" ".join(json_dict[objaverse_obj_uuid[i]]['category'].split("_")) for i in valid_idx]
-            urdf_paths+=objaverse_urdf_paths
-            obj_name+=objaverse_obj_name
-            uuids+=objaverse_obj_uuids
-        if "objaverse_old" in cfgs["dataset"]:
-            json_dict = json.load(open("category_dictionary.json"))
-            
-            all_uuid = []
-            for key in json_dict.keys(): all_uuid+=json_dict[key]["object_uuids"]
-            # all the objaverse data
-            objaverse_urdf_paths = glob.glob("benchmark/mesh/objaverse_final_norm/*/*_2.urdf")
-            objaverse_names = [urdf_path.split("/")[-2] for urdf_path in objaverse_urdf_paths]
-            objaverse_obj_name = [" ".join(name.split("_")[1:]) for name in objaverse_names]
-            objaverse_obj_uuid = [name.split("_")[0] for name in objaverse_names]
-            valid_idx = [i for i in range(len(objaverse_obj_uuid)) if objaverse_obj_uuid[i] in all_uuid]
-            objaverse_urdf_paths = [objaverse_urdf_paths[i] for i in valid_idx]
-            objaverse_obj_name = [objaverse_obj_name[i] for i in valid_idx]
-            # import pdb; pdb.set_trace()
-            urdf_paths+=objaverse_urdf_paths
-            obj_name+=objaverse_obj_name
-
-        # index
-        # urdf_paths = [urdf_paths[index]]*6
-        # obj_name = [obj_name[index]]*6
-        orientation_id = np.random.randint(7)
-        # orientation_id = np.random.randint(2) + 2
-        orientation = ["left", "right", "front", "behind", "between", "center", "top"][orientation_id]
-        
-        if orientation == "center":
-            selected_obj_num = np.random.randint(4, 5)
-        elif orientation == "between":
-            selected_obj_num = np.random.randint(3, 5)
+        if no_position:
+            orientation_id = -1
+            orientation = "None"
+            selected_obj_num = 1
         else:
-            selected_obj_num = np.random.randint(2, 5)
-        
+            # index
+            orientation_id = np.random.randint(7)
+            # orientation_id = np.random.randint(2) + 2
+            orientation = ["left", "right", "front", "behind", "between", "center", "top"][orientation_id]
+            
+            if orientation == "center":
+                selected_obj_num = np.random.randint(4, 5)
+            elif orientation == "between":
+                selected_obj_num = np.random.randint(3, 5)
+            else:
+                selected_obj_num = np.random.randint(2, 5)
+            
         total_asset_num = len(urdf_paths)
-        
+            
         obj_idxs = np.random.choice(total_asset_num, selected_obj_num, replace=False)
         
         selected_obj_urdfs = ["/".join(urdf_paths[idx].split("/")[1:]) for idx in obj_idxs]
@@ -130,9 +82,9 @@ def init_gym(cfgs, task_cfg=None, random_task = True, index = 0):
         
         selected_ob_poses = [init_pose_ for i in range(selected_obj_num)]
 
-        instruction = f"place the {target_obj_name} at the center of all the objects on the table"
-
-        if orientation == "between":
+        if orientation == "None":
+            instruction = ""
+        elif orientation == "between":
             instruction = f"Place the {target_obj_name} between the {selected_obj_names[0]} and the {selected_obj_names[1]} on the table. "
         elif orientation == "center":
             instruction = f"Place the {target_obj_name} at the center of all the objects on the table. "
@@ -174,8 +126,12 @@ def init_gym(cfgs, task_cfg=None, random_task = True, index = 0):
                     instruction_label = instruction_labels[np.random.randint(1, len(instruction_labels))]
                 rotation_instruction_partial = instruction_dictionary[instruction_label]['prompt']
                 rotation_instruction = f"We also need to specify the rotation of the object after placement: {rotation_instruction_partial}"
+                if no_position:
+                    rotation_instruction = f"Please pick up the object and place it to specify the rotation of the object after placement: {rotation_instruction_partial}"
                 instruction = position_instruction + rotation_instruction
             instruction_save = position_instruction+"_"+instruction_label
+            if no_position:
+                instruction_save = target_name+"_"+instruction_label
         else:
             # pass
             instruction_save = instruction
@@ -334,6 +290,42 @@ elif args.mode == "gen_task_rot":
     cfgs["run_our_method"] = False
     for  i in range(10000):
         gym, cfgs, task_config_now= init_gym(cfgs, index=i, random_task=True)
+
+        points_envs, colors_envs, rgb_envs, depth_envs ,seg_envs, ori_points_envs, ori_colors_envs, \
+            pixel2pointid, pointid2pixel = gym.refresh_observation(get_visual_obs=True)
+        gym.save_render(rgb_envs=rgb_envs,
+                        depth_envs=depth_envs,
+                        ori_colors_env=ori_colors_envs,
+                        ori_points_env=ori_points_envs,
+                        points=points_envs,
+                        colors=colors_envs,
+                        save_dir=gym.save_root,
+                        save_name=f"before")
+        # gym.move_obj_to_pose([0.3, 0, 0.35], [0, 0, 0, 1])
+        # gym.run_steps(pre_steps = 100, refresh_obs=False, print_step=False)
+        # points_envs, colors_envs, rgb_envs, depth_envs ,seg_envs, ori_points_envs, ori_colors_envs, \
+        #     pixel2pointid, pointid2pixel = gym.refresh_observation(get_visual_obs=True)
+
+        # gym.save_render(rgb_envs=rgb_envs,
+        #                 depth_envs=depth_envs,
+        #                 ori_colors_env=ori_colors_envs,
+        #                 ori_points_env=ori_points_envs,
+        #                 points=points_envs,
+        #                 colors=colors_envs,
+        #                 save_dir=gym.save_root,
+        #                 save_name="after_movement")
+        gym.clean_up()
+        del gym
+elif args.mode == "gen_task_pure_rot":
+    cfgs = read_yaml_config(f"{args.config}.yaml")
+    cfgs["INFERENCE_GSAM"] = False
+    cfgs["WITH_ROTATION"] = True
+    cfgs["SAVE_ROOT"] = f"output/{args.task_root}"
+    cfgs["run_our_method"] = False
+    with open("../Benchmark/benchmark_catalogue/category_dictionary.json", "r") as f: category_dictionary = json.load(f)
+    with open("../Benchmark/benchmark_catalogue/instruction_dictionary_0702.json", "r") as f: instruction_dictionary = json.load(f)
+    for  i in range(10000):
+        gym, cfgs, task_config_now= init_gym(cfgs, index=i, random_task=True, no_position = True)
 
         points_envs, colors_envs, rgb_envs, depth_envs ,seg_envs, ori_points_envs, ori_colors_envs, \
             pixel2pointid, pointid2pixel = gym.refresh_observation(get_visual_obs=True)
