@@ -15,8 +15,6 @@ import time
 # from scipy.spatial.transform import Rotation as R
 # from transforms3d.quaternions import quat2mat, mat2quat
 
-
-
 sys.path.append(os.getcwd())
 from modify_material import set_modify_material, set_modify_raw_material
 
