@@ -1132,7 +1132,7 @@ class BlenderRenderer(object):
 
 
 
-def open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id = 44, env_map_id = 25, cam_quaternion = [0, 0, 0.342, 0.940], cam_translation = [-0.15, 0.4, 0.7]): 
+def rendering(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id = 44, env_map_id = 25, cam_quaternion = [0, 0, 0.342, 0.940], cam_translation = [-0.15, 0.4, 0.7]): 
     max_instance_num = 20
 
 
@@ -1343,4 +1343,4 @@ if __name__ == '__main__':
     env_map_id = 25
     cam_quaternion = [0, 0, 0.0, 1.0]
     cam_translation = [0.0, 0.0, 4]
-    open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)
+    rendering(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)

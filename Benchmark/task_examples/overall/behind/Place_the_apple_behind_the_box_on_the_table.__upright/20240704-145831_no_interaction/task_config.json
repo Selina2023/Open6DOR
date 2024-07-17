@@ -1,1 +1,49 @@
-{"orientation": "behind", "rotation": "None", "selected_obj_names": ["box", "apple"], "selected_urdfs": ["objaverse_final_norm/9660e0c0326b4f7386014e27717231ae/material_2.urdf", "objaverse_final_norm/f53d75bd123b40bca14d12d54286f432/material_2.urdf"], "target_obj_name": "apple", "instruction": "Place the apple behind the box on the table. We also need to specify the rotation of the object after placement:  the object is placed upright on the table and corresponds with how humans usually place the object, bottom down and top up.", "init_obj_pos": [[0.5763212442398071, 0.24244019389152527, 0.3158315122127533, 0.00011814905155915767, 3.0217168387025595e-05, 0.057858873158693314, 0.9983247518539429, 0.0005872970796190202, 0.00024345181009266526, 1.8670303688850254e-05, 0.0013161733513697982, -0.0011025663698092103, -0.001989496871829033], [0.4732729494571686, 0.19301258027553558, 0.34965574741363525, 0.08372167497873306, -0.015573234297335148, -0.0979083776473999, 0.9915453195571899, 0.004182836972177029, 0.0017127282917499542, -0.001595060108229518, -0.02539602667093277, 0.09032362699508667, 0.01703813299536705]], "position_instruction": "Place the apple behind the box on the table. ", "rotation_instruction": "We also need to specify the rotation of the object after placement:  the object is placed upright on the table and corresponds with how humans usually place the object, bottom down and top up.", "rotation_instruction_label": "upright"}
+{
+    "orientation": "behind",
+    "rotation": "None",
+    "selected_obj_names": [
+        "box",
+        "apple"
+    ],
+    "selected_urdfs": [
+        "objaverse_final_norm/9660e0c0326b4f7386014e27717231ae/material_2.urdf",
+        "objaverse_final_norm/f53d75bd123b40bca14d12d54286f432/material_2.urdf"
+    ],
+    "target_obj_name": "apple",
+    "instruction": "Place the apple behind the box on the table. We also need to specify the rotation of the object after placement:  the object is placed upright on the table and corresponds with how humans usually place the object, bottom down and top up.",
+    "init_obj_pos": [
+        [
+            0.5763212442398071,
+            0.24244019389152527,
+            0.3158315122127533,
+            0.00011814905155915767,
+            3.0217168387025595e-05,
+            0.057858873158693314,
+            0.9983247518539429,
+            0.0005872970796190202,
+            0.00024345181009266526,
+            1.8670303688850254e-05,
+            0.0013161733513697982,
+            -0.0011025663698092103,
+            -0.001989496871829033
+        ],
+        [
+            0.4732729494571686,
+            0.19301258027553558,
+            0.34965574741363525,
+            0.08372167497873306,
+            -0.015573234297335148,
+            -0.0979083776473999,
+            0.9915453195571899,
+            0.004182836972177029,
+            0.0017127282917499542,
+            -0.001595060108229518,
+            -0.02539602667093277,
+            0.09032362699508667,
+            0.01703813299536705
+        ]
+    ],
+    "position_instruction": "Place the apple behind the box on the table. ",
+    "rotation_instruction": "We also need to specify the rotation of the object after placement:  the object is placed upright on the table and corresponds with how humans usually place the object, bottom down and top up.",
+    "rotation_instruction_label": "upright"
+}

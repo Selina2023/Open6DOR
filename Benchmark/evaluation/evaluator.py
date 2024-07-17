@@ -79,14 +79,14 @@ def angle_deviation(quat0, quat1):
 
 
 
-def evaluate_rot(task_id, quat_pred):
+def evaluate_rot(quat_gt, quat_pred):
     """
     Evaluate the predicted rotation.
     task_id: str
     quat_pred: list of 4 floats
     """
     # load the ground truth quaternion
-    quat_gt = 0# TODO: load quat_gt from the dataset
+   
     rot_gt = R.from_quat(quat_gt).as_matrix()
     rot_pred = R.from_quat(quat_pred).as_matrix()
     task_level = 0#TODO: load task level from the dataset
