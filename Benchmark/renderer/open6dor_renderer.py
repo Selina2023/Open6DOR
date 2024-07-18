@@ -17,11 +17,12 @@ import argparse
 # from transforms3d.quaternions import quat2mat, mat2quat
 
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# sys.path.append(os.getcwd())
-print(sys.path)
+grandparent_dir = os.path.abspath(os.path.join(current_dir, '../'))
 
-# from .renderer.modify_material import set_modify_raw_material
+sys.path.append(grandparent_dir)
+
 from renderer.modify_material import set_modify_raw_material
 
 RENDERING_PATH = os.getcwd()

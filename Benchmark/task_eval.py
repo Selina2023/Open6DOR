@@ -57,7 +57,7 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
 
 def generate_shell_script(output_root_path, task_id, obj_paths, init_poses,
                           background_material_id, env_map_id, cam_quaternion, cam_translation):
-    script_name = "run_renderer.sh"
+    script_name = "renderer/run_renderer.sh"
     command = "cd renderer\n"
     command += f"./blender-2.93.3-linux-x64/blender material_lib_v2.blend --background --python open6dor_renderer.py -- \\\n"
     command += f"    --output_root_path {output_root_path} \\\n"
