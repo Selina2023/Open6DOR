@@ -8,15 +8,21 @@ import numpy as np
 from mathutils import Vector, Matrix
 import copy
 import sys
-import json
-import glob
-import time
+import argparse
+# import json
+# import glob
+# import time
 # import scipy
 # from scipy.spatial.transform import Rotation as R
 # from transforms3d.quaternions import quat2mat, mat2quat
 
-sys.path.append(os.getcwd())
-from modify_material import set_modify_material, set_modify_raw_material
+
+
+# sys.path.append(os.getcwd())
+print(sys.path)
+
+# from .renderer.modify_material import set_modify_raw_material
+from renderer.modify_material import set_modify_raw_material
 
 RENDERING_PATH = os.getcwd()
 
@@ -1132,7 +1138,7 @@ class BlenderRenderer(object):
 
 
 
-def rendering(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id = 44, env_map_id = 25, cam_quaternion = [0, 0, 0.342, 0.940], cam_translation = [-0.15, 0.4, 0.7]): 
+def open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id = 44, env_map_id = 25, cam_quaternion = [0, 0, 0.342, 0.940], cam_translation = [-0.15, 0.4, 0.7]): 
     max_instance_num = 20
 
 
@@ -1157,8 +1163,9 @@ def rendering(output_root_path, task_name, mesh_root, obj_ids, obj_poses, backgr
     
     # obj_poses = [obj_poses[obj_code] for obj_code in obj_ids]
 
-    # import pdb; pdb.set_trace()
+ 
     for obj_code in obj_ids:
+        
         instance_path = os.path.join(mesh_root, obj_code, f'material.obj') #.obj
         instance_name = obj_code
 
@@ -1171,7 +1178,7 @@ def rendering(output_root_path, task_name, mesh_root, obj_ids, obj_poses, backgr
                 if "material" in name:
                     obj_name = name
                     break
-        # import pdb; pdb.set_trace()
+  
         
         obj = bpy.data.objects[obj_name] 
         obj.name = instance_name
@@ -1209,7 +1216,10 @@ def rendering(output_root_path, task_name, mesh_root, obj_ids, obj_poses, backgr
     renderer.setLighting()
     rotation_elur_z = 0.0
     renderer.setEnvMap(env_map_id, rotation_elur_z)
- 
+
+    for obj in bpy.data.objects:
+        if obj.type == "MESH" and obj.name.split('_')[0] == 'background':
+            obj.active_material = background_material
 
     renderer.render_mode = "RGB"
     camera = bpy.data.objects['camera_l']
@@ -1306,41 +1316,98 @@ def create_transformation_matrix(position, quaternion):
 
     return transformation_matrix
 
+def parse_args(argv):
+    parser = argparse.ArgumentParser(description="Blender Renderer Arguments")
+    # import pdb; pdb.set_trace()
+    parser.add_argument('--output_root_path', type=str, required=True, help='Path to the output directory')
+    parser.add_argument('--task_id', type=str, required=True, help='ID of the task')
+    parser.add_argument('--obj_paths', type=str, nargs='+', required=True, help='Paths to the object URDFs')
+    parser.add_argument('--init_obj_pos', type=float, nargs='+', required=True, help='Initial positions and quaternions for objects (flattened)')
+    parser.add_argument('--background_material_id', type=int, required=True, help='ID of the background material')
+    parser.add_argument('--env_map_id', type=int, required=True, help='ID of the environment map')
+    parser.add_argument('--cam_quaternion', type=float, nargs=4, required=True, help='Camera quaternion (x, y, z, w)')
+    parser.add_argument('--cam_translation', type=float, nargs=3, required=True, help='Camera translation (x, y, z)')
 
+    return parser.parse_args(argv)
 
-if __name__ == '__main__':
-    output_root_path = "/home/ubuntu/Desktop/projects/DexGraspNet1B-render/rendering/output/Open6DOR/test"
-    # output_root_path = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/renderer/output/test"
-    task_name = "open6dor_example2"
+def main():
     mesh_root = "/home/ubuntu/Desktop/projects/objaverse(final_norm)"
-    # mesh_root = "../../DexGraspNet1B-render/mesh_data_new/meshdata"
-    # mesh_root = "/Users/selina/Desktop/projects/ObjectPlacement/assets/mesh/final_norm"
-    # scene_file = f"/home/ubuntu/Desktop/projects/DexGraspNet1B-render/mesh_data_new/renderdata/{task_name}/object_pose_dict.npz"
-    # config_file = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/dataset/tasks/test/output/gym_outputs_task_gen_obja_0304_rot/center/Place_the_mouse_at_the_center_of_all_the_objects_on_the_table.__upright/20240630-202931_no_interaction"
-    config_file = "/home/ubuntu/Desktop/projects/DexGraspNet1B-render/rendering/task_config/test/output/gym_outputs_task_gen_obja_0304_rot/center/Place_the_mouse_at_the_center_of_all_the_objects_on_the_table.__upright/20240630-202931_no_interaction/task_config.json"
-    config = json.load(open(config_file, "r"))
-    pos_s = config["init_obj_pos"]
-    obj_paths = config["selected_urdfs"] # e.g. "objaverse_final_norm/02f7f045679d402da9b9f280030821d4/material_2.urdf"
+    # print(sys.argv)
+    argv = sys.argv[sys.argv.index("--") + 1:]
+    import pdb; pdb.set_trace()
+    args = parse_args(argv)
+    print("Parsed Arguments:")
+    print(f"Output Root Path: {args.output_root_path}")
+    print(f"Task ID: {args.task_id}")
+    print(f"Object Paths: {args.obj_paths}")
+    print(f"Initial Object Positions: {args.init_obj_pos}")
+    print(f"Background Material ID: {args.background_material_id}")
+    print(f"Environment Map ID: {args.env_map_id}")
+    print(f"Camera Quaternion: {args.cam_quaternion}")
+    print(f"Camera Translation: {args.cam_translation}")
+    output_root_path = args.output_root_path
+    task_id = args.task_id
+    obj_paths = args.obj_paths
 
     obj_ids = [path.split("/")[-2] for path in obj_paths]
 
+    init_poses_flat = args.init_obj_pos
     obj_poses = {}
 
+    # Each object's pose is given by 13 values: 3 for position, 4 for quaternion, and 6 for additional data
+    pose_length = 13
 
     for i in range(len(obj_ids)):
-        pos = pos_s[i]
+        pos = init_poses_flat[i * pose_length:(i + 1) * pose_length]
         id = obj_ids[i]
         position = pos[:3]
-        quaternion = pos[3:7] 
+        quaternion = pos[3:7]
         transformation_matrix = create_transformation_matrix(position, quaternion)
         obj_poses[id] = transformation_matrix
 
+    background_material_id = args.background_material_id
+    env_map_id = args.env_map_id
+    cam_quaternion = args.cam_quaternion
+    cam_translation = args.cam_translation
 
-    # obj_poses = np.load(scene_file, allow_pickle=True)
+    open6dor_render(output_root_path, task_id, mesh_root, obj_ids, obj_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)
+
+if __name__ == '__main__':
+    main()
+
+# if __name__ == '__main__':
+#     output_root_path = "/home/ubuntu/Desktop/projects/DexGraspNet1B-render/rendering/output/Open6DOR/test"
+#     # output_root_path = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/renderer/output/test"
+#     task_name = "open6dor_example2"
+#     mesh_root = "/home/ubuntu/Desktop/projects/objaverse(final_norm)"
+#     # mesh_root = "../../DexGraspNet1B-render/mesh_data_new/meshdata"
+#     # mesh_root = "/Users/selina/Desktop/projects/ObjectPlacement/assets/mesh/final_norm"
+#     # scene_file = f"/home/ubuntu/Desktop/projects/DexGraspNet1B-render/mesh_data_new/renderdata/{task_name}/object_pose_dict.npz"
+#     # config_file = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/dataset/tasks/test/output/gym_outputs_task_gen_obja_0304_rot/center/Place_the_mouse_at_the_center_of_all_the_objects_on_the_table.__upright/20240630-202931_no_interaction"
+#     config_file = "/home/ubuntu/Desktop/projects/DexGraspNet1B-render/rendering/task_config/test/output/gym_outputs_task_gen_obja_0304_rot/center/Place_the_mouse_at_the_center_of_all_the_objects_on_the_table.__upright/20240630-202931_no_interaction/task_config.json"
+#     config = json.load(open(config_file, "r"))
+#     pos_s = config["init_obj_pos"]
+#     obj_paths = config["selected_urdfs"] # e.g. "objaverse_final_norm/02f7f045679d402da9b9f280030821d4/material_2.urdf"
+
+#     obj_ids = [path.split("/")[-2] for path in obj_paths]
+
+#     obj_poses = {}
+
+
+#     for i in range(len(obj_ids)):
+#         pos = pos_s[i]
+#         id = obj_ids[i]
+#         position = pos[:3]
+#         quaternion = pos[3:7] 
+#         transformation_matrix = create_transformation_matrix(position, quaternion)
+#         obj_poses[id] = transformation_matrix
+
+
+#     # obj_poses = np.load(scene_file, allow_pickle=True)
 
  
-    background_material_id = 44
-    env_map_id = 25
-    cam_quaternion = [0, 0, 0.0, 1.0]
-    cam_translation = [0.0, 0.0, 4]
-    rendering(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)
+#     background_material_id = 44
+#     env_map_id = 25
+#     cam_quaternion = [0, 0, 0.0, 1.0]
+#     cam_translation = [0.0, 0.0, 4]
+#     open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)
