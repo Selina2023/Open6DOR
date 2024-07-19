@@ -58,7 +58,7 @@ cd Benchmark/renderer/blender-2.93.3-linux-x64/2.93/python/bin
 ./python3.9 -m pip install --upgrade pip --user
 ./python3.9 -m pip install numpy --user
 ```
-**Simulator Dependencies**
+<!-- **Simulator Dependencies** -->
 
 
 **File Structure**
@@ -102,7 +102,7 @@ Benchmark
 
 ### Usage
 Along with the dataset, we provide several functions to enable visualization and evaluation of the tasks:
-- To load a task example, run the following command (you may change the image_mode to GIVEN_IMAGE_ISAACGYM or others):
+- To load a task example, run the following command (you may change the image_mode to RENDER_IMAGE_BLENDER or others):
 ```
 cd Benchmark
 python bench.py load_task --task_path ./task_examples/6DoF/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json --image_mode GIVEN_IMAGE_ISAACGYM --output_path ./output/test 
@@ -134,7 +134,7 @@ rotation matrix?
 By incorporating 3D awareness and simulation assistance, we effectively tackle the Open6DOR task through a decomposed approach. 
 Specifically, Open6DOR-GPT takes the RGB-D image and instruction as input and outputs the corresponding robot motion trajectory. Firstly, the preprocessing module extracts the object names and masks. Then, the two modules simultaneously predict the position and rotation of the target object in a decoupled way. Finally, the planning module generates a trajectory for execution.
 
-Code coming soon... (We are currently trying to update our method to attain better real-time performance)
+Code coming soon... (We are currently updating our method to attain better real-time performance)
 
 <!-- 
 ```bash
