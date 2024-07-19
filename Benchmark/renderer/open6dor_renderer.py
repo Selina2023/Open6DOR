@@ -1,4 +1,3 @@
-
 import os
 # os.system('pip install scipy')
 import random
@@ -1173,6 +1172,18 @@ def open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, 
         obj_name = ""
         # download CAD model and rename
         renderer.loadModel(instance_path)
+        item='MESH'
+        
+        mesh = [m for m in bpy.context.scene.objects if m.type == 'MESH' and 'material' in m.name]
+        for obj in mesh:
+            obj.select_set(state=True)
+
+            bpy.context.view_layer.objects.active = obj
+        
+        bpy.ops.object.join()
+        # bpy.ops.object.select_all(action='DESELECT')
+        # bpy.ops.object.select_by_type(type=item)
+        # bpy.ops.object.join()
         for asset in bpy.data.objects:
             if asset.type == 'MESH':
                 name = asset.name
@@ -1180,7 +1191,7 @@ def open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, 
                     obj_name = name
                     break
   
-        
+        import pdb; pdb.set_trace()
         obj = bpy.data.objects[obj_name] 
         obj.name = instance_name
         obj.data.name = instance_name
@@ -1189,12 +1200,12 @@ def open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, 
 
         obj_rot = obj_pose[:3, :3]
 
-        
+    
+        # set object as rigid body
+        setRigidBody(obj)    
 
         setModelPose(obj, obj_loc, obj_rot)
 
-        # set object as rigid body
-        setRigidBody(obj)
 
         
     
@@ -1335,7 +1346,6 @@ def main():
     mesh_root = "/home/ubuntu/Desktop/projects/objaverse(final_norm)"
     # print(sys.argv)
     argv = sys.argv[sys.argv.index("--") + 1:]
-    import pdb; pdb.set_trace()
     args = parse_args(argv)
     print("Parsed Arguments:")
     print(f"Output Root Path: {args.output_root_path}")
@@ -1372,43 +1382,10 @@ def main():
     cam_translation = args.cam_translation
 
     open6dor_render(output_root_path, task_id, mesh_root, obj_ids, obj_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)
-
+    print("================================")
+    print("Rendering Completed")
+    print("Image saved to: ", os.path.join(output_root_path, task_id))
 if __name__ == '__main__':
     main()
+    
 
-# if __name__ == '__main__':
-#     output_root_path = "/home/ubuntu/Desktop/projects/DexGraspNet1B-render/rendering/output/Open6DOR/test"
-#     # output_root_path = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/renderer/output/test"
-#     task_name = "open6dor_example2"
-#     mesh_root = "/home/ubuntu/Desktop/projects/objaverse(final_norm)"
-#     # mesh_root = "../../DexGraspNet1B-render/mesh_data_new/meshdata"
-#     # mesh_root = "/Users/selina/Desktop/projects/ObjectPlacement/assets/mesh/final_norm"
-#     # scene_file = f"/home/ubuntu/Desktop/projects/DexGraspNet1B-render/mesh_data_new/renderdata/{task_name}/object_pose_dict.npz"
-#     # config_file = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/dataset/tasks/test/output/gym_outputs_task_gen_obja_0304_rot/center/Place_the_mouse_at_the_center_of_all_the_objects_on_the_table.__upright/20240630-202931_no_interaction"
-#     config_file = "/home/ubuntu/Desktop/projects/DexGraspNet1B-render/rendering/task_config/test/output/gym_outputs_task_gen_obja_0304_rot/center/Place_the_mouse_at_the_center_of_all_the_objects_on_the_table.__upright/20240630-202931_no_interaction/task_config.json"
-#     config = json.load(open(config_file, "r"))
-#     pos_s = config["init_obj_pos"]
-#     obj_paths = config["selected_urdfs"] # e.g. "objaverse_final_norm/02f7f045679d402da9b9f280030821d4/material_2.urdf"
-
-#     obj_ids = [path.split("/")[-2] for path in obj_paths]
-
-#     obj_poses = {}
-
-
-#     for i in range(len(obj_ids)):
-#         pos = pos_s[i]
-#         id = obj_ids[i]
-#         position = pos[:3]
-#         quaternion = pos[3:7] 
-#         transformation_matrix = create_transformation_matrix(position, quaternion)
-#         obj_poses[id] = transformation_matrix
-
-
-#     # obj_poses = np.load(scene_file, allow_pickle=True)
-
- 
-#     background_material_id = 44
-#     env_map_id = 25
-#     cam_quaternion = [0, 0, 0.0, 1.0]
-#     cam_translation = [0.0, 0.0, 4]
-#     open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)

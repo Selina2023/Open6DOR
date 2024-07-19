@@ -25,11 +25,14 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
     
     # task_instruction
     task_instruction = task_config["instruction"]
+    print("instruction:", task_instruction)
     
     # task_image
     if image_mode == "GIVEN_IMAGE_ISAACGYM":
         image_path = task_path.replace("task_config.json", "before-rgb-0-0.png")
         task_image = imageio.imread(image_path)
+      
+
     elif image_mode == "GIVEN_IMAGE_BLENDER":
         pass
     elif image_mode == "RENDER_IMAGE_ISAACGYM":
@@ -56,6 +59,7 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
         os.system(f"bash {script}")
 
 
+
 def generate_shell_script(output_root_path, task_id, obj_paths, init_poses,
                           background_material_id, env_map_id, cam_quaternion, cam_translation):
     script_name = "renderer/run_renderer.sh"
@@ -77,6 +81,8 @@ def generate_shell_script(output_root_path, task_id, obj_paths, init_poses,
         shell_file.write(shell_file_content)
 
     print(f"Shell script {script_name} generated successfully.")
+    print("=============================================")
+
     return script_name
 
 load_task("./task_examples/overall/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json")
@@ -104,7 +110,7 @@ if __name__ == "__main__":
     # Subparser for load_task
     parser_load = subparsers.add_parser("load_task", help="Load a task")
     parser_load.add_argument("--task_path", type=str, required=True, help="Path to the task configuration file")
-    parser_load.add_argument("--image_mode", type=str, default="RENDER_IMAGE_BLENDER", help="Image mode")
+    parser_load.add_argument("--image_mode", type=str, default="GIVEN_IMAGE_ISAACGYM", help="Image mode")
     parser_load.add_argument("--output_path", type=str, default="../output/test", help="Path to the output directory")
     parser_load.add_argument("--cam_quaternion", type=float, nargs=4, default=[0, 0, 0.0, 1.0], help="Camera quaternion")
     parser_load.add_argument("--cam_translation", type=float, nargs=3, default=[0.0, 0.0, 4], help="Camera translation")
