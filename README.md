@@ -49,10 +49,11 @@ Benchmark
 │   ├── envmap_lib                                
 │   │   ├── abandoned_factory_canteen_01_1k.hdr
 │   │   └── ...
-│   └── texture
-│       └── texture0.jpg
-├── material_lib_v2.blend
-├── modify_material.py
+│   ├── texture
+│   │   └── texture0.jpg
+│   ├── material_lib_v2.blend
+│   ├── modify_material.py
+│   └── open6dor_renderer.py
 ├── task_examples
 │   ├── 6DoF
 │   ├── position
