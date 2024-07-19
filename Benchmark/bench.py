@@ -91,7 +91,7 @@ def generate_shell_script(output_root_path, task_id, obj_paths, init_poses,
     return script_name
 
 
-def eval_task(task_id, pred_pose):
+def eval_task(cfgs, pred_pose):
     pred_rot = [0,0,0,0]#TODO 2: extract rotation from pred_pose
     pred_pos = 0#TODO 3: extract position from pred_pose
 
@@ -133,7 +133,7 @@ if __name__ == "__main__":
     if args.command == "load_task":
         load_task(args.task_path, args.image_mode, args.output_path, args.cam_quaternion, args.cam_translation, args.background_material_id, args.env_map_id)
     elif args.command == "eval_task":
-        eval_task(args.task_id, args.pred_pose)
+        task_config = json.load(open(args.task_path, 'r'))
     else:
         parser.print_help()
 
