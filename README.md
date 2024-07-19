@@ -38,20 +38,19 @@ conda create -n Open6DOR python=3.9
 # Install dependencies
 pip install -r requirements.txt
 ```
-***TODO: add dependencies***
 
 
 **Dataset Downloads**
 
 Refer to the subsequent section for specific file locations.
 - Download the [object datasets](https://drive.google.com/drive/folders/1Gm30OtQWRb5NitIdnLSJlfLdAG_rWHQX?usp=sharing) and uncompress.
-- Download the ***TODO: [task datasets](???)*** and uncompress.
+- Download the [task datasets]() and uncompress.
 
 **Rendering Dependencies**
 
 - Download [Blender 2.93.3 (Linux x64)](https://download.blender.org/release/Blender2.93/blender-2.93.3-linux-x64.tar.xz) and uncompress.
-- Download the [environment map asset](/envmap_lib.tar.gz) and uncompress.
-- Download the [blend file](/material_lib_v2.blend).
+- Download the [environment map asset](https://drive.google.com/file/d/1qbXc-fT04GcLqZX6D1WhbEtQo_Uav-FL/view?usp=sharing) and uncompress.
+- Download the [.blend file](https://drive.google.com/file/d/1Rg9fHn9D9RcNt1XFTvHP-RRa73lgzspF/view?usp=sharing) and uncompress.
 - Install the Python packages (Numpy, etc.) into the Blender built-in Python environment. 
 ```
 cd Benchmark/renderer/blender-2.93.3-linux-x64/2.93/python/bin
@@ -60,7 +59,7 @@ cd Benchmark/renderer/blender-2.93.3-linux-x64/2.93/python/bin
 ./python3.9 -m pip install numpy --user
 ```
 **Simulator Dependencies**
-TODO
+
 
 **File Structure**
 
@@ -106,28 +105,29 @@ Along with the dataset, we provide several functions to enable visualization and
 - To load a task example, run the following command (you may change the image_mode to GIVEN_IMAGE_ISAACGYM or others):
 ```
 cd Benchmark
-python bench.py load_task --task_path ./task_examples/6DoF/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json --image_mode RENDER_IMAGE_BLENDER --output_path ./output/test 
-
+python bench.py load_task --task_path ./task_examples/6DoF/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json --image_mode GIVEN_IMAGE_ISAACGYM --output_path ./output/test 
 ```
-- To evaluate the task, run the following command:
-#TODO: where to store the annotations & waht is the predicted pose format?
+For personalized rendering, you may try arbitrary camera positions and background settings:
+```
+python bench.py load_task --task_path ./task_examples/rotation/None/mug_handle_left/20240717-075819_no_interaction/task_config.json --image_mode RENDER_IMAGE_BLENDER --cam_quaternion 0 0 0.0 1.0 --cam_translation 0.0 0.0 4 --background_material_id 44 --env_map_id 25
+```
+- To evaluate the task, run the following command（ you need to fill the predicted pose into a json file）:
 
 ```
 python bench.py eval_task --task_id my_test --pred_pose path/to/pred_pose.json
-
 ```
 
-- Besides evaluating the numerical results of the pose prediction directly, we provide another set of metrics where users are allowed to control the robot arm and interact with the simulation environment. Such evaluation is soely based on the final pose of the target object after execution. To do this, run the following command:
+- Besides evaluating the numerical results of the pose prediction directly, we provide another set of metrics where users are allowed to control the robot arm and interact with the simulation environment. Such evaluation is soely based on the final pose of the target object after execution. To do this, run the following command (currently not available):
 
 ```
-python interaction.py --mode XXX
+python interaction.py 
 ```
-
+<!-- 
 ### Format Conventions
 ```
 rotation matrix?
 13-float list?
-```
+``` -->
 
 ## Method
 ![Method](./images/overall_pipeline_final1.jpg)
@@ -136,7 +136,7 @@ Specifically, Open6DOR-GPT takes the RGB-D image and instruction as input and ou
 
 Code coming soon... (We are currently trying to update our method to attain better real-time performance)
 
-
+<!-- 
 ```bash
 cd vision/GroundedSAM/GroundingDINO
 pip install -e .
@@ -144,14 +144,14 @@ cd ../segment_anything
 pip install -e .
 cd ../../..
 ```
+ -->
 
 
 
-
-## Troubleshooting
+<!-- ## Troubleshooting
 
 - requests.exceptions.ConnectionError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /bert-base-uncased/resolve/main/tf_model.h5 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4769a3cc40>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
-    - Solution: Network error, In China, try global proxy.
+    - Solution: Network error, In China, try global proxy. -->
 
 ## Contact
 For further details or questions, please feel free to contact us:
