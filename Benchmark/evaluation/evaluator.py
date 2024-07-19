@@ -1,6 +1,13 @@
+"""
+This file contains the evaluation metrics for Open6DOR Benchmark.
+We are currently refining the rotation eval section for fairer evaluation and easier comparison.
+Full version coming soon.
+"""
 import numpy as np
 import math
 from scipy.spatial.transform import Rotation as R
+
+
 
 def projection(rot_mat_A, rot_mat_B, axis):
     """
