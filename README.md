@@ -11,6 +11,7 @@ In this repository, we provide:
 - A set of evaluation metrics for each track of tasks
 
 ## Installation
+We recommend using Linux system for better compatability with our modules (including Blender and Isaacgym).
 ```
 # Clone the repository
 git clone git@github.com:Selina2023/Open6DOR.git
@@ -23,7 +24,6 @@ pip install -r requirements.txt
 - Download [Blender 2.93.3 (Linux x64)](https://download.blender.org/release/Blender2.93/blender-2.93.3-linux-x64.tar.xz) and uncompress.
 - Download the [environment map asset](/envmap_lib.tar.gz) and uncompress.
 - Download the [blend file](/material_lib_v2.blend).
-
 
 ```
 After downloading the datasets, organize the file structure as follows:
@@ -60,16 +60,34 @@ Benchmark
 │   └── rotation
 └── bench.py
 
-
-
 ```
 
 ## Usage
+Along with the dataset, we provide several functions to enable visualization and evaluation of the tasks:
+- To load a task example, run the following command (you may change the image_mode to GIVEN_IMAGE_ISAACGYM or others):
+```
+cd Benchmark
+python bench.py load_task --task_path ./task_examples/6DoF/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json --image_mode RENDER_IMAGE_BLENDER --output_path ./output/test 
 
+```
+- To evaluate the task, run the following command:
+#TODO: where to store the annotations & waht is the predicted pose format?
 
+```
+python bench.py eval_task --task_id my_test --pred_pose path/to/pred_pose.json
+
+```
+
+- Besides evaluating the numerical results of the pose prediction directly, we provide another set of metrics where users are allowed to control the robot arm and interact with the simulation environment. Such evaluation is soely based on the final pose of the target object after execution. To do this, run the following command:
 
 ```
 python interaction.py --mode XXX
+```
+
+## Format Conventions
+```
+rotation matrix?
+13-float list?
 ```
 
 ```bash
