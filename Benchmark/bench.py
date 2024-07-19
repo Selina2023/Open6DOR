@@ -36,7 +36,14 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
     elif image_mode == "GIVEN_IMAGE_BLENDER":
         pass
     elif image_mode == "RENDER_IMAGE_ISAACGYM":
-        pass
+        from ..Method.interaction import init_gym
+        gym, cfgs, task_config_now= init_gym(cfgs, index=i, random_task=True, no_position = True)
+
+        points_envs, colors_envs, rgb_envs, depth_envs ,seg_envs, ori_points_envs, ori_colors_envs, \
+            pixel2pointid, pointid2pixel = gym.refresh_observation(get_visual_obs=True)
+       
+        return colors_envs
+    
     elif image_mode == "RENDER_IMAGE_BLENDER":
         output_root_path = output_path
         obj_paths = task_config["selected_urdfs"]
