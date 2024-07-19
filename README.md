@@ -1,16 +1,16 @@
 # Open6DOR
-![Teaser](./images/teaser_final1.pdf)
+![Teaser](./images/teaser_final1.jpg)
 This is the official repository of [Open6DOR: Benchmarking Open-instruction 6-DoF Object Rearrangement and A VLM-based Approach](https://pku-epic.github.io/Open6DOR/). In this paper, we propel the pioneer construction of the benchmark and approach for table-top Open-instruction 6-DoF Object Rearrangement (Open6DOR). Specifically, we collect a synthetic dataset of 200+ objects and carefully design 2400+ Open6DOR tasks. These tasks are divided into the Position-track, Rotation-track, and 6-DoF-track for evaluating different embodied agents in predicting the positions and rotations of target objects. Besides, we also propose a VLM-based approach for Open6DOR, named Open6DOR-GPT, which empowers GPT-4V with 3D-awareness and simulation-assistance while exploiting its strengths in generalizability and instruction-following for this task. We compare the existing embodied agents with our Open6DOR-GPT on the proposed Open6DOR benchmark and find that Open6DOR-GPT achieves the state-of-the-art performance. We further show the impressive performance of Open6DOR-GPT in diverse real-world experiments.
 
-# Benchmark
-The Open6DOR Benchmark is specifically designed for table-top Open6DOR tasks within a simulation environment. Our dataset encompasses 200+ high-quality objects, forming diverse scenes and totaling 2400+ diverse tasks. All tasks are carefully configured and accompanied by detailed annotations. To ensure comprehensive evaluation, we provide three specialized tracks of benchmark: the Rotation-track Benchmark \(\mathcal{B}_r\), the Position-track benchmark \(\mathcal{B}_p\), and the 6-DoF-track Benchmark 
-\(\mathcal{B}_{6DOR}\). 
+## Benchmark
+The Open6DOR Benchmark is specifically designed for table-top Open6DOR tasks within a simulation environment. Our dataset encompasses 200+ high-quality objects, forming diverse scenes and totaling 2400+ diverse tasks. All tasks are carefully configured and accompanied by detailed annotations. To ensure comprehensive evaluation, we provide three specialized tracks of benchmark: the Rotation-track Benchmark $\(\mathcal{B}_r\)$, the Position-track benchmark $\(\mathcal{B}_p\)$, and the 6-DoF-track Benchmark 
+$\(\mathcal{B}_{6DOR}\)$. 
 In this repository, we provide:
 - A dataset of diverse objects
 - 2400+ Open6DOR tasks with detailed annotations
 - A set of evaluation metrics for each track of tasks
 
-## Installation
+### Installation
 We recommend using Linux system for better compatability with our modules (including Blender and Isaacgym).
 ```
 # Clone the repository
@@ -62,7 +62,7 @@ Benchmark
 
 ```
 
-## Usage
+### Usage
 Along with the dataset, we provide several functions to enable visualization and evaluation of the tasks:
 - To load a task example, run the following command (you may change the image_mode to GIVEN_IMAGE_ISAACGYM or others):
 ```
@@ -84,14 +84,17 @@ python bench.py eval_task --task_id my_test --pred_pose path/to/pred_pose.json
 python interaction.py --mode XXX
 ```
 
-## Format Conventions
+### Format Conventions
 ```
 rotation matrix?
 13-float list?
 ```
 
-# Method
-Coming soon... (We are currently trying to update our method to attain better real-time performance)
+## Method
+![Method](./images/overall_pipeline_final1.jpg)
+By incorporating 3D awareness and simulation assistance, we effectively tackle the Open6DOR task through a decomposed approach. 
+Specifically, Open6DOR-GPT takes the RGB-D image and instruction as input and outputs the corresponding robot motion trajectory. Firstly, the preprocessing module extracts the object names and masks. Then, the two modules simultaneously predict the position and rotation of the target object in a decoupled way. Finally, the planning module generates a trajectory for execution.
+Code coming soon... (We are currently trying to update our method to attain better real-time performance)
 
 
 ```bash
@@ -109,3 +112,6 @@ cd ../../..
 
 - requests.exceptions.ConnectionError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /bert-base-uncased/resolve/main/tf_model.h5 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4769a3cc40>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
     - Solution: Network error, In China, try global proxy.
+
+## Contact
+For
