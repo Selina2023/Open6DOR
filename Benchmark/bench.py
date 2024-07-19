@@ -86,6 +86,7 @@ def generate_shell_script(output_root_path, task_id, obj_paths, init_poses,
     return script_name
 
 load_task("./task_examples/overall/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json")
+
 def eval_task(task_id, pred_pose):
     pred_rot = [0,0,0,0]#TODO 2: extract rotation from pred_pose
     pred_pos = 0#TODO 3: extract position from pred_pose
@@ -98,8 +99,9 @@ def eval_task(task_id, pred_pose):
 
     print(f"Rotation deviation: {rot_deviation} degrees")
 
-    pos_eval = -1#TODO 7: evaluate position
+    pos_eval = evaluator.evaluate_posi(pred_pos, pos_gt, "behind")  #TODO 7: click into evaluate_posi
 
+    return rot_deviation, pos_eval
 
 if __name__ == "__main__":
     # read args and call apis
