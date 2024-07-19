@@ -1,5 +1,5 @@
 # Open6DOR
-![teaser](./images/teaser_final1.pdf)
+![Teaser](./images/teaser_final1.pdf)
 This is the official repository of [Open6DOR: Benchmarking Open-instruction 6-DoF Object Rearrangement and A VLM-based Approach](https://pku-epic.github.io/Open6DOR/). In this paper, we propel the pioneer construction of the benchmark and approach for table-top Open-instruction 6-DoF Object Rearrangement (Open6DOR). Specifically, we collect a synthetic dataset of 200+ objects and carefully design 2400+ Open6DOR tasks. These tasks are divided into the Position-track, Rotation-track, and 6-DoF-track for evaluating different embodied agents in predicting the positions and rotations of target objects. Besides, we also propose a VLM-based approach for Open6DOR, named Open6DOR-GPT, which empowers GPT-4V with 3D-awareness and simulation-assistance while exploiting its strengths in generalizability and instruction-following for this task. We compare the existing embodied agents with our Open6DOR-GPT on the proposed Open6DOR benchmark and find that Open6DOR-GPT achieves the state-of-the-art performance. We further show the impressive performance of Open6DOR-GPT in diverse real-world experiments.
 
 # Benchmark
@@ -90,6 +90,10 @@ rotation matrix?
 13-float list?
 ```
 
+# Method
+Coming soon... (We are currently trying to update our method to attain better real-time performance)
+
+
 ```bash
 cd vision/GroundedSAM/GroundingDINO
 pip install -e .
@@ -97,6 +101,7 @@ cd ../segment_anything
 pip install -e .
 cd ../../..
 ```
+
 
 
 
