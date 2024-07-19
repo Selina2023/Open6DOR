@@ -1191,24 +1191,21 @@ def open6dor_render(output_root_path, task_name, mesh_root, obj_ids, obj_poses, 
                     obj_name = name
                     break
   
-        import pdb; pdb.set_trace()
-        obj = bpy.data.objects[obj_name] 
+        
+        # obj = bpy.data.objects[obj_name] 
         obj.name = instance_name
         obj.data.name = instance_name
         obj_pose = obj_poses[obj_code] # 4 * 4
         obj_loc = obj_pose[:3, 3]
 
         obj_rot = obj_pose[:3, :3]
+        import pdb; pdb.set_trace()
 
-    
+        obj = bpy.data.objects[instance_name]
         # set object as rigid body
         setRigidBody(obj)    
 
         setModelPose(obj, obj_loc, obj_rot)
-
-
-        
-    
         print("object:", obj.name)
 
         # set material
@@ -1302,7 +1299,7 @@ def quaternion_to_matrix(q):
     """
     Convert a quaternion into a 3x3 rotation matrix.
     """
-    qw, qx, qy, qz = q
+    qx, qy, qz, qw = q
     return np.array([
         [1 - 2*qy*qy - 2*qz*qz, 2*qx*qy - 2*qz*qw, 2*qx*qz + 2*qy*qw],
         [2*qx*qy + 2*qz*qw, 1 - 2*qx*qx - 2*qz*qz, 2*qy*qz - 2*qx*qw],
@@ -1317,10 +1314,6 @@ def create_transformation_matrix(position, quaternion):
     q = quaternion
     
     rotation_matrix = quaternion_to_matrix(q)
-  
-    x = 0
-    y = 0
-    
     transformation_matrix = np.identity(4)
     transformation_matrix[:3, :3] = rotation_matrix
     transformation_matrix[:3, 3] = [x, y, z]
@@ -1343,7 +1336,7 @@ def parse_args(argv):
     return parser.parse_args(argv)
 
 def main():
-    mesh_root = "/home/ubuntu/Desktop/projects/objaverse(final_norm)"
+    mesh_root = "./dataset/objects/objaverse_rescale"
     # print(sys.argv)
     argv = sys.argv[sys.argv.index("--") + 1:]
     args = parse_args(argv)
@@ -1374,6 +1367,7 @@ def main():
         position = pos[:3]
         quaternion = pos[3:7]
         transformation_matrix = create_transformation_matrix(position, quaternion)
+        import pdb; pdb.set_trace()
         obj_poses[id] = transformation_matrix
 
     background_material_id = args.background_material_id
