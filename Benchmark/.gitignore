@@ -1,2 +1,3 @@
 tasks/
 *run_renderer.sh
+*.DS_Store
