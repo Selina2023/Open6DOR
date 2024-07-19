@@ -1,3 +1,19 @@
+<h2 align="center">
+  <b>Open6DOR: Open6DOR: Benchmarking Open-instruction 6-DoF Object Rearrangement and A VLM-based Approach</b>
+
+  <b><i>IROS 2024</i></b>
+
+
+<div align="center">
+    <a href="" target="_blank">
+    <img src="https://img.shields.io/badge/IROS 2024-Oral-red"></a>
+    <a href="" target="_blank">
+    <img src="https://img.shields.io/badge/Paper-arXiv-green" alt="Paper arXiv"></a>
+    <a href="https://pku-epic.github.io/Open6DOR/" target="_blank">
+    <img src="https://img.shields.io/badge/Page-Open6DOR-blue" alt="Project Page"/></a>
+</div>
+</h2>
+
 # Open6DOR
 ![Teaser](./images/teaser_final1.jpg)
 This is the official repository of [Open6DOR: Benchmarking Open-instruction 6-DoF Object Rearrangement and A VLM-based Approach](https://pku-epic.github.io/Open6DOR/). In this paper, we propel the pioneer construction of the benchmark and approach for table-top Open-instruction 6-DoF Object Rearrangement (Open6DOR). Specifically, we collect a synthetic dataset of 200+ objects and carefully design 2400+ Open6DOR tasks. These tasks are divided into the Position-track, Rotation-track, and 6-DoF-track for evaluating different embodied agents in predicting the positions and rotations of target objects. Besides, we also propose a VLM-based approach for Open6DOR, named Open6DOR-GPT, which empowers GPT-4V with 3D-awareness and simulation-assistance while exploiting its strengths in generalizability and instruction-following for this task. We compare the existing embodied agents with our Open6DOR-GPT on the proposed Open6DOR benchmark and find that Open6DOR-GPT achieves the state-of-the-art performance. We further show the impressive performance of Open6DOR-GPT in diverse real-world experiments.
