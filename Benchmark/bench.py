@@ -3,7 +3,7 @@ import json
 import imageio
 import os
 import argparse
-from renderer import open6dor_renderer
+
 from evaluation import evaluator
 
 overall_paths = glob.glob('task_examples/overall/*/*/*/task_config.json')
@@ -13,9 +13,6 @@ pos_paths = glob.glob('task_examples/position/*/*/*/task_config.json')
 rot_paths = glob.glob('task_examples/rotation/*/*/*/task_config.json')
 
 mesh_root = "meshes"
-
-
-    
 
 
 def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../output/test", cam_quaternion = [0, 0, 0.0, 1.0], cam_translation = [0.0, 0.0, 4], background_material_id = 44, env_map_id = 25):
@@ -37,7 +34,7 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
         pass
     elif image_mode == "RENDER_IMAGE_ISAACGYM":
         from ..Method.interaction import init_gym
-        gym, cfgs, task_config_now= init_gym(cfgs, index=i, random_task=True, no_position = True)
+        gym, cfgs, task_config_now= init_gym(task_config, index=i, random_task=True, no_position = True)
 
         points_envs, colors_envs, rgb_envs, depth_envs ,seg_envs, ori_points_envs, ori_colors_envs, \
             pixel2pointid, pointid2pixel = gym.refresh_observation(get_visual_obs=True)
@@ -45,6 +42,7 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
         return colors_envs
     
     elif image_mode == "RENDER_IMAGE_BLENDER":
+        from renderer import open6dor_renderer
         output_root_path = output_path
         obj_paths = task_config["selected_urdfs"]
         obj_ids = [path.split("/")[-2] for path in obj_paths]
@@ -92,7 +90,6 @@ def generate_shell_script(output_root_path, task_id, obj_paths, init_poses,
 
     return script_name
 
-load_task("./task_examples/overall/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json")
 
 def eval_task(task_id, pred_pose):
     pred_rot = [0,0,0,0]#TODO 2: extract rotation from pred_pose
@@ -101,7 +98,7 @@ def eval_task(task_id, pred_pose):
     rot_gt = [0,0,0,0]#TODO 4: load ground truth rotation from annot
     pos_gt = []#TODO 5: load ground truth position from annot
 
-
+    import pdb; pdb.set_trace()
     rot_deviation = evaluator.evaluate_rot(rot_gt, pred_rot)  #TODO 6: click into evaluate_rot
 
     print(f"Rotation deviation: {rot_deviation} degrees")
