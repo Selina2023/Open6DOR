@@ -1,3 +1,4 @@
 dataset/objects/*
 *run_renderer.sh
 *.DS_Store
+tasks/

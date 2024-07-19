@@ -117,3 +117,32 @@ def evaluate_rot(quat_gt, quat_pred):
     
     return deviation
 
+
+def evaluate_posi(sel_pos, tar_pos, mode):
+    """
+    Evaluate the predicted position.
+    """
+    if mode in ["left", "right", "front", "back", "behind", "top"]:
+        if mode == "left":
+            succ += sel_pos[1] > tar_pos[1]
+        elif mode == "right":
+            succ += sel_pos[1] < tar_pos[1]
+        elif mode == "front":
+            succ += sel_pos[0] > tar_pos[0]
+        elif mode == "back" or mode == "behind":
+            succ += sel_pos[0] < tar_pos[0]
+        elif mode == "top":
+            succ += sel_pos[2] <= tar_pos[2]
+    elif mode == "between":
+        max_sel_pos_x = np.max([sel_pos_1[0], sel_pos_2[0]])
+        max_sel_pos_y = np.max([sel_pos_1[1], sel_pos_2[1]])
+        min_sel_pos_x = np.min([sel_pos_1[0], sel_pos_2[0]])
+        min_sel_pos_y = np.min([sel_pos_1[1], sel_pos_2[1]])
+        tar_pos = result["final_obj_pos"][-1]
+        succ += (min_sel_pos_x < tar_pos[0] < max_sel_pos_x) or (min_sel_pos_y < tar_pos[0] < max_sel_pos_y)
+    elif mode == "center":
+        max_sel_pos_x = np.max(sel_pos_all, axis=0)[0]
+        min_sel_pos_x = np.min(sel_pos_all, axis=0)[0]
+        max_sel_pos_y = np.max(sel_pos_all, axis=0)[1]
+        min_sel_pos_y = np.min(sel_pos_all, axis=0)[1]
+        succ += (min_sel_pos_x < tar_pos[0] < max_sel_pos_x) and (min_sel_pos_y < tar_pos[1] < max_sel_pos_y)
