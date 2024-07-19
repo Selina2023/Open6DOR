@@ -19,12 +19,20 @@ cd Open6DOR
 conda create -n Open6DOR python=3.9?
 # Install dependencies
 pip install -r requirements.txt
-# Download datasets
+```
+
 - Download [Blender 2.93.3 (Linux x64)](https://download.blender.org/release/Blender2.93/blender-2.93.3-linux-x64.tar.xz) and uncompress.
 - Download the [environment map asset](/envmap_lib.tar.gz) and uncompress.
 - Download the [blend file](/material_lib_v2.blend).
-
+- Install the Python packages (Numpy, etc.) into the Blender built-in Python environment. 
 ```
+cd Benchmark/renderer/blender-2.93.3-linux-x64/2.93/python/bin
+./python3.9 -m ensurepip
+./python3.9 -m pip install --upgrade pip --user
+./python3.9 -m pip install numpy --user
+```
+
+
 After downloading the datasets, organize the file structure as follows:
 
 ```
