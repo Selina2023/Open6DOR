@@ -11,6 +11,7 @@ In this repository, we provide:
 
 ### Installation
 **Environment Setup**
+
 We recommend using Linux system for better compatability with our modules (including Blender and Isaacgym).
 ```
 # Clone the repository
@@ -25,11 +26,13 @@ pip install -r requirements.txt
 
 
 **Dataset Downloads**
+
 Refer to the next section for specific file locations.
 - Download the [object datasets](https://drive.google.com/drive/folders/1Gm30OtQWRb5NitIdnLSJlfLdAG_rWHQX?usp=sharing) and uncompress.
 - Download the ***TODO: [task datasets](???)*** and uncompress.
 
 **Rendering Dependencies**
+
 - Download [Blender 2.93.3 (Linux x64)](https://download.blender.org/release/Blender2.93/blender-2.93.3-linux-x64.tar.xz) and uncompress.
 - Download the [environment map asset](/envmap_lib.tar.gz) and uncompress.
 - Download the [blend file](/material_lib_v2.blend).
@@ -43,6 +46,7 @@ cd Benchmark/renderer/blender-2.93.3-linux-x64/2.93/python/bin
 **Simulator Dependencies**
 
 **File Structure**
+
 After downloading the datasets, organize the file structure as follows:
 
 ```
