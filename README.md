@@ -114,4 +114,7 @@ cd ../../..
     - Solution: Network error, In China, try global proxy.
 
 ## Contact
-For
+For further details or questions, please feel free to contact us:
+- [Yufei Ding](https://selina2023.github.io/): selina@stu.pku.edu.cn
+- [Haoran Geng](https://geng-haoran.github.io/): ghr@berkeley.edu
+- [He Wang](https://hughw19.github.io/): hewang@pku.edu.cn
