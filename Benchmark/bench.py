@@ -17,7 +17,8 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
     # task_instruction
     task_instruction = task_config["instruction"]
     print("instruction:", task_instruction)
-    
+
+    import pdb; pdb.set_trace()
     # task_image
     if image_mode == "GIVEN_IMAGE_ISAACGYM":
         image_path = task_path.replace("task_config.json", "before-rgb-0-0.png")
@@ -33,7 +34,7 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
         points_envs, colors_envs, rgb_envs, depth_envs ,seg_envs, ori_points_envs, ori_colors_envs, \
             pixel2pointid, pointid2pixel = gym.refresh_observation(get_visual_obs=True)
        
-        return colors_envs
+        task_image = colors_envs[0]
     
     elif image_mode == "RENDER_IMAGE_BLENDER":
         from renderer import open6dor_renderer
@@ -43,7 +44,6 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
 
         init_poses = task_config["init_obj_pos"]
         obj_poses = {}
-
 
         for i in range(len(obj_ids)):
             pos = init_poses[i]
@@ -55,7 +55,10 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
         task_id = "my_test"
         script = generate_shell_script(output_root_path, task_id, obj_paths, init_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)
         # run shell script
+        import pdb; pdb.set_trace()
         os.system(f"bash {script}")
+        
+    return task_config, task_instruction, task_image
 
 def generate_shell_script(output_root_path, task_id, obj_paths, init_poses,
                           background_material_id, env_map_id, cam_quaternion, cam_translation):
@@ -105,37 +108,34 @@ if __name__ == "__main__":
     subparsers = parser.add_subparsers(dest="command")
 
     # Subparser for load_task
-    parser_load = subparsers.add_parser("load_task", help="Load a task")
-    parser_load.add_argument("--task_path", type=str, default="6dof", help="Path to the task configuration file")
-    parser_load.add_argument("--image_mode", type=str, default="GIVEN_IMAGE_ISAACGYM", help="Image mode")
-    parser_load.add_argument("--output_path", type=str, default="../output/test", help="Path to the output directory")
-    parser_load.add_argument("--cam_quaternion", type=float, nargs=4, default=[0, 0, 0.0, 1.0], help="Camera quaternion")
-    parser_load.add_argument("--cam_translation", type=float, nargs=3, default=[0.0, 0.0, 4], help="Camera translation")
-    parser_load.add_argument("--background_material_id", type=int, default=44, help="Background material ID")
-    parser_load.add_argument("--env_map_id", type=int, default=25, help="Environment map ID")
+    parser.add_argument("--mode", type=str, choices=["load_test", "eval"], help="Path to the task configuration file")
+    parser.add_argument("--task_data", type=str, default="6dof", help="path set or single path to the task configuration file")
+    parser.add_argument("--image_mode", type=str, default="GIVEN_IMAGE_ISAACGYM", help="Image mode")
+    parser.add_argument("--output_path", type=str, default="../output/test", help="Path to the output directory")
+    parser.add_argument("--cam_quaternion", type=float, nargs=4, default=[0, 0, 0.0, 1.0], help="Camera quaternion")
+    parser.add_argument("--cam_translation", type=float, nargs=3, default=[0.0, 0.0, 4], help="Camera translation")
+    parser.add_argument("--background_material_id", type=int, default=44, help="Background material ID")
+    parser.add_argument("--env_map_id", type=int, default=25, help="Environment map ID")
 
-    # Subparser for eval_task
-    parser_eval = subparsers.add_parser("eval_task", help="Evaluate a task")
-    parser_eval.add_argument("--pred_pose", type=str, default = "", help="Predicted pose")
-    parser_load.add_argument("--task_path", type=str, default="6dof", help="Path to the task configuration file")
+    parser.add_argument("--pred_pose", type=str, default = "", help="Predicted pose")
 
     args = parser.parse_args()
 
-    if args.task_path == "6dof":
+    if args.task_data == "6dof":
         task_paths = glob.glob('task_examples/6DoF/*/*/*/task_config.json')
-    elif args.task_path == "position":
+    elif args.task_data == "position":
         task_paths = glob.glob('task_examples/position/*/*/*/task_config.json')
-    elif args.task_path == "rotation":
+    elif args.task_data == "rotation":
         task_paths = glob.glob('task_examples/rotation/*/*/*/task_config.json')
     else:
-        task_paths = [args.task_path]
-    
-    for task_path in task_paths:
-        if args.command == "load_task":
-            load_task(args.task_path, args.image_mode, args.output_path, args.cam_quaternion, args.cam_translation, args.background_material_id, args.env_map_id)
-        elif args.command == "eval_task":
-            task_config = json.load(open(args.task_path, 'r'))
-        else:
-            parser.print_help()
+        task_paths = [args.task_data]
+
+    if args.mode == "load_test":
+        for task_path in task_paths:
+            task_config, task_instruction, task_image = load_task(task_path, args.image_mode, args.output_path, args.cam_quaternion, args.cam_translation, args.background_material_id, args.env_map_id)
+
+    elif args.mode == "eval":
+        for task_path in task_paths:
+            task_config = json.load(open(task_path, 'r'))
 
 
