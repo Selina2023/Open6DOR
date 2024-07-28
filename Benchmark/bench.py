@@ -1,6 +1,6 @@
 import glob
 import json
-import imageio
+import imageio.v2 as imageio
 import os
 import argparse
 
@@ -18,7 +18,6 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
     task_instruction = task_config["instruction"]
     print("instruction:", task_instruction)
 
-    import pdb; pdb.set_trace()
     # task_image
     if image_mode == "GIVEN_IMAGE_ISAACGYM":
         image_path = task_path.replace("task_config.json", "before-rgb-0-0.png")
@@ -85,19 +84,18 @@ def generate_shell_script(output_root_path, task_id, obj_paths, init_poses,
 
     return script_name
 
-def eval_task(cfgs, pred_pose):
-    pred_rot = [0,0,0,0]#TODO 2: extract rotation from pred_pose
+def eval_task(cfgs, pred_pose, use_rot = False):
+
+    if use_rot:
+        pred_rot = [0,0,0,0]#TODO 2: extract rotation from pred_pose
+        rot_gt = list(cfgs['anno_target']['annotation'].values())[0]["quat"]
+        rot_deviation = evaluator.evaluate_rot(rot_gt, pred_rot)  #TODO 6: click into evaluate_rot
+
+        print(f"Rotation deviation: {rot_deviation} degrees")
+
+    pos_bases = cfgs['init_obj_pos']
     pred_pos = 0#TODO 3: extract position from pred_pose
-
-    rot_gt = [0,0,0,0]#TODO 4: load ground truth rotation from annot
-    pos_gt = []#TODO 5: load ground truth position from annot
-
-    import pdb; pdb.set_trace()
-    rot_deviation = evaluator.evaluate_rot(rot_gt, pred_rot)  #TODO 6: click into evaluate_rot
-
-    print(f"Rotation deviation: {rot_deviation} degrees")
-
-    pos_eval = evaluator.evaluate_posi(pred_pos, pos_gt, "behind")  #TODO 7: click into evaluate_posi
+    pos_eval = evaluator.evaluate_posi(pred_pos, pos_bases, "behind")  #TODO 7: click into evaluate_posi
 
     return rot_deviation, pos_eval
 
@@ -122,11 +120,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.task_data == "6dof":
-        task_paths = glob.glob('task_examples/6DoF/*/*/*/task_config.json')
+        task_paths = glob.glob('task_examples/6DoF/*/*/*/task_config_new.json')
     elif args.task_data == "position":
-        task_paths = glob.glob('task_examples/position/*/*/*/task_config.json')
+        task_paths = glob.glob('task_examples/position/*/*/*/task_config_new.json')
     elif args.task_data == "rotation":
-        task_paths = glob.glob('task_examples/rotation/*/*/*/task_config.json')
+        task_paths = glob.glob('task_examples/rotation/*/*/*/task_config_new.json')
     else:
         task_paths = [args.task_data]
 
@@ -135,7 +133,11 @@ if __name__ == "__main__":
             task_config, task_instruction, task_image = load_task(task_path, args.image_mode, args.output_path, args.cam_quaternion, args.cam_translation, args.background_material_id, args.env_map_id)
 
     elif args.mode == "eval":
+        USE_ROT = False if args.task_data == "position" else True
         for task_path in task_paths:
             task_config = json.load(open(task_path, 'r'))
+            pred_pose = None # TODO load predicted pose from model
+            eval_task(task_config, pred_pose, use_rot = USE_ROT)
+            
 
 
