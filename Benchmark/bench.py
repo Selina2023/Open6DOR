@@ -89,6 +89,7 @@ def eval_task(cfgs, pred_pose, use_rot = False):
     if use_rot:
         pred_rot = [0,0,0,0]#TODO 2: extract rotation from pred_pose
         rot_gt = list(cfgs['anno_target']['annotation'].values())[0]["quat"]
+        import pdb; pdb.set_trace()
         rot_deviation = evaluator.evaluate_rot(rot_gt, pred_rot)  #TODO 6: click into evaluate_rot
 
         print(f"Rotation deviation: {rot_deviation} degrees")

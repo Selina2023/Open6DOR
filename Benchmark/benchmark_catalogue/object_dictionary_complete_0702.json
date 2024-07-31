@@ -32,15 +32,15 @@
     "25481a65cad54e2a956394ff2b2765cd": {
         "category": "highlighter",
         "instructions": [
-            " the marker is placed in a stable pose on the table. Its tip end is pointing towards left and its cap end is pointing towards right.",
-            " the marker is placed in a stable pose on the table. Its tip end is pointing towards right and its cap end is pointing towards left."
+            " the marker is placed in a stable pose on the table. Its tip(or cap) end is pointing towards left and its rear end is pointing towards right.",
+            " the marker is placed in a stable pose on the table. Its tip(or cap) end is pointing towards right and its rear end is pointing towards left."
         ]
     },
     "fd058916fb8843c09b4a2e05e3ee894e": {
         "category": "highlighter",
         "instructions": [
-            " the marker is placed in a stable pose on the table. Its tip end is pointing towards left and its cap end is pointing towards right.",
-            " the marker is placed in a stable pose on the table. Its tip end is pointing towards right and its cap end is pointing towards left."
+            " the marker is placed in a stable pose on the table. Its tip(or cap) end is pointing towards left and its rear end is pointing towards right.",
+            " the marker is placed in a stable pose on the table. Its tip(or cap) end is pointing towards right and its rear end is pointing towards left."
         ]
     },
     "5e55c38b24dc4c239448efa1c6b7f49f": {
@@ -673,13 +673,13 @@
     "d9675ab05c39447baf27e19ea07d484e": {
         "category": "lighter",
         "instructions": [
-            " the lighter is lying steadily on the table(not standing up), with its grey head pointing forth."
+            " the lighter is lying steadily on the table(not standing up), with its grey head pointing forth, oriented towards the viewer."
         ]
     },
     "b640aa4990b64db9ab3d868c6f49820e": {
         "category": "lighter",
         "instructions": [
-            " the lighter is lying steadily on the table(not standing up), with its grey head pointing forth."
+            " the lighter is lying steadily on the table(not standing up), with its grey head pointing forth, oriented towards the viewer."
         ]
     },
     "f0916a69ba514ecc973b44528b9dcc43": {

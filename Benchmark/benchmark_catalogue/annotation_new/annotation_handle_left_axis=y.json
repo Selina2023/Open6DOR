@@ -73,7 +73,20 @@
     },
     "990d0cb9499540fda49b1ff36be9ba26": {
         "category": "mixer",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        1.0,
+                        0.0,
+                        0.0,
+                        -4.371138828673793e-08
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "9adc77036b434348ae049776c50df624": {
         "category": "toy",
@@ -213,19 +226,7 @@
     },
     "a1da12b81f034db894496c1ffc4be1f5": {
         "category": "glue_gun",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.5,
-                        0.5,
-                        0.4999999701976776,
-                        0.5
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "bad5e04d290841779dad272897f384e1": {
         "category": "mobile_phone",
@@ -269,31 +270,122 @@
     },
     "35a76a67ea1c45edabbd5013de70d68d": {
         "category": "hammer",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        1.0,
+                        0.0,
+                        0.0,
+                        -4.371138828673793e-08
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "6d155e8051294915813e0c156e3cd6de": {
         "category": "hammer",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "4f24b866dab248b684149ec6bb40101f": {
         "category": "hammer",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        -0.0,
+                        -0.25555914640426636,
+                        0.966793417930603
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "9bf1b31f641543c9a921042dac3b527f": {
         "category": "hammer",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "8ed38a92668a425eb16da938622d9ace": {
         "category": "hammer",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        -0.6962342858314514,
+                        -0.06774052232503891,
+                        0.06628427654504776,
+                        0.711530327796936
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "d499e1bc8a514e4bb5ca995ea6ba23b6": {
         "category": "hammer",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        0.0,
+                        0.13039009273052216,
+                        0.991462767124176
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "048": {
         "category": "hammer",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "02f7f045679d402da9b9f280030821d4": {
         "category": "SD_card",
@@ -317,15 +409,54 @@
     },
     "4b27628be0804c0285d0b13dda025a0d": {
         "category": "spatula",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "81b129ecf5724f63b5b044702a3140c2": {
         "category": "spatula",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "033": {
         "category": "spatula",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        -1,
+                        -1,
+                        -1,
+                        -1
+                    ]
+                ],
+                "stage": 2,
+                "axis": "y"
+            }
+        }
     },
     "85db1d392a89459dbde5cdd951c4f6fb": {
         "category": "knife",
@@ -389,19 +520,71 @@
     },
     "5bf781c9fd8d4121b735503b13ba2eaf": {
         "category": "wrench",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        -0.5,
+                        -0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "19c1913ba85042938f0a87d94397c946": {
         "category": "wrench",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "8a6cb4f7b0004f53830e270dc6e1ff1d": {
         "category": "wrench",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        -1,
+                        -1,
+                        -1,
+                        -1
+                    ]
+                ],
+                "stage": 2,
+                "axis": "y"
+            }
+        }
     },
     "042": {
         "category": "wrench",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "4f52ebe6c8cf432986e47d8de83386ce": {
         "category": "organizer",
@@ -425,181 +608,278 @@
     },
     "922cd7d18c6748d49fe651ded8a04cf4": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        -0.5,
+                        -0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "a564a11174be455bbce4698f7da92fdf": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.47213223576545715,
+                        -0.45122507214546204,
+                        -0.5337954163551331,
+                        0.5371680855751038
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "c25119c5ac6e4654be3b75d78e34a912": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        -0.5,
+                        -0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "77d41aba53e4455f9f84fa04b175dff4": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        -0.5,
+                        -0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "7bc2b14a48d1413e9375c32a53e3ee6f": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.26017874479293823,
+                        -0.6575006246566772,
+                        -0.6575005650520325,
+                        0.26017874479293823
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "c609327dd3a74fb597584e1b4a14a615": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5067986845970154,
+                        -0.4931075870990753,
+                        -0.4931075870990753,
+                        0.5067986845970154
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "ca4f9a92cc2f4ee98fe9332db41bf7f7": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        -0.5,
+                        -0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "e5e87ddbf3f6470384bef58431351e2a": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        -0.5,
+                        -0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "b8478cea51454555b90de0fe6ba7ba83": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "9321c45cb9cf459f9f803507d3a11fb3": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "3ea2fd4e065147048064f4c97a89fe6f": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        -0.07323886454105377,
+                        -0.7033036947250366,
+                        -0.7033036947250366,
+                        -0.07323885709047318
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "db9345f568e8499a9eac2577302b5f51": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        -0.5,
+                        -0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "de23895b6e9b4cfd870e30d14c2150dd": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        -0.5,
+                        -0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "2c88306f3d724a839054f3c2913fb1d5": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.5,
+                        -0.5,
+                        -0.5,
+                        0.4999999701976776
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "025": {
         "category": "mug",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        -0.0,
+                        -0.7071067690849304,
+                        0.7071067690849304
+                    ]
+                ],
+                "stage": 1,
+                "axis": "n"
+            }
+        }
     },
     "aa51af2f1270482193471455b504efc6": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.0,
-                        0.0,
-                        0.0,
-                        1.0
-                    ],
-                    [
-                        -0.7069138288497925,
-                        0.7069138884544373,
-                        -0.016516132280230522,
-                        -0.016516130417585373
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "ece4453042144b4a82fb86a4eab1ba7f": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -0.5,
-                        0.5,
-                        0.4999999701976776,
-                        0.5
-                    ],
-                    [
-                        -0.499998539686203,
-                        0.5000014305114746,
-                        -0.499998539686203,
-                        -0.5000014305114746
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "ae7142127dd84ebbbe7762368ace452c": {
         "category": "mug",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        [
-                            -1,
-                            -1,
-                            -1,
-                            -1
-                        ]
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "d5a5f0a954f94bcea3168329d1605fe9": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ],
-                    [
-                        -0.5,
-                        0.5,
-                        0.4999999701976776,
-                        0.5
-                    ],
-                    [
-                        -0.4999999701976776,
-                        -0.5,
-                        -0.5,
-                        0.5
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "d6951661c1e445d8a1d00b7d38d86030": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ],
-                    [
-                        0.0,
-                        0.0,
-                        0.0,
-                        1.0
-                    ],
-                    [
-                        -0.0,
-                        1.0,
-                        -0.0,
-                        -4.371138828673793e-08
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "af249e607bea40cfa2f275e5e23b8283": {
         "category": "pot",
@@ -719,167 +999,35 @@
     },
     "d17b8f44d1544364b8ad9fe2554ddfdf": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "8c0f8088a5d546c886d1b07e3f4eafae": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "6add0a1fa81942acbb24504b130661c1": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "794b730ae452424bb3a9ce3c6caaff7a": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "a7785ac7ce7f4ba79df661db33637ba9": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "006": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -0.5752763748168945,
-                        -0.40566325187683105,
-                        0.5800817012786865,
-                        0.40987759828567505
-                    ],
-                    [
-                        0.6911351084709167,
-                        -0.15224890410900116,
-                        -0.6912870407104492,
-                        0.14585892856121063
-                    ],
-                    [
-                        0.3850180208683014,
-                        -0.5968241095542908,
-                        -0.38060277700424194,
-                        0.5922023057937622
-                    ],
-                    [
-                        -0.16173969209194183,
-                        -0.6879724264144897,
-                        0.169623464345932,
-                        0.6868493556976318
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "021": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.7071067690849304,
-                        0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        -0.7071067690849304,
-                        -0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        0.0,
-                        0.6908057332038879,
-                        -0.0,
-                        0.7230404019355774
-                    ],
-                    [
-                        -0.0,
-                        -0.7413507699966431,
-                        -0.0,
-                        0.6711177229881287
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "022": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "ea0cf48616e34708b73c82eb7c7366ca": {
         "category": "toilet_paper_roll",
@@ -919,105 +1067,34 @@
     },
     "002": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "005": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "007": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "010": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.7071067690849304,
-                        0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        -0.7071067690849304,
-                        -0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        0.0,
-                        0.7071067690849304,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        0.0,
-                        -0.7071067690849304,
-                        0.0,
-                        0.7071067690849304
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "019": {
         "category": "pitcher_base",
         "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
                 "quat": [
                     [
-                        0.10603024810552597,
-                        0.6725715398788452,
-                        0.14199596643447876,
-                        0.718500018119812
-                    ],
-                    [
-                        -0.550607442855835,
-                        0.4067119061946869,
-                        -0.574891209602356,
-                        0.44823789596557617
+                        0.0,
+                        -0.0,
+                        -0.9303439855575562,
+                        0.36668798327445984
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1035,11 +1112,37 @@
     },
     "043": {
         "category": "screwdriver",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        -0.005151163320988417,
+                        0.0031679014209657907,
+                        0.5238425731658936,
+                        0.851793646812439
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "044": {
         "category": "screwdriver",
-        "annotation": {}
+        "annotation": {
+            " the position of the object is reasonable and accords with commonsense, and that the handle of the object is on the left(pointing towards left).": {
+                "quat": [
+                    [
+                        0.0,
+                        0.0,
+                        0.9178353548049927,
+                        0.3969612419605255
+                    ]
+                ],
+                "stage": 1,
+                "axis": "y"
+            }
+        }
     },
     "065-a": {
         "category": "cup",

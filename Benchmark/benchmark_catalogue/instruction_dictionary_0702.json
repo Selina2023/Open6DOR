@@ -6,12 +6,12 @@
     },
     "tip_left": {
         "level": 1,
-        "prompt": " the marker is placed in a stable pose on the table. Its tip end is pointing towards left and its cap end is pointing towards right.",
+        "prompt": " the marker is placed in a stable pose on the table. Its tip(or cap) end is pointing towards left and its rear end is pointing towards right.",
         "object_number": 2
     },
     "tip_right": {
         "level": 1,
-        "prompt": " the marker is placed in a stable pose on the table. Its tip end is pointing towards right and its cap end is pointing towards left.",
+        "prompt": " the marker is placed in a stable pose on the table. Its tip(or cap) end is pointing towards right and its rear end is pointing towards left.",
         "object_number": 2
     },
     "clip_sideways": {
@@ -181,7 +181,7 @@
     },
     "lighter_forth": {
         "level": 1,
-        "prompt": " the lighter is lying steadily on the table(not standing up), with its grey head pointing forth.",
+        "prompt": " the lighter is lying steadily on the table(not standing up), with its grey head pointing forth, oriented towards the viewer.",
         "object_number": 2
     },
     "spout_left": {

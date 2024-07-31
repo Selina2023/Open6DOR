@@ -45,31 +45,101 @@
     },
     "69511a7fad2f42ee8c4b0579bbc8fec6": {
         "category": "calculator",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "054be0c3f09143f38c4d8038eb2588c6": {
         "category": "calculator",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "f0b1f7c17d70489888f5ae922169c0ce": {
         "category": "calculator",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5333969593048096,
+                    -0.5333969593048096,
+                    0.4642065465450287,
+                    0.4642064869403839
+                ],
+                "stage": 1
+            }
+        }
     },
     "b4bb8bd7791648fdb36c458fd9a877bf": {
         "category": "calculator",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5214096307754517,
+                    -0.5214095711708069,
+                    0.47763165831565857,
+                    0.47763171792030334
+                ],
+                "stage": 1
+            }
+        }
     },
     "d9ffbc4bbe1044bb902e1dddac52b0de": {
         "category": "calculator",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5,
+                    -0.5,
+                    0.4999999701976776,
+                    0.5
+                ],
+                "stage": 1
+            }
+        }
     },
     "b31c69728a414e639eef2fccd1c3dd75": {
         "category": "clipboard",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5,
+                    -0.5,
+                    0.4999999701976776,
+                    0.5
+                ],
+                "stage": 1
+            }
+        }
     },
     "a37158f20ccf436483029e8295629738": {
         "category": "clipboard",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "stage": 1
+            }
+        }
     },
     "990d0cb9499540fda49b1ff36be9ba26": {
         "category": "mixer",
@@ -213,19 +283,7 @@
     },
     "a1da12b81f034db894496c1ffc4be1f5": {
         "category": "glue_gun",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.5,
-                        0.5,
-                        0.4999999701976776,
-                        0.5
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "bad5e04d290841779dad272897f384e1": {
         "category": "mobile_phone",
@@ -373,15 +431,45 @@
     },
     "bf83213efac34b3cb2ad6ac5ddaf05d9": {
         "category": "bowl",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5,
+                    -0.5,
+                    0.4999999701976776,
+                    0.5
+                ],
+                "stage": 1
+            }
+        }
     },
     "bdd36c94f3f74f22b02b8a069c8d97b7": {
         "category": "bowl",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5,
+                    -0.5,
+                    0.4999999701976776,
+                    0.5
+                ],
+                "stage": 1
+            }
+        }
     },
     "024": {
         "category": "bowl",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "21c10181c122474a8f72a4ad0331f185": {
         "category": "paperweight",
@@ -485,121 +573,23 @@
     },
     "aa51af2f1270482193471455b504efc6": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.0,
-                        0.0,
-                        0.0,
-                        1.0
-                    ],
-                    [
-                        -0.7069138288497925,
-                        0.7069138884544373,
-                        -0.016516132280230522,
-                        -0.016516130417585373
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "ece4453042144b4a82fb86a4eab1ba7f": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -0.5,
-                        0.5,
-                        0.4999999701976776,
-                        0.5
-                    ],
-                    [
-                        -0.499998539686203,
-                        0.5000014305114746,
-                        -0.499998539686203,
-                        -0.5000014305114746
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "ae7142127dd84ebbbe7762368ace452c": {
-        "category": "mug",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        [
-                            -1,
-                            -1,
-                            -1,
-                            -1
-                        ]
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "category": "shoe",
+        "annotation": {}
     },
     "d5a5f0a954f94bcea3168329d1605fe9": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ],
-                    [
-                        -0.5,
-                        0.5,
-                        0.4999999701976776,
-                        0.5
-                    ],
-                    [
-                        -0.4999999701976776,
-                        -0.5,
-                        -0.5,
-                        0.5
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "d6951661c1e445d8a1d00b7d38d86030": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ],
-                    [
-                        0.0,
-                        0.0,
-                        0.0,
-                        1.0
-                    ],
-                    [
-                        -0.0,
-                        1.0,
-                        -0.0,
-                        -4.371138828673793e-08
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "af249e607bea40cfa2f275e5e23b8283": {
         "category": "pot",
@@ -623,15 +613,45 @@
     },
     "8d50c19e138b403e8b2ede9b47d8be3c": {
         "category": "plate",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5,
+                    -0.5,
+                    0.4999999701976776,
+                    0.5
+                ],
+                "stage": 1
+            }
+        }
     },
     "6d5a4e1174dd4f5fa0a9a9076e476b91": {
         "category": "plate",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5,
+                    -0.5,
+                    0.4999999701976776,
+                    0.5
+                ],
+                "stage": 1
+            }
+        }
     },
     "029": {
         "category": "plate",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "d2c345be5c084b4e8c92b48f7be69315": {
         "category": "stapler",
@@ -659,11 +679,31 @@
     },
     "dc707f81a94e48078069c6a463f59fcf": {
         "category": "wineglass",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5,
+                    -0.5,
+                    0.4999999701976776,
+                    0.5
+                ],
+                "stage": 1
+            }
+        }
     },
     "afca0b1933b84b1dbebd1244f25e72fc": {
         "category": "wineglass",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    -0.5,
+                    -0.5,
+                    0.4999999701976776,
+                    0.5
+                ],
+                "stage": 1
+            }
+        }
     },
     "fdf932b04e6c4e0fbd6e274563b94536": {
         "category": "clock",
@@ -719,167 +759,35 @@
     },
     "d17b8f44d1544364b8ad9fe2554ddfdf": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "8c0f8088a5d546c886d1b07e3f4eafae": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "6add0a1fa81942acbb24504b130661c1": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "794b730ae452424bb3a9ce3c6caaff7a": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "a7785ac7ce7f4ba79df661db33637ba9": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "006": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -0.5752763748168945,
-                        -0.40566325187683105,
-                        0.5800817012786865,
-                        0.40987759828567505
-                    ],
-                    [
-                        0.6911351084709167,
-                        -0.15224890410900116,
-                        -0.6912870407104492,
-                        0.14585892856121063
-                    ],
-                    [
-                        0.3850180208683014,
-                        -0.5968241095542908,
-                        -0.38060277700424194,
-                        0.5922023057937622
-                    ],
-                    [
-                        -0.16173969209194183,
-                        -0.6879724264144897,
-                        0.169623464345932,
-                        0.6868493556976318
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "021": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.7071067690849304,
-                        0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        -0.7071067690849304,
-                        -0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        0.0,
-                        0.6908057332038879,
-                        -0.0,
-                        0.7230404019355774
-                    ],
-                    [
-                        -0.0,
-                        -0.7413507699966431,
-                        -0.0,
-                        0.6711177229881287
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "022": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "ea0cf48616e34708b73c82eb7c7366ca": {
         "category": "toilet_paper_roll",
@@ -919,103 +827,29 @@
     },
     "002": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "005": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "007": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "010": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.7071067690849304,
-                        0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        -0.7071067690849304,
-                        -0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        0.0,
-                        0.7071067690849304,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        0.0,
-                        -0.7071067690849304,
-                        0.0,
-                        0.7071067690849304
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "019": {
         "category": "pitcher_base",
         "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
                 "quat": [
-                    [
-                        0.10603024810552597,
-                        0.6725715398788452,
-                        0.14199596643447876,
-                        0.718500018119812
-                    ],
-                    [
-                        -0.550607442855835,
-                        0.4067119061946869,
-                        -0.574891209602356,
-                        0.44823789596557617
-                    ]
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
                 ],
                 "stage": 1
             }
@@ -1043,42 +877,142 @@
     },
     "065-a": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "065-b": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "065-c": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "065-d": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "stage": 1
+            }
+        }
     },
     "065-e": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "065-f": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "065-g": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "065-h": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "065-i": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     },
     "065-j": {
         "category": "cup",
-        "annotation": {}
+        "annotation": {
+            " the object is placed upside down on the table, indicating that its top or cap is likely in contact with the table while the bottom side is facing up, in an upside-down position.": {
+                "quat": [
+                    0.7071068286895752,
+                    0.7071067690849304,
+                    -3.0908619663705394e-08,
+                    -3.090862321641907e-08
+                ],
+                "stage": 1
+            }
+        }
     }
 }

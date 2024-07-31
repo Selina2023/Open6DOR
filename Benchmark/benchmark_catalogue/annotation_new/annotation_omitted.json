@@ -193,19 +193,71 @@
     },
     "11307d06bb254318b95021d68c6fa12f": {
         "category": "tape_measure",
-        "annotation": {}
+        "annotation": {
+            " the tape measure is placed upright on the table.": {
+                "quat": [
+                    [
+                        0.7071067690849304,
+                        0.0,
+                        0.0,
+                        0.7071067690849304
+                    ]
+                ],
+                "stage": 1,
+                "axis": "z"
+            }
+        }
     },
     "7138f5e13b2e4e17975c23ba5584164b": {
         "category": "tape_measure",
-        "annotation": {}
+        "annotation": {
+            " the tape measure is placed upright on the table.": {
+                "quat": [
+                    [
+                        0.7488577365875244,
+                        0.0,
+                        0.0,
+                        0.6627307534217834
+                    ]
+                ],
+                "stage": 1,
+                "axis": "z"
+            }
+        }
     },
     "1574b13827734d54b6d9d86be8be71d1": {
         "category": "tape_measure",
-        "annotation": {}
+        "annotation": {
+            " the tape measure is placed upright on the table.": {
+                "quat": [
+                    [
+                        0.6969150304794312,
+                        0.0,
+                        0.0,
+                        0.7171537280082703
+                    ]
+                ],
+                "stage": 1,
+                "axis": "z"
+            }
+        }
     },
     "d1d1c4b27f5c45a29910830e268f7ee2": {
         "category": "tape_measure",
-        "annotation": {}
+        "annotation": {
+            " the tape measure is placed upright on the table.": {
+                "quat": [
+                    [
+                        -0.0,
+                        -0.7437477111816406,
+                        -0.0,
+                        0.6684604287147522
+                    ]
+                ],
+                "stage": 1,
+                "axis": "z"
+            }
+        }
     },
     "79ac684e66b34554ba869bd2fc3c2653": {
         "category": "multimeter",
@@ -213,19 +265,7 @@
     },
     "a1da12b81f034db894496c1ffc4be1f5": {
         "category": "glue_gun",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.5,
-                        0.5,
-                        0.4999999701976776,
-                        0.5
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "bad5e04d290841779dad272897f384e1": {
         "category": "mobile_phone",
@@ -485,121 +525,23 @@
     },
     "aa51af2f1270482193471455b504efc6": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.0,
-                        0.0,
-                        0.0,
-                        1.0
-                    ],
-                    [
-                        -0.7069138288497925,
-                        0.7069138884544373,
-                        -0.016516132280230522,
-                        -0.016516130417585373
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "ece4453042144b4a82fb86a4eab1ba7f": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -0.5,
-                        0.5,
-                        0.4999999701976776,
-                        0.5
-                    ],
-                    [
-                        -0.499998539686203,
-                        0.5000014305114746,
-                        -0.499998539686203,
-                        -0.5000014305114746
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "ae7142127dd84ebbbe7762368ace452c": {
         "category": "mug",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        [
-                            -1,
-                            -1,
-                            -1,
-                            -1
-                        ]
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "d5a5f0a954f94bcea3168329d1605fe9": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ],
-                    [
-                        -0.5,
-                        0.5,
-                        0.4999999701976776,
-                        0.5
-                    ],
-                    [
-                        -0.4999999701976776,
-                        -0.5,
-                        -0.5,
-                        0.5
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "d6951661c1e445d8a1d00b7d38d86030": {
         "category": "shoe",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ],
-                    [
-                        0.0,
-                        0.0,
-                        0.0,
-                        1.0
-                    ],
-                    [
-                        -0.0,
-                        1.0,
-                        -0.0,
-                        -4.371138828673793e-08
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "af249e607bea40cfa2f275e5e23b8283": {
         "category": "pot",
@@ -639,7 +581,50 @@
     },
     "dc02f9c1fd01432fadd6e7d15851dc37": {
         "category": "hat",
-        "annotation": {}
+        "annotation": {
+            " the hat is placed in a tilted manner(not upright), with the sphere part in contact with the table.": {
+                "quat": [
+                    [
+                        0.7071067690849304,
+                        0.0,
+                        0.0,
+                        0.7071067690849304
+                    ],
+                    [
+                        0.19006666541099548,
+                        0.354581743478775,
+                        -0.8068916201591492,
+                        -0.4325186014175415
+                    ],
+                    [
+                        -0.017941374331712723,
+                        -0.6261371970176697,
+                        0.6202858686447144,
+                        0.4720971882343292
+                    ],
+                    [
+                        -0.38241448998451233,
+                        -0.7841233015060425,
+                        0.48870813846588135,
+                        0.008612249046564102
+                    ],
+                    [
+                        -0.3121756315231323,
+                        -0.4250824451446533,
+                        0.8460759520530701,
+                        0.077504001557827
+                    ],
+                    [
+                        0.10660324990749359,
+                        -0.5132120251655579,
+                        0.7850396633148193,
+                        0.3300940990447998
+                    ]
+                ],
+                "stage": 1,
+                "axis": "z"
+            }
+        }
     },
     "e51e63e374ee4c25ae3fb4a9c74bd335": {
         "category": "mouse",
@@ -719,122 +704,40 @@
     },
     "d17b8f44d1544364b8ad9fe2554ddfdf": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "8c0f8088a5d546c886d1b07e3f4eafae": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "6add0a1fa81942acbb24504b130661c1": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "794b730ae452424bb3a9ce3c6caaff7a": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "a7785ac7ce7f4ba79df661db33637ba9": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "006": {
         "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -0.5752763748168945,
-                        -0.40566325187683105,
-                        0.5800817012786865,
-                        0.40987759828567505
-                    ],
-                    [
-                        0.6911351084709167,
-                        -0.15224890410900116,
-                        -0.6912870407104492,
-                        0.14585892856121063
-                    ],
-                    [
-                        0.3850180208683014,
-                        -0.5968241095542908,
-                        -0.38060277700424194,
-                        0.5922023057937622
-                    ],
-                    [
-                        -0.16173969209194183,
-                        -0.6879724264144897,
-                        0.169623464345932,
-                        0.6868493556976318
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "021": {
         "category": "bottle",
+        "annotation": {}
+    },
+    "022": {
+        "category": "bottle",
+        "annotation": {}
+    },
+    "ea0cf48616e34708b73c82eb7c7366ca": {
+        "category": "toilet_paper_roll",
         "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
+            " the paper roll is standing upright on the table, in the shape of a cylinder, and the axis(height) of the cylinder is perpendicular to the tabletop.": {
                 "quat": [
                     [
                         0.7071067690849304,
@@ -847,28 +750,12 @@
                         -0.0,
                         0.0,
                         0.7071067690849304
-                    ],
-                    [
-                        0.0,
-                        0.6908057332038879,
-                        -0.0,
-                        0.7230404019355774
-                    ],
-                    [
-                        -0.0,
-                        -0.7413507699966431,
-                        -0.0,
-                        0.6711177229881287
                     ]
                 ],
-                "stage": 1
-            }
-        }
-    },
-    "022": {
-        "category": "bottle",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
+                "stage": 1,
+                "axis": "z"
+            },
+            " the paper roll is lying sideways on the table, with its lateral surface in contact with the tabletop.": {
                 "quat": [
                     [
                         -1,
@@ -877,21 +764,80 @@
                         -1
                     ]
                 ],
-                "stage": 2
+                "stage": 2,
+                "axis": "0"
             }
         }
     },
-    "ea0cf48616e34708b73c82eb7c7366ca": {
-        "category": "toilet_paper_roll",
-        "annotation": {}
-    },
     "6d5284b842434413a17133f7bf259669": {
         "category": "toilet_paper_roll",
-        "annotation": {}
+        "annotation": {
+            " the paper roll is standing upright on the table, in the shape of a cylinder, and the axis(height) of the cylinder is perpendicular to the tabletop.": {
+                "quat": [
+                    [
+                        0.7071067690849304,
+                        0.0,
+                        0.0,
+                        0.7071067690849304
+                    ],
+                    [
+                        -0.7071067690849304,
+                        -0.0,
+                        0.0,
+                        0.7071067690849304
+                    ]
+                ],
+                "stage": 1,
+                "axis": "z"
+            },
+            " the paper roll is lying sideways on the table, with its lateral surface in contact with the tabletop.": {
+                "quat": [
+                    [
+                        -1,
+                        -1,
+                        -1,
+                        -1
+                    ]
+                ],
+                "stage": 2,
+                "axis": "0"
+            }
+        }
     },
     "7ca7ebcfad964498b49af73be442acf9": {
         "category": "toilet_paper_roll",
-        "annotation": {}
+        "annotation": {
+            " the paper roll is standing upright on the table, in the shape of a cylinder, and the axis(height) of the cylinder is perpendicular to the tabletop.": {
+                "quat": [
+                    [
+                        0.7071067690849304,
+                        0.0,
+                        0.0,
+                        0.7071067690849304
+                    ],
+                    [
+                        -0.7071067690849304,
+                        -0.0,
+                        0.0,
+                        0.7071067690849304
+                    ]
+                ],
+                "stage": 1,
+                "axis": "z"
+            },
+            " the paper roll is lying sideways on the table, with its lateral surface in contact with the tabletop.": {
+                "quat": [
+                    [
+                        -1,
+                        -1,
+                        -1,
+                        -1
+                    ]
+                ],
+                "stage": 2,
+                "axis": "0"
+            }
+        }
     },
     "f3dd3064db4f4e8880344425970cecad": {
         "category": "pear",
@@ -919,107 +865,23 @@
     },
     "002": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "005": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "007": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        -1,
-                        -1,
-                        -1,
-                        -1
-                    ]
-                ],
-                "stage": 2
-            }
-        }
+        "annotation": {}
     },
     "010": {
         "category": "can",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.7071067690849304,
-                        0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        -0.7071067690849304,
-                        -0.0,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        0.0,
-                        0.7071067690849304,
-                        0.0,
-                        0.7071067690849304
-                    ],
-                    [
-                        0.0,
-                        -0.7071067690849304,
-                        0.0,
-                        0.7071067690849304
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "019": {
         "category": "pitcher_base",
-        "annotation": {
-            " the object is placed sideways on the table, indicating that it is not in an upright or upside down position, rather, it is lying on its side. ": {
-                "quat": [
-                    [
-                        0.10603024810552597,
-                        0.6725715398788452,
-                        0.14199596643447876,
-                        0.718500018119812
-                    ],
-                    [
-                        -0.550607442855835,
-                        0.4067119061946869,
-                        -0.574891209602356,
-                        0.44823789596557617
-                    ]
-                ],
-                "stage": 1
-            }
-        }
+        "annotation": {}
     },
     "027": {
         "category": "skillet",
