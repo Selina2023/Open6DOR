@@ -3,12 +3,9 @@ import json
 import imageio.v2 as imageio
 import os
 import argparse
-
 from evaluation import evaluator
 
-
 mesh_root = "meshes"
-
 def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../output/test", cam_quaternion = [0, 0, 0.0, 1.0], cam_translation = [0.0, 0.0, 4], background_material_id = 44, env_map_id = 25):
     # task_config
     # task_path = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/task_examples/overall/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json"#TODO 1: load config path from dataset using task_id
@@ -22,17 +19,17 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
     if image_mode == "GIVEN_IMAGE_ISAACGYM":
         image_path = task_path.replace("task_config.json", "before-rgb-0-0.png")
         task_image = imageio.imread(image_path)
-      
 
     elif image_mode == "GIVEN_IMAGE_BLENDER":
         pass
+    
     elif image_mode == "RENDER_IMAGE_ISAACGYM":
         from ..Method.interaction import init_gym
         gym, cfgs, task_config_now= init_gym(task_config, index=i, random_task=True, no_position = True)
 
         points_envs, colors_envs, rgb_envs, depth_envs ,seg_envs, ori_points_envs, ori_colors_envs, \
             pixel2pointid, pointid2pixel = gym.refresh_observation(get_visual_obs=True)
-       
+
         task_image = colors_envs[0]
     
     elif image_mode == "RENDER_IMAGE_BLENDER":
