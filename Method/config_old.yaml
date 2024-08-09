@@ -5,7 +5,6 @@ INFERENCE_GSAM: False
 USE_CUROBO: False
 USE_GRASPNET: False
 HEADLESS: True
-SAVE_ROOT: "output/gym_outputs_task_gen_obja_0304_rot"
 USE_ARTI: False
 USE_SUDOAI: False
 RANDOM_TASK: True
@@ -62,21 +61,18 @@ cam:
 asset:
   # asset
   asset_root: assets
-  asset_files: 
-    - urdf/ycb/025_mug/025_mug.urdf
-    - urdf/ycb/010_potted_meat_can/010_potted_meat_can.urdf
-    - urdf/ycb/011_banana/011_banana.urdf
-  obj_pose_ps: # small table
-    - [0.5, 0, 0.4]
-    - [0.5, 0, 0.4]
-    - [0.5, 0, 0.4]
-  position_noise: [0.2, 0.25] # meter # small table
+  # asset_files: 
+  # obj_pose_ps: # small table
+  #   - [0.5, 0, 0.4]
+  #   - [0.5, 0, 0.4]
+  #   - [0.5, 0, 0.4]
+  # position_noise: [0.2, 0.25] # meter # small table
   # position_noise: [0.15, 0.2] # meter
-  rotation_noise: 15 # degree
-  asset_seg_ids: 
-    - 2
-    - 3
-    - 4
+  # rotation_noise: 15 # degree
+  # asset_seg_ids: 
+  #   - 2
+  #   - 3
+  #   - 4
   obj_scale: 0.8
 
   # articulated asset
