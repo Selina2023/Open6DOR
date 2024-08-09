@@ -6,7 +6,7 @@ import argparse
 from evaluation import evaluator
 
 mesh_root = "meshes"
-def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../output/test", cam_quaternion = [0, 0, 0.0, 1.0], cam_translation = [0.0, 0.0, 4], background_material_id = 44, env_map_id = 25):
+def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../output/test", cam_quaternion = [0, 0, 0.0, 1.0], cam_translation = [0.0, 0.0, 1], background_material_id = 44, env_map_id = 25):
     # task_config
     # task_path = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/task_examples/overall/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json"#TODO 1: load config path from dataset using task_id
     task_config = json.load(open(task_path, 'r'))
@@ -34,6 +34,7 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
     
     elif image_mode == "RENDER_IMAGE_BLENDER":
         from renderer import open6dor_renderer
+        task_image = None
         output_root_path = output_path
         obj_paths = task_config["selected_urdfs"]
         obj_ids = [path.split("/")[-2] for path in obj_paths]
@@ -108,7 +109,7 @@ if __name__ == "__main__":
     parser.add_argument("--image_mode", type=str, default="GIVEN_IMAGE_ISAACGYM", help="Image mode")
     parser.add_argument("--output_path", type=str, default="../output/test", help="Path to the output directory")
     parser.add_argument("--cam_quaternion", type=float, nargs=4, default=[0, 0, 0.0, 1.0], help="Camera quaternion")
-    parser.add_argument("--cam_translation", type=float, nargs=3, default=[0.0, 0.0, 4], help="Camera translation")
+    parser.add_argument("--cam_translation", type=float, nargs=3, default=[0.0, 0.0, 1.0], help="Camera translation")
     parser.add_argument("--background_material_id", type=int, default=44, help="Background material ID")
     parser.add_argument("--env_map_id", type=int, default=25, help="Environment map ID")
     parser.add_argument("--pred_pose", type=str, default = "", help="Predicted pose")
