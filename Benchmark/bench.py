@@ -118,11 +118,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.task_data == "6dof":
-        task_paths = glob.glob('task_examples/6DoF/*/*/*/task_config_new.json')
+        task_paths = glob.glob('task_examples/6DoF/*/*/*/task_config_new2.json')
     elif args.task_data == "position":
-        task_paths = glob.glob('task_examples/position/*/*/*/task_config_new.json')
+        task_paths = glob.glob('task_examples/position/*/*/*/task_config_new2.json')
     elif args.task_data == "rotation":
-        task_paths = glob.glob('task_examples/rotation/*/*/*/task_config_new.json')
+        task_paths = glob.glob('task_examples/rotation/*/*/*/task_config_new2.json')
     else:
         task_paths = [args.task_data]
 
