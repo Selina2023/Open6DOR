@@ -99,10 +99,9 @@ def eval_task(cfgs, pred_pose, use_rot = False):
 
 if __name__ == "__main__":
     # read args and call apis
-
+    
     parser = argparse.ArgumentParser(description="Benchmarking script for task evaluation")
-    subparsers = parser.add_subparsers(dest="command")
-
+    # subparsers = parser.add_subparsers(dest="command")
     # Subparser for load_task
     parser.add_argument("--mode", type=str, choices=["load_test", "eval"], help="Path to the task configuration file")
     parser.add_argument("--task_data", type=str, default="6dof", help="path set or single path to the task configuration file")
@@ -112,26 +111,27 @@ if __name__ == "__main__":
     parser.add_argument("--cam_translation", type=float, nargs=3, default=[0.0, 0.0, 4], help="Camera translation")
     parser.add_argument("--background_material_id", type=int, default=44, help="Background material ID")
     parser.add_argument("--env_map_id", type=int, default=25, help="Environment map ID")
-
     parser.add_argument("--pred_pose", type=str, default = "", help="Predicted pose")
 
-    args = parser.parse_args()
-
-    if args.task_data == "6dof":
-        task_paths = glob.glob('task_examples/6DoF/*/*/*/task_config_new2.json')
-    elif args.task_data == "position":
-        task_paths = glob.glob('task_examples/position/*/*/*/task_config_new2.json')
-    elif args.task_data == "rotation":
-        task_paths = glob.glob('task_examples/rotation/*/*/*/task_config_new2.json')
+    _args = parser.parse_args()
+    
+    import pdb; pdb.set_trace()
+    if _args.task_data == "6dof":
+        task_paths = glob.glob('tasks/6DoF/*/*/*/task_config_new2.json')
+    elif _args.task_data == "position":
+        task_paths = glob.glob('tasks/position/*/*/*/task_config_new2.json')
+    elif _args.task_data == "rotation":
+        task_paths = glob.glob('tasks/rotation/*/*/*/task_config_new2.json')
     else:
-        task_paths = [args.task_data]
+        task_paths = [_args.task_data]
 
-    if args.mode == "load_test":
+    
+    if _args.mode == "load_test":
         for task_path in task_paths:
-            task_config, task_instruction, task_image = load_task(task_path, args.image_mode, args.output_path, args.cam_quaternion, args.cam_translation, args.background_material_id, args.env_map_id)
+            task_config, task_instruction, task_image = load_task(task_path, _args.image_mode, _args.output_path, _args.cam_quaternion, _args.cam_translation, _args.background_material_id, _args.env_map_id)
 
-    elif args.mode == "eval":
-        USE_ROT = False if args.task_data == "position" else True
+    elif _args.mode == "eval":
+        USE_ROT = False if _args.task_data == "position" else True
         for task_path in task_paths:
             task_config = json.load(open(task_path, 'r'))
             pred_pose = None # TODO load predicted pose from model

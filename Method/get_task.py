@@ -23,6 +23,9 @@ class GetTask:
         
         # setup scene
         self._setup_scene()
+        
+        # init observation
+        self._init_observation()
 
     def _prepare_gym_cfgs(self):
         # camera settings
@@ -66,7 +69,6 @@ class GetTask:
         self._sim_params.physx.num_threads = self._args.num_threads
         self._sim_params.physx.use_gpu = self._args.use_gpu
         
-        
     def _init_gym(self):
         self._gym = gymapi.acquire_gym()
         self._sim = self._gym.create_sim(self._args.compute_device_id, self._args.graphics_device_id, 
@@ -90,7 +92,6 @@ class GetTask:
         self._prepare_franka_asset()
         self._prepare_obj_assets()
         self._load_env(load_cam=self._use_cam)
-        
         
     def _prepare_franka_asset(self):
         self._controller_name = cfgs["controller"]
@@ -373,13 +374,189 @@ class GetTask:
         # from now on, we will use the tensor API that can run on CPU or GPU
         self._gym.prepare_sim(self._sim)
 
+    def _init_observation(self):
+        # get jacobian tensor
+        # for fixed-base franka, tensor has shape (num envs, 10, 6, 9)
+        _jacobian = self._gym.acquire_jacobian_tensor(self._sim, "franka")
+        self.jacobian = gymtorch.wrap_tensor(_jacobian)
+
+        # jacobian entries corresponding to franka hand
+        self.j_eef = self.jacobian[:, self.franka_hand_index - 1, :, :7]
+
+        # get mass matrix tensor
+        _massmatrix = self._gym.acquire_mass_matrix_tensor(self._sim, "franka")
+        self.mm = gymtorch.wrap_tensor(_massmatrix)
+        self.mm = self.mm[:, :7, :7]          # only need elements corresponding to the franka arm
+        
+        # get rigid body state tensor
+        _rb_states = self._gym.acquire_rigid_body_state_tensor(self._sim)
+        self.rb_states = gymtorch.wrap_tensor(_rb_states)
+        num_rb = int(self.rb_states.shape[0]/self._num_envs)
+        
+        self.root_states = gymtorch.wrap_tensor(self._gym.acquire_actor_root_state_tensor(self._sim))
+        self._gym.refresh_actor_root_state_tensor(self._sim)
+            
+        
+        if self.cfgs["USE_ARTI"]:
+            assert num_rb == self.franka_num_links + self.obj_num_links + self.table_num_links + self.arti_obj_num_links, "Number of rigid bodies in tensor does not match franka & obj asset"
+        else:
+            assert num_rb == self.franka_num_links + self.obj_num_links + self.table_num_links, "Number of rigid bodies in tensor does not match franka & obj asset"
+        
+        # get dof state tensor
+        _dof_states = self._gym.acquire_dof_state_tensor(self._sim)
+        self.dof_states = gymtorch.wrap_tensor(_dof_states)
+
+        num_dof = int(self.dof_states.shape[0]/self._num_envs)
+        if self.cfgs["USE_ARTI"]:
+            assert num_dof == self.franka_num_dofs + self.obj_num_dofs + self.arti_obj_num_dofs, "Number of dofs in tensor does not match franka & obj asset"
+        else:
+            assert num_dof == self.franka_num_dofs + self.obj_num_dofs, "Number of dofs in tensor does not match franka & obj asset"
+
+        self.dof_pos = self.dof_states[:, 0].view(self._num_envs, num_dof, 1)
+        self.dof_vel = self.dof_states[:, 1].view(self._num_envs, num_dof, 1)
+
+    def refresh_observation(self, get_visual_obs = True):
+        # refresh tensors
+        self._gym.refresh_rigid_body_state_tensor(self._sim)
+        self._gym.refresh_dof_state_tensor(self._sim)
+        self._gym.refresh_jacobian_tensors(self._sim)
+        self._gym.refresh_mass_matrix_tensors(self._sim)
+        
+        # state obs
+        self.hand_pos = self.rb_states[self.hand_idxs, :3]
+        self.hand_rot = self.rb_states[self.hand_idxs, 3:7]
+        self.hand_vel = self.rb_states[self.hand_idxs, 7:]
+
+        ### TODO: support different dof tensor shapes in different envs
+        self.robot_dof_qpos_qvel = self.dof_states.reshape(self._num_envs,-1,2)[:,:self.franka_num_dofs, :].view(self._num_envs, self.franka_num_dofs, 2)
+        
+        # render sensors and refresh camera tensors
+        if self.use_cam and get_visual_obs:
+            self._gym.render_all_camera_sensors(self._sim)
+            self._gym.start_access_image_tensors(self._sim)
+            points_envs = []
+            colors_envs = []
+            ori_points_envs = []
+            ori_colors_envs = []
+            rgb_envs = []
+            depth_envs = []
+            seg_envs = []
+            # bbox_axis_aligned_envs = []
+            # bbox_center_envs = []
+            # import pdb; pdb.set_trace()
+            for env_i in range(self._num_envs):
+                points_env = []
+                colors_env = []
+                rgb_env = []
+                depth_env = []
+                seg_env = []
+                for cam_i_per_env in range(self.num_cam_per_env):
+                    # write tensor to image
+                    cam_img = self.rgb_tensors[env_i][cam_i_per_env].cpu().numpy()
+                    depth = self.depth_tensors[env_i][cam_i_per_env].cpu().numpy() # W * H
+                    seg = self.seg_tensors[env_i][cam_i_per_env].cpu().numpy() # W * H
+
+                    rgb_env.append(cam_img)
+                    depth_env.append(depth)
+                    seg_env.append(seg)
+                    
+                    # if self.cfgs["INFERENCE_GSAM"]:
+                    #     masks = inference_one_image(cam_img[..., :3], self.grounded_dino_model, self.sam_predictor, box_threshold=self.box_threshold, 
+                    #         text_threshold=self.text_threshold, text_prompt=text_prompt, device=self.device)
+                    
+                    #     if self.cfgs["SAVE_RENDER"]:
+                    #         save_dir = self.cfgs["SAVE_ROOT"]
+                    #         os.makedirs(save_dir, exist_ok=True)
+                    #         import cv2
+                    #         for i in range(masks.shape[0]):
+                    #             cam_img_ = cam_img.copy()
+                    #             cam_img_[masks[i][0].cpu().numpy()] = 0
+                    #             fname = os.path.join(save_dir, text_prompt + "-mask-%04d-%04d-%04d-%04d.png" % (0, env_i, cam_i_per_env, i))
+                    #             imageio.imwrite(fname, cam_img_)
+
+                        
+                    ### RGBD -> Point Cloud with CPU
+                    # s = time.time()
+                    # points, colors = get_point_cloud_from_rgbd(depth, cam_img, None, self.cam_vinvs[env_i][cam_i_per_env], self.cam_projs[env_i][cam_i_per_env], self.cam_w, self.cam_h)
+                    # points = np.transpose(points(0, 2, 1))
+                    # e = time.time()
+                    # print("Time to get point cloud: ", e-s)
+                    
+                    ### RGBD -> Point Cloud with GPU
+                    s = time.time()
+                    pointclouds = get_point_cloud_from_rgbd_GPU(
+                        self.depth_tensors[env_i][cam_i_per_env], 
+                        self.rgb_tensors[env_i][cam_i_per_env],
+                        None,
+                        self.cam_vinvs[env_i][cam_i_per_env], 
+                        self.cam_projs[env_i][cam_i_per_env], 
+                        self.cam_w, self.cam_h
+                    )
+                    points = pointclouds[:, :3].cpu().numpy()
+                    colors = pointclouds[:, 3:6].cpu().numpy()
+                    i_indices, j_indices = np.meshgrid(np.arange(self.cam_w), np.arange(self.cam_h), 
+                            indexing='ij')
+                    pointid2pixel = np.stack((i_indices, j_indices), axis=-1).reshape(-1, 2)
+                    pixel2pointid = np.arange(self.cam_w * self.cam_h).reshape(self.cam_w, self.cam_h)
+                    pointid2pixel = None
+                    pixel2pointid = None
+                    points_env.append(points)
+                    colors_env.append(colors)
+                    
+                    # e = time.time()
+                    # print("Time to get point cloud: ", e-s)
+                    
+                    # if self.cfgs["INFERENCE_GSAM"]:
+                    #     pc_mask = masks[0][0].cpu().numpy().reshape(-1)
+                    #     target_points = points[pc_mask]
+                    #     target_colors = colors[pc_mask]
+                    #     point_cloud = o3d.geometry.PointCloud()
+                    #     point_cloud.points = o3d.utility.Vector3dVector(target_points[:, :3])
+                    #     point_cloud.colors = o3d.utility.Vector3dVector(target_colors[:, :3]/255.0)
+                        
+                    #     if self.cfgs["SAVE_RENDER"]:
+                    #         # save_to ply
+                    #         fname = os.path.join(save_dir, "point_cloud-%04d-%04d-target.ply" % (env_i, cam_i_per_env))
+                    #         o3d.io.write_point_cloud(fname, point_cloud)
+                    #     bbox_axis_aligned = np.array([target_points.min(axis=0), target_points.max(axis=0)])
+                    #     bbox_center = bbox_axis_aligned.mean(axis=0)
+                    #     bbox_axis_aligned_envs.append(bbox_axis_aligned)
+                    #     bbox_center_envs.append(bbox_center)
+                    #     masks_envs.append(masks)
+                    
+
+                ori_points_envs.append(points_env)
+                ori_colors_envs.append(colors_env)
+                rgb_envs.append(rgb_env)
+                depth_envs.append(depth_env)
+                seg_envs.append(seg_env)
+                # points_env = np.concatenate(points_env, axis=0) - self.env_offsets[env_i]
+                # colors_env = np.concatenate(colors_env, axis=0) - self.env_offsets[env_i]
+                # pc_mask_bound = (points_env[:, 0] > self.point_cloud_bound[0][0]) & (points_env[:, 0] < self.point_cloud_bound[0][1]) & \
+                #                 (points_env[:, 1] > self.point_cloud_bound[1][0]) & (points_env[:, 1] < self.point_cloud_bound[1][1]) & \
+                #                 (points_env[:, 2] > self.point_cloud_bound[2][0]) & (points_env[:, 2] < self.point_cloud_bound[2][1])
+                # points_env = points_env[pc_mask_bound]
+                # colors_env = colors_env[pc_mask_bound]
+
+                # s = time.time()
+                # points_env, colors_env, pcs_mask = get_downsampled_pc(points_env, colors_env, 
+                #     sampled_num=self.cfgs["cam"]["sampling_num"], sampling_method = self.cfgs["cam"]["sampling_method"])
+                # e = time.time()
+                # points_envs.append(points_env)
+                # colors_envs.append(colors_env)
+                # print("Time to get point cloud: ", e-s)
+
+            self._gym.end_access_image_tensors(self._sim)
+
+        
+            return points_envs, colors_envs, rgb_envs, depth_envs ,seg_envs, ori_points_envs, ori_colors_envs, pixel2pointid, pointid2pixel
+
     def clean_up(self):
         # cleanup
         if not self.headless:
             self._gym.destroy_viewer(self.viewer)
         self._gym.destroy_sim(self._sim)
-
-    
+ 
 if __name__  == "__main__":
     cfgs = read_yaml_config("config.yaml")
     task_cfgs_path = "/home/haoran/Projects/Rearrangement/Open6DOR/Method/tasks/6DoF/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config_new2.json"
