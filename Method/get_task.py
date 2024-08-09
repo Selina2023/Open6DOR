@@ -3,8 +3,10 @@ from isaacgym import gymapi
 from isaacgym import gymutil
 from isaacgym import gymtorch
 from isaacgym.torch_utils import *
-import glob, math, json
+import glob, math, json, time
 from gym.utils import read_yaml_config, prepare_gsam_model
+from gym.utils import images_to_video, quat_axis, orientation_error, cube_grasping_yaw, read_yaml_config, \
+    get_downsampled_pc, get_point_cloud_from_rgbd, get_point_cloud_from_rgbd_GPU
 
 class GetTask:
     def __init__(self, cfgs, task_cfgs):
@@ -26,6 +28,7 @@ class GetTask:
         
         # init observation
         self._init_observation()
+        
 
     def _prepare_gym_cfgs(self):
         # camera settings
@@ -68,7 +71,7 @@ class GetTask:
         self._sim_params.physx.friction_correlation_distance = 0.0005
         self._sim_params.physx.num_threads = self._args.num_threads
         self._sim_params.physx.use_gpu = self._args.use_gpu
-        
+
     def _init_gym(self):
         self._gym = gymapi.acquire_gym()
         self._sim = self._gym.create_sim(self._args.compute_device_id, self._args.graphics_device_id, 
@@ -92,7 +95,7 @@ class GetTask:
         self._prepare_franka_asset()
         self._prepare_obj_assets()
         self._load_env(load_cam=self._use_cam)
-        
+
     def _prepare_franka_asset(self):
         self._controller_name = cfgs["controller"]
         # load franka asset
@@ -149,12 +152,11 @@ class GetTask:
         self.franka_hand_index = franka_link_dict["panda_hand"]
 
     def _prepare_obj_assets(self):
-        table_pose_p = self.cfgs["asset"]["table_pose_p"]
-        table_scale = self.cfgs["asset"]["table_scale"]
-        self.table_scale = self.cfgs["asset"]["table_scale"]
-        table_dims = gymapi.Vec3(table_scale[0], table_scale[1], table_scale[2])
+        self._table_pose_p = self.cfgs["asset"]["table_pose_p"]
+        self._table_scale = self.cfgs["asset"]["table_scale"]
+        table_dims = gymapi.Vec3(self._table_scale[0], self._table_scale[1], self._table_scale[2])
         self.table_pose = gymapi.Transform()
-        self.table_pose.p = gymapi.Vec3(table_pose_p[0], table_pose_p[1], table_pose_p[2])
+        self.table_pose.p = gymapi.Vec3(self._table_pose_p[0], self._table_pose_p[1], self._table_pose_p[2])
 
         asset_options = gymapi.AssetOptions()
         asset_options.fix_base_link = True
@@ -175,7 +177,7 @@ class GetTask:
         self.obj_num_links = sum([len(obj_num_links) for obj_num_links in self.obj_num_links_dict])
         self.obj_num_dofs = sum([self._gym.get_asset_dof_count(asset_i) for asset_i in self.obj_assets])
         self.table_num_links = 1
-     
+
     def _load_env(self, load_cam = True):
         self._num_envs = cfgs["num_envs"]
         self._num_per_row = int(math.sqrt(self._num_envs))
@@ -199,8 +201,7 @@ class GetTask:
         franka_pose = gymapi.Transform()
         franka_pose_p = self.cfgs["asset"]["franka_pose_p"]
         franka_pose.p = gymapi.Vec3(franka_pose_p[0], franka_pose_p[1], franka_pose_p[2])
-        obj_pose_ps = [self.cfgs["asset"]["obj_pose_ps"][obj_i] for obj_i in range(self.num_asset_per_env)]
-        
+
         self._asset_files = self.task_cfgs["selected_urdfs"]
         self._asset_seg_ids = [2 + i for i in range(len(self._asset_files))]
         self._obj_pose_ps = self.task_cfgs["init_obj_pos"]
@@ -265,9 +266,9 @@ class GetTask:
             self.obj_actor_idxs.append([])
             for asset_i in range(self.num_asset_per_env):
                 initial_pose = gymapi.Transform()
-                initial_pose.p.x = obj_pose_ps[asset_i][0] + np.random.uniform(-1.0, 1.0) * position_noise[0]
-                initial_pose.p.y = obj_pose_ps[asset_i][1] + np.random.uniform(-1.0, 1.0) * position_noise[1]
-                initial_pose.p.z = obj_pose_ps[asset_i][2]
+                initial_pose.p.x = self._obj_pose_ps[asset_i][0] + np.random.uniform(-1.0, 1.0) * position_noise[0]
+                initial_pose.p.y = self._obj_pose_ps[asset_i][1] + np.random.uniform(-1.0, 1.0) * position_noise[1]
+                initial_pose.p.z = self._obj_pose_ps[asset_i][2]
                 if obj_pose_rs is None:
                     initial_pose.r = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 0, 1), rotation_noise/180.0*np.random.uniform(-math.pi, math.pi))
                 else:
@@ -431,7 +432,7 @@ class GetTask:
         self.robot_dof_qpos_qvel = self.dof_states.reshape(self._num_envs,-1,2)[:,:self.franka_num_dofs, :].view(self._num_envs, self.franka_num_dofs, 2)
         
         # render sensors and refresh camera tensors
-        if self.use_cam and get_visual_obs:
+        if self._use_cam and get_visual_obs:
             self._gym.render_all_camera_sensors(self._sim)
             self._gym.start_access_image_tensors(self._sim)
             points_envs = []
@@ -443,14 +444,13 @@ class GetTask:
             seg_envs = []
             # bbox_axis_aligned_envs = []
             # bbox_center_envs = []
-            # import pdb; pdb.set_trace()
             for env_i in range(self._num_envs):
                 points_env = []
                 colors_env = []
                 rgb_env = []
                 depth_env = []
                 seg_env = []
-                for cam_i_per_env in range(self.num_cam_per_env):
+                for cam_i_per_env in range(self._num_cam_per_env):
                     # write tensor to image
                     cam_img = self.rgb_tensors[env_i][cam_i_per_env].cpu().numpy()
                     depth = self.depth_tensors[env_i][cam_i_per_env].cpu().numpy() # W * H
@@ -490,14 +490,14 @@ class GetTask:
                         None,
                         self.cam_vinvs[env_i][cam_i_per_env], 
                         self.cam_projs[env_i][cam_i_per_env], 
-                        self.cam_w, self.cam_h
+                        self._cam_w, self._cam_h
                     )
                     points = pointclouds[:, :3].cpu().numpy()
                     colors = pointclouds[:, 3:6].cpu().numpy()
-                    i_indices, j_indices = np.meshgrid(np.arange(self.cam_w), np.arange(self.cam_h), 
+                    i_indices, j_indices = np.meshgrid(np.arange(self._cam_w), np.arange(self._cam_h), 
                             indexing='ij')
                     pointid2pixel = np.stack((i_indices, j_indices), axis=-1).reshape(-1, 2)
-                    pixel2pointid = np.arange(self.cam_w * self.cam_h).reshape(self.cam_w, self.cam_h)
+                    pixel2pointid = np.arange(self._cam_w * self._cam_h).reshape(self._cam_w, self._cam_h)
                     pointid2pixel = None
                     pixel2pointid = None
                     points_env.append(points)
@@ -548,19 +548,42 @@ class GetTask:
 
             self._gym.end_access_image_tensors(self._sim)
 
+            obs_reture = {
+                "points_envs": points_envs,
+                "colors_envs": colors_envs,
+                "rgb_envs": rgb_envs,
+                "depth_envs": depth_envs,
+                "seg_envs": seg_envs,
+                "ori_points_envs": ori_points_envs,
+                "ori_colors_envs": ori_colors_envs,
+                "pixel2pointid": pixel2pointid,
+                "pointid2pixel": pointid2pixel,
+                "hand_pos": self.hand_pos,
+                "hand_rot": self.hand_rot,
+                "hand_vel": self.hand_vel,
+                "robot_dof_qpos_qvel": self.robot_dof_qpos_qvel,
+            }
+        else:
+            obs_reture = {
+                "hand_pos": self.hand_pos,
+                "hand_rot": self.hand_rot,
+                "hand_vel": self.hand_vel,
+                "robot_dof_qpos_qvel": self.robot_dof_qpos_qvel,
+            }
         
-            return points_envs, colors_envs, rgb_envs, depth_envs ,seg_envs, ori_points_envs, ori_colors_envs, pixel2pointid, pointid2pixel
+        return obs_reture
 
     def clean_up(self):
         # cleanup
         if not self.headless:
             self._gym.destroy_viewer(self.viewer)
         self._gym.destroy_sim(self._sim)
- 
+
 if __name__  == "__main__":
     cfgs = read_yaml_config("config.yaml")
-    task_cfgs_path = "/home/haoran/Projects/Rearrangement/Open6DOR/Method/tasks/6DoF/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config_new2.json"
+    task_cfgs_path = "/home/haoran/Projects/Rearrangement/Open6DOR/Method/tasks/6DoF/behind/Place_the_binder_behind_the_calculator_on_the_table.__lying_flat/20240704-160939_no_interaction/task_config_new2.json"
     with open(task_cfgs_path, "r") as f: task_cfgs = json.load(f)
     
     open6dor_task = GetTask(cfgs=cfgs, task_cfgs=task_cfgs)
+    _ = open6dor_task.refresh_observation()
     open6dor_task.clean_up()

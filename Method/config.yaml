@@ -1,7 +1,7 @@
 debug: True
 SAVE_VIDEO: False
 SAVE_RENDER: True
-INFERENCE_GSAM: False
+INFERENCE_GSAM: True
 USE_CUROBO: False
 USE_GRASPNET: False
 HEADLESS: True
@@ -70,9 +70,10 @@ asset:
     - [0.5, 0, 0.4]
     - [0.5, 0, 0.4]
     - [0.5, 0, 0.4]
-  position_noise: [0.2, 0.25] # meter # small table
+  position_noise: [0.0, 0.0] # meter # small table
+  # position_noise: [0.2, 0.25] # meter # small table
   # position_noise: [0.15, 0.2] # meter
-  rotation_noise: 15 # degree
+  rotation_noise: 0 # degree
   asset_seg_ids: 
     - 2
     - 3
