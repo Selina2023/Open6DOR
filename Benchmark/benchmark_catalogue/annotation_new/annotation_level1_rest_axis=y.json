@@ -37,7 +37,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the marker is placed in a stable pose on the table. Its tip(or cap) end is pointing towards right and its rear end is pointing towards left.": {
                 "quat": [
@@ -54,7 +55,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -76,7 +78,8 @@
                         -3.0908616110991716e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the marker is placed in a stable pose on the table. Its tip(or cap) end is pointing towards right and its rear end is pointing towards left.": {
                 "quat": [
@@ -87,7 +90,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -109,7 +113,8 @@
                         0.13356173038482666
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -131,7 +136,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the silver plug end of the USB is oriented towards right, and the larger end is on the left.": {
                 "quat": [
@@ -142,7 +148,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -164,7 +171,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the silver plug end of the USB is oriented towards right, and the larger end is on the left.": {
                 "quat": [
@@ -175,7 +183,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -191,7 +200,8 @@
                         0.14558252692222595
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the silver plug end of the USB is oriented towards right, and the larger end is on the left.": {
                 "quat": [
@@ -202,7 +212,8 @@
                         -0.3162015974521637
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -250,7 +261,8 @@
                         0.6684325337409973
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             "the toy is facing right, with its head oriented towards right": {
                 "quat": [
@@ -261,7 +273,8 @@
                         -0.23398815095424652
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -277,7 +290,8 @@
                         -0.038100600242614746
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             "the toy is facing right, with its head oriented towards right": {
                 "quat": [
@@ -288,7 +302,8 @@
                         0.9990752935409546
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -304,7 +319,8 @@
                         -1
                     ]
                 ],
-                "stage": 2
+                "stage": 2,
+                "axis": "y"
             },
             "the toy is facing right, with its head oriented towards right": {
                 "quat": [
@@ -315,7 +331,8 @@
                         -1
                     ]
                 ],
-                "stage": 2
+                "stage": 2,
+                "axis": "y"
             }
         }
     },
@@ -331,7 +348,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             "the toy is facing right, with its head oriented towards right": {
                 "quat": [
@@ -342,7 +360,8 @@
                         1.0
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -358,7 +377,8 @@
                         -1
                     ]
                 ],
-                "stage": 2
+                "stage": 2,
+                "axis": "y"
             },
             " the wallet is lying flat on the table, and the clasp is on the right(if the wallet has a clasp)": {
                 "quat": [
@@ -369,7 +389,8 @@
                         -1
                     ]
                 ],
-                "stage": 2
+                "stage": 2,
+                "axis": "y"
             }
         }
     },
@@ -397,7 +418,8 @@
                         -0.5000000596046448
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the wallet is lying flat on the table, and the clasp is on the right(if the wallet has a clasp)": {
                 "quat": [
@@ -420,7 +442,8 @@
                         -0.5
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -436,7 +459,8 @@
                         -1
                     ]
                 ],
-                "stage": 2
+                "stage": 2,
+                "axis": "y"
             },
             " the wallet is lying flat on the table, and the clasp is on the right(if the wallet has a clasp)": {
                 "quat": [
@@ -447,7 +471,8 @@
                         -1
                     ]
                 ],
-                "stage": 2
+                "stage": 2,
+                "axis": "y"
             }
         }
     },
@@ -469,7 +494,8 @@
                         0.000593
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the headphone is lying on the table, and the two earpieces are farther away from the nearer bringe of the table while the headband is nearer to the viewer(Imagine yourself as a viewer in front of the screen, judge 'far' and 'near' by the distance the item is from you).": {
                 "quat": [
@@ -486,7 +512,8 @@
                         0.7100725173950195
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -508,7 +535,8 @@
                         0.0018581598997116089
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the headphone is lying on the table, and the two earpieces are farther away from the nearer bringe of the table while the headband is nearer to the viewer(Imagine yourself as a viewer in front of the screen, judge 'far' and 'near' by the distance the item is from you).": {
                 "quat": [
@@ -525,7 +553,8 @@
                         -0.7078906297683716
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -547,7 +576,8 @@
                         -0.05498361214995384
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the headphone is lying on the table, and the two earpieces are farther away from the nearer bringe of the table while the headband is nearer to the viewer(Imagine yourself as a viewer in front of the screen, judge 'far' and 'near' by the distance the item is from you).": {
                 "quat": [
@@ -564,7 +594,8 @@
                         -0.696480929851532
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -688,7 +719,8 @@
                         1.0
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the ladle is lying on the table, with its scoop on the right(pointing towards right) and its handle on the left.": {
                 "quat": [
@@ -699,7 +731,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -715,7 +748,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the ladle is lying on the table, with its scoop on the right(pointing towards right) and its handle on the left.": {
                 "quat": [
@@ -726,7 +760,8 @@
                         1.0
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -742,7 +777,8 @@
                         0.8668843507766724
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the ladle is lying on the table, with its scoop on the right(pointing towards right) and its handle on the left.": {
                 "quat": [
@@ -753,7 +789,8 @@
                         0.43570366501808167
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -769,7 +806,8 @@
                         -1.1419894718756041e-07
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the ladle is lying on the table, with its scoop on the right(pointing towards right) and its handle on the left.": {
                 "quat": [
@@ -780,7 +818,8 @@
                         -0.7202840447425842
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -796,7 +835,8 @@
                         0.5682262182235718
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the ladle is lying on the table, with its scoop on the right(pointing towards right) and its handle on the left.": {
                 "quat": [
@@ -807,7 +847,8 @@
                         0.013575514778494835
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -867,7 +908,8 @@
                         0.4999999701976776
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the caliper is lying on the table and oriented in a way so that the longest stick(bar) part is horizontal, with the curved jaw part on the left side and the handle part on the right side.": {
                 "quat": [
@@ -878,7 +920,8 @@
                         0.4999999701976776
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -918,7 +961,8 @@
                         -3.0908619663705394e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the blade of the knife is on the right(oriented towards right), while the handle is on the left.": {
                 "quat": [
@@ -929,7 +973,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -945,7 +990,8 @@
                         0.4999999701976776
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the blade of the knife is on the right(oriented towards right), while the handle is on the left.": {
                 "quat": [
@@ -956,7 +1002,8 @@
                         0.5
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -972,7 +1019,8 @@
                         0.4999999701976776
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the blade of the knife is on the right(oriented towards right), while the handle is on the left.": {
                 "quat": [
@@ -983,7 +1031,8 @@
                         0.4999999701976776
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -999,7 +1048,8 @@
                         0.707034170627594
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the blade of the knife is on the right(oriented towards right), while the handle is on the left.": {
                 "quat": [
@@ -1010,7 +1060,8 @@
                         -0.7063910365104675
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1050,7 +1101,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the flashlight is lying on the table(not standing up), with its bulb side on the right (oriented towards right) and its handle on the left.": {
                 "quat": [
@@ -1061,7 +1113,8 @@
                         -3.0908616110991716e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1117,7 +1170,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1133,7 +1187,8 @@
                         0.4999999701976776
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1233,7 +1288,8 @@
                         -3.0908619663705394e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "n"
             },
             " the pot is upright on the table with its spout pointing towards right.": {
                 "quat": [
@@ -1244,7 +1300,8 @@
                         0.7071067094802856
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "n"
             }
         }
     },
@@ -1260,7 +1317,8 @@
                         0.4999999701976776
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "n"
             },
             " the pot is upright on the table with its spout pointing towards right.": {
                 "quat": [
@@ -1271,7 +1329,8 @@
                         0.5
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "n"
             }
         }
     },
@@ -1287,7 +1346,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the ballpoint of the pen is on the right(oriented towards right), while the clicker is on the left.": {
                 "quat": [
@@ -1298,7 +1358,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1314,7 +1375,8 @@
                         0.4999999701976776
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the ballpoint of the pen is on the right(oriented towards right), while the clicker is on the left.": {
                 "quat": [
@@ -1325,7 +1387,8 @@
                         0.4999999701976776
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1341,7 +1404,8 @@
                         0.6606541275978088
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1405,7 +1469,8 @@
                         0.5222699046134949
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the lens of the glasses in not in contact with the table while the temples(arms) and lower rim of the glasses are in contact with the table, which means that the glasses is in a position consistent with how humans generally wear them. ": {
                 "quat": [
@@ -1416,7 +1481,8 @@
                         0.5036612153053284
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1432,7 +1498,8 @@
                         0.371326744556427
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the lens of the glasses in not in contact with the table while the temples(arms) and lower rim of the glasses are in contact with the table, which means that the glasses is in a position consistent with how humans generally wear them. ": {
                 "quat": [
@@ -1443,7 +1510,8 @@
                         0.3389069437980652
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1459,7 +1527,8 @@
                         -3.0908619663705394e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the prong of the fork is on the right(oriented towards right), while the handle is on the left.": {
                 "quat": [
@@ -1470,7 +1539,8 @@
                         0.7071067094802856
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1486,7 +1556,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the prong of the fork is on the right(oriented towards right), while the handle is on the left.": {
                 "quat": [
@@ -1497,7 +1568,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1513,7 +1585,8 @@
                         1.0
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the blades of the scissors are on the right(oriented towards right), while the handle is on the left.": {
                 "quat": [
@@ -1524,7 +1597,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1540,7 +1614,8 @@
                         0.1417630910873413
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the blades of the scissors are on the right(oriented towards right), while the handle is on the left.": {
                 "quat": [
@@ -1551,7 +1626,8 @@
                         0.990817129611969
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1591,7 +1667,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the bottle is lying sideways on the table, with its cap oriented towards right and the bottom side on the left.": {
                 "quat": [
@@ -1602,7 +1679,8 @@
                         1.0
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1618,7 +1696,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the bottle is lying sideways on the table, with its cap oriented towards right and the bottom side on the left.": {
                 "quat": [
@@ -1629,7 +1708,8 @@
                         1.0
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1645,7 +1725,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the bottle is lying sideways on the table, with its cap oriented towards right and the bottom side on the left.": {
                 "quat": [
@@ -1656,7 +1737,8 @@
                         1.0
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1672,7 +1754,8 @@
                         1.910685676922942e-15
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the bottle is lying sideways on the table, with its cap oriented towards right and the bottom side on the left.": {
                 "quat": [
@@ -1683,7 +1766,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1699,7 +1783,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the bottle is lying sideways on the table, with its cap oriented towards right and the bottom side on the left.": {
                 "quat": [
@@ -1710,7 +1795,8 @@
                         1.0
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1726,7 +1812,8 @@
                         0.6923955678939819
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the bottle is lying sideways on the table, with its cap oriented towards right and the bottom side on the left.": {
                 "quat": [
@@ -1737,7 +1824,8 @@
                         -0.6895434260368347
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1753,7 +1841,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the bottle is lying sideways on the table, with its cap oriented towards right and the bottom side on the left.": {
                 "quat": [
@@ -1764,7 +1853,8 @@
                         0.7071067690849304
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },
@@ -1780,7 +1870,8 @@
                         -1
                     ]
                 ],
-                "stage": 2
+                "stage": 2,
+                "axis": "y"
             },
             " the bottle is lying sideways on the table, with its cap oriented towards right and the bottom side on the left.": {
                 "quat": [
@@ -1791,7 +1882,8 @@
                         -1
                     ]
                 ],
-                "stage": 2
+                "stage": 2,
+                "axis": "y"
             }
         }
     },
@@ -1871,7 +1963,8 @@
                         -4.371138828673793e-08
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             },
             " the cap of the marker is on the right(oriented towards right), while its body (the area we generally grab it) is on the left.": {
                 "quat": [
@@ -1882,7 +1975,8 @@
                         1.0
                     ]
                 ],
-                "stage": 1
+                "stage": 1,
+                "axis": "y"
             }
         }
     },

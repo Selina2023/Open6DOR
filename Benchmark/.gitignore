@@ -2,5 +2,6 @@ dataset/objects/*
 *run_renderer.sh
 *.DS_Store
 tasks/
-# benchmark_catalogue/annotation/
+
 *error.txt
+evaluation/format.py
