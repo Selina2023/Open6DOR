@@ -6,24 +6,36 @@ class Open6DOR_GPT:
     def __init__(self, cfgs):
         self.cfgs = cfgs
         self.device = cfgs["DEVICE"]
+        self._prepare_ckpts()
         
-    def prepare_ckpts(self):
+    def _prepare_ckpts(self):
         # prepare sam model
         if self.cfgs["INFERENCE_GSAM"]:
-            grounded_dino_model, sam_predictor = prepare_gsam_model(device=self.device)
+            self._grounded_dino_model, self._sam_predictor = prepare_gsam_model(device=self.device)
         else:
-            grounded_dino_model, sam_predictor = None, None
+            self._grounded_dino_model, self._sam_predictor = None, None
         
+    def inference_vlm(self, prompt, image_path, print_ans = False):
+        from gym.vlm_utils import infer_path
+        # prepare vlm model
+        response = infer_path(prompt, image_path)
+        while 'choices' not in response.json():
+            response = infer_path(prompt, image_path)
+        ans = response.json()['choices'][0]['message']['content']
+        if print_ans:
+            print(ans)
+        return ans
+    
     def inference_task(self, task_cfgs):
         # prepare task data
         task_data = self.prepare_task_data(task_cfgs)
         
         # inference
-        pred_pose = self.inference(task_data, grounded_dino_model, sam_predictor)
+        pred_pose = self.inference(task_data, self._grounded_dino_model, self._sam_predictor)
         
         return pred_pose
   
-  
+
  
 if __name__  == "__main__":
     cfgs = read_yaml_config("config.yaml")

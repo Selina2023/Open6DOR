@@ -29,7 +29,6 @@ class GetTask:
         # init observation
         self._init_observation()
         
-
     def _prepare_gym_cfgs(self):
         # camera settings
         self._use_cam = self.cfgs["cam"]["use_cam"]
@@ -586,4 +585,5 @@ if __name__  == "__main__":
     
     open6dor_task = GetTask(cfgs=cfgs, task_cfgs=task_cfgs)
     _ = open6dor_task.refresh_observation()
+    import pdb; pdb.set_trace()
     open6dor_task.clean_up()
