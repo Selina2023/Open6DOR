@@ -12,14 +12,9 @@ import random
 import sys
 sys.path.append("../")
 sys.path.append("../vision")
-try:
-    from vision.grounded_sam_demo import prepare_GroundedSAM_for_inference
-except:
-    pass
 
 import open3d as o3d
 import numpy as np
-
 
 def generate_urdf(obj_name, obj_path, save_root):
     
@@ -84,13 +79,13 @@ def get_rotation_from_obj_instruction(obj_path, obj_name, instruction, rotation_
     
     return final_rotations
 
-
 def prepare_gsam_model(device):
     sam_version = "vit_h"
     sam_checkpoint = "assets/ckpts/sam_vit_h_4b8939.pth"
     grounded_checkpoint = "assets/ckpts/groundingdino_swint_ogc.pth"
     config = "vision/GroundedSAM/GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py"
 
+    from vision.grounded_sam_demo import prepare_GroundedSAM_for_inference
     grounded_dino_model, sam_predictor = prepare_GroundedSAM_for_inference(
         sam_version=sam_version, sam_checkpoint=sam_checkpoint,
         grounded_checkpoint=grounded_checkpoint, config=config, device=device)
@@ -129,7 +124,6 @@ def get_point_cloud_from_rgbd(depth, rgb, seg, vinv, proj, cam_w, cam_h):
 
     # o3d.visualization.draw_geometries([point_cloud])
     return np.array(points), np.array(colors)
-
 
 def get_downsampled_pc(pcs_all_xyz, pcs_feas = None, sampled_num = 20000, sampling_method = "random_fps"):
     '''
@@ -193,7 +187,6 @@ def FPS(pcs, npoint):
     fps_idx_tensor = farthest_point_sample(pcs_tensor, npoint)
     fps_idx = fps_idx_tensor.cpu().numpy()[0]
     return fps_idx
-
 
 def farthest_point_sample(xyz, npoint, use_cuda = True):
     """
@@ -333,12 +326,10 @@ def quat_axis(q, axis=0):
     basis_vec[:, axis] = 1
     return quat_rotate(q, basis_vec)
 
-
 def orientation_error(desired, current):
     cc = quat_conjugate(current)
     q_r = quat_mul(desired, cc)
     return q_r[:, 0:3] * torch.sign(q_r[:, 3]).unsqueeze(-1)
-
 
 def cube_grasping_yaw(q, corners):
     """ returns horizontal rotation required to grasp cube """

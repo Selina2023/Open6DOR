@@ -4,11 +4,11 @@ import imageio.v2 as imageio
 import os
 import argparse
 from evaluation import evaluator
+import yaml
 
 mesh_root = "meshes"
-def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../output/test", cam_quaternion = [0, 0, 0.0, 1.0], cam_translation = [0.0, 0.0, 1], background_material_id = 44, env_map_id = 25):
+def load_task(task_path, bench_config):
     # task_config
-    # task_path = "/Users/selina/Desktop/projects/Open6DOR/Benchmark/task_examples/overall/behind/Place_the_apple_behind_the_box_on_the_table.__upright/20240704-145831_no_interaction/task_config.json"#TODO 1: load config path from dataset using task_id
     task_config = json.load(open(task_path, 'r'))
     
     # task_instruction
@@ -16,14 +16,14 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
     print("instruction:", task_instruction)
 
     # task_image
-    if image_mode == "GIVEN_IMAGE_ISAACGYM":
+    if bench_config["image_mode"] == "GIVEN_IMAGE_ISAACGYM":
         image_path = task_path.replace("task_config.json", "before-rgb-0-0.png")
         task_image = imageio.imread(image_path)
 
-    elif image_mode == "GIVEN_IMAGE_BLENDER":
+    elif bench_config["image_mode"] == "GIVEN_IMAGE_BLENDER":
         pass
     
-    elif image_mode == "RENDER_IMAGE_ISAACGYM":
+    elif bench_config["image_mode"] == "RENDER_IMAGE_ISAACGYM":
         from ..Method.interaction import init_gym
         gym, cfgs, task_config_now= init_gym(task_config, index=i, random_task=True, no_position = True)
 
@@ -32,10 +32,10 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
 
         task_image = colors_envs[0]
     
-    elif image_mode == "RENDER_IMAGE_BLENDER":
+    elif bench_config["image_mode"] == "RENDER_IMAGE_BLENDER":
         from renderer import open6dor_renderer
         task_image = None
-        output_root_path = output_path
+        output_root_path = bench_config["output_path"]
         obj_paths = task_config["selected_urdfs"]
         obj_ids = [path.split("/")[-2] for path in obj_paths]
 
@@ -50,9 +50,10 @@ def load_task(task_path, image_mode = "RENDER_IMAGE_BLENDER", output_path = "../
             transformation_matrix = open6dor_renderer.create_transformation_matrix(position, quaternion)
             obj_poses[id] = transformation_matrix
         task_id = "my_test"
-        script = generate_shell_script(output_root_path, task_id, obj_paths, init_poses, background_material_id, env_map_id, cam_quaternion, cam_translation)
+        script = generate_shell_script(output_root_path, task_id, obj_paths, init_poses, 
+            bench_config["background_material_id"], bench_config["env_map_id"], 
+            bench_config["cam_quaternion"], bench_config["cam_translation"])
         # run shell script
-        import pdb; pdb.set_trace()
         os.system(f"bash {script}")
         
     return task_config, task_instruction, task_image
@@ -83,58 +84,56 @@ def generate_shell_script(output_root_path, task_id, obj_paths, init_poses,
     return script_name
 
 def eval_task(cfgs, pred_pose, use_rot = False):
-
     if use_rot:
-        pred_rot = [0,0,0,0]#TODO 2: extract rotation from pred_pose
+        pred_rot = pred_pose["rotation"]
         rot_gt = list(cfgs['anno_target']['annotation'].values())[0]["quat"]
-        import pdb; pdb.set_trace()
-        rot_deviation = evaluator.evaluate_rot(rot_gt, pred_rot)  #TODO 6: click into evaluate_rot
-
+        rot_deviation = evaluator.evaluate_rot(rot_gt, pred_rot)
         print(f"Rotation deviation: {rot_deviation} degrees")
 
     pos_bases = cfgs['init_obj_pos']
-    pred_pos = 0#TODO 3: extract position from pred_pose
-    pos_eval = evaluator.evaluate_posi(pred_pos, pos_bases, "behind")  #TODO 7: click into evaluate_posi
+    pred_pos = pred_pose["position"]
+    pos_eval = evaluator.evaluate_posi(pred_pos, pos_bases, "behind")
 
     return rot_deviation, pos_eval
 
+def method_template(cfgs, task_instruction, task_image):
+    pred_pose = {
+        "position": [0,0,0],
+        "rotation": [0,0,0,0]
+    }
+    return pred_pose
+
 if __name__ == "__main__":
-    # read args and call apis
     
     parser = argparse.ArgumentParser(description="Benchmarking script for task evaluation")
-    # subparsers = parser.add_subparsers(dest="command")
-    # Subparser for load_task
     parser.add_argument("--mode", type=str, choices=["load_test", "eval"], help="Path to the task configuration file")
     parser.add_argument("--task_data", type=str, default="6dof", help="path set or single path to the task configuration file")
     parser.add_argument("--image_mode", type=str, default="GIVEN_IMAGE_ISAACGYM", help="Image mode")
     parser.add_argument("--output_path", type=str, default="../output/test", help="Path to the output directory")
-    parser.add_argument("--cam_quaternion", type=float, nargs=4, default=[0, 0, 0.0, 1.0], help="Camera quaternion")
-    parser.add_argument("--cam_translation", type=float, nargs=3, default=[0.0, 0.0, 1.0], help="Camera translation")
-    parser.add_argument("--background_material_id", type=int, default=44, help="Background material ID")
-    parser.add_argument("--env_map_id", type=int, default=25, help="Environment map ID")
-    parser.add_argument("--pred_pose", type=str, default = "", help="Predicted pose")
 
     _args = parser.parse_args()
     
+    render_configs = yaml.load(open("bench_config.yaml", 'r'), Loader=yaml.FullLoader)
     import pdb; pdb.set_trace()
-    if _args.task_data == "6dof":
+    # merge the two configs
+    bench_config = {**_args.__dict__, **render_configs}
+    if bench_config["task_data"] == "6dof":
         task_paths = glob.glob('tasks/6DoF/*/*/*/task_config_new2.json')
-    elif _args.task_data == "position":
+    elif bench_config["task_data"] == "position":
         task_paths = glob.glob('tasks/position/*/*/*/task_config_new2.json')
-    elif _args.task_data == "rotation":
+    elif bench_config["task_data"] == "rotation":
         task_paths = glob.glob('tasks/rotation/*/*/*/task_config_new2.json')
     else:
-        task_paths = [_args.task_data]
+        task_paths = [bench_config["task_data"]]
 
-    
-    if _args.mode == "load_test":
+    if bench_config["mode"] == "load_test":
         for task_path in task_paths:
-            task_config, task_instruction, task_image = load_task(task_path, _args.image_mode, _args.output_path, _args.cam_quaternion, _args.cam_translation, _args.background_material_id, _args.env_map_id)
+            task_config, task_instruction, task_image = load_task(task_path, bench_config)
 
-    elif _args.mode == "eval":
-        USE_ROT = False if _args.task_data == "position" else True
+    elif bench_config["mode"] == "eval":
+        USE_ROT = False if bench_config["task_data"] == "position" else True
         for task_path in task_paths:
             task_config = json.load(open(task_path, 'r'))
-            pred_pose = None # TODO load predicted pose from model
+            task_config, task_instruction, task_image = load_task(task_path, bench_config)
+            pred_pose = method_template(task_config, task_instruction, task_image)
             eval_task(task_config, pred_pose, use_rot = USE_ROT)
-            

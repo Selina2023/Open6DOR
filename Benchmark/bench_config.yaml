@@ -1,0 +1,5 @@
+render:
+  cam_quaternion: [0.0, 0.0, 0.0, 1.0]
+  cam_translation: [0.0, 0.0, 1.0]
+  background_material_id: 44
+  env_map_id: 25
