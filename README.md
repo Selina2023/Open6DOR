@@ -45,7 +45,7 @@ pip install -r requirements.txt
 
 Refer to the subsequent section for specific file locations.
 - Download the [object datasets](https://drive.google.com/drive/folders/1Gm30OtQWRb5NitIdnLSJlfLdAG_rWHQX?usp=sharing) and uncompress.
-- Download the [task datasets]() and uncompress. (The refined version will be released along with our paper)
+- Download the [task datasets](https://drive.google.com/drive/folders/11o2I20Q8uJrSXO_JvnbH7dEoR43V9fKa?usp=sharing) and uncompress. (The refined version will be released along with our paper)
 
 **Rendering Dependencies**
 
