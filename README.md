@@ -20,7 +20,7 @@ This is the official repository of [Open6DOR: Benchmarking Open-instruction 6-Do
 We plan to release the final version of the benchmark, along with our refined method, in early September, and we recommend waiting until then to download the dataset.
 
 ## News
-- We update method with gpr-4o api. See Method folder.
+- We update method with gpt-4o api. See Method folder.
 
 ## Benchmark
 The Open6DOR Benchmark is specifically designed for table-top Open6DOR tasks within a simulation environment. Our dataset encompasses 200+ high-quality objects, forming diverse scenes and totaling 2400+ diverse tasks. All tasks are carefully configured and accompanied by detailed annotations. To ensure comprehensive evaluation, we provide three specialized tracks of benchmark: the Rotation-track Benchmark ($B_r$), the Position-track benchmark ($B_p$), and the 6-DoF-track Benchmark ($B_\text{6DoF}$). 
