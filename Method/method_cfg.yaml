@@ -1,0 +1,26 @@
+DEVICE: cuda:0
+INFERENCE_GSAM: True
+SAVE_RENDER: True
+VISUALIZE: True
+
+position:
+
+rotation:
+
+vision:
+  sam_checkpoint_path: ../assets/ckpts/sam_vit_h_4b8939.pth
+  grounded_checkpoint_path: ../assets/ckpts/groundingdino_swint_ogc.pth
+  config_path: ./vision/GroundedSAM/GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py
+  box_threshold: 0.3
+  text_threshold: 0.25
+  sam_version: vit_h
+
+cam:
+  vinv: [[ 0.        ,  1.        ,  0.        ,  0.        ],
+        [-0.9028605 , -0.        ,  0.42993355, -0.        ],
+        [ 0.42993355, -0.        ,  0.9028605 , -0.        ],
+        [ 1.        ,  0.        ,  1.2       ,  1.        ]]
+  proj: [[ 1.7320507,  0.       ,  0.       ,  0.       ],
+       [ 0.       ,  2.5980759,  0.       ,  0.       ],
+       [ 0.       ,  0.       ,  0.       , -1.       ],
+       [ 0.       ,  0.       ,  0.05     ,  0.       ]]

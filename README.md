@@ -18,6 +18,10 @@
 ![Teaser](./images/teaser_final1.jpg)
 This is the official repository of [Open6DOR: Benchmarking Open-instruction 6-DoF Object Rearrangement and A VLM-based Approach](https://pku-epic.github.io/Open6DOR/). In this work, we propel the pioneer construction of the benchmark and approach for table-top Open-instruction 6-DoF Object Rearrangement (Open6DOR). Specifically, we collect a synthetic dataset of 200+ objects and carefully design 2400+ Open6DOR tasks. These tasks are divided into the Position-track, Rotation-track, and 6-DoF-track for evaluating different embodied agents in predicting the positions and rotations of target objects. Besides, we also propose a VLM-based approach for Open6DOR, named Open6DOR-GPT, which empowers GPT-4V with 3D-awareness and simulation-assistance while exploiting its strengths in generalizability and instruction-following for this task. We compare the existing embodied agents with our Open6DOR-GPT on the proposed Open6DOR benchmark and find that Open6DOR-GPT achieves the state-of-the-art performance. We further show the impressive performance of Open6DOR-GPT in diverse real-world experiments.
 We plan to release the final version of the benchmark, along with our refined method, in early September, and we recommend waiting until then to download the dataset.
+
+## News
+- We update method with gpr-4o api. See Method folder.
+
 ## Benchmark
 The Open6DOR Benchmark is specifically designed for table-top Open6DOR tasks within a simulation environment. Our dataset encompasses 200+ high-quality objects, forming diverse scenes and totaling 2400+ diverse tasks. All tasks are carefully configured and accompanied by detailed annotations. To ensure comprehensive evaluation, we provide three specialized tracks of benchmark: the Rotation-track Benchmark ($B_r$), the Position-track benchmark ($B_p$), and the 6-DoF-track Benchmark ($B_\text{6DoF}$). 
 In this repository, we provide:
@@ -135,7 +139,7 @@ rotation matrix?
 By incorporating 3D awareness and simulation assistance, we effectively tackle the Open6DOR task through a decomposed approach. 
 Specifically, Open6DOR-GPT takes the RGB-D image and instruction as input and outputs the corresponding robot motion trajectory. Firstly, the preprocessing module extracts the object names and masks. Then, the two modules simultaneously predict the position and rotation of the target object in a decoupled way. Finally, the planning module generates a trajectory for execution.
 
-Code coming soon... (We are currently updating our method to attain better real-time performance)
+See README in Method folder.
 
 <!-- 
 ```bash
