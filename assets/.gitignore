@@ -1,7 +1,2 @@
-objects/
-blender/
-# tasks/
-# objects/*
-blender/*
-# tasks/*
+
 isaacgym/*
