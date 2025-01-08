@@ -1,0 +1,91 @@
+{
+    "selected_obj_names": [
+        "bottle",
+        "tissue box",
+        "apple"
+    ],
+    "selected_urdfs": [
+        "ycb_16k_backup/006_mustard_bottle_google_16k/006_mustard_bottle_google_16k.urdf",
+        "objaverse_rescale/dc4c91abf45342b4bb8822f50fa162b2/material_2.urdf",
+        "objaverse_rescale/fbda0b25f41f40958ea984f460e4770b/material_2.urdf"
+    ],
+    "target_obj_name": "apple",
+    "instruction": "Place the apple behind the bottle on the table. We also need to specify the rotation of the object after placement:  the object is placed upright on the table and corresponds with how humans usually place the object, bottom down and top up.",
+    "init_obj_pos": [
+        [
+            0.3738566040992737,
+            0.17327724397182465,
+            0.3028668463230133,
+            -9.934652553056367e-06,
+            5.676249202224426e-06,
+            -0.03726901113986969,
+            0.9993051886558533,
+            0.00011460757377790287,
+            -0.0007374841370619833,
+            -0.00024315444170497358,
+            0.01065916009247303,
+            0.000735661422368139,
+            0.0003395920793991536
+        ],
+        [
+            0.4417206645011902,
+            -0.3223787248134613,
+            0.3753006160259247,
+            0.7060578465461731,
+            -0.03799350559711456,
+            -0.037282224744558334,
+            0.7061506509780884,
+            5.145368413650431e-05,
+            -0.00020104726718273014,
+            0.00014684736379422247,
+            0.003485196502879262,
+            5.90651725360658e-05,
+            -0.0011944533325731754
+        ],
+        [
+            0.5476366281509399,
+            -0.07213471084833145,
+            0.3492423892021179,
+            0.1136084571480751,
+            0.050451405346393585,
+            -0.0884791761636734,
+            0.9882911443710327,
+            5.16880136274267e-05,
+            0.0044308979995548725,
+            -0.001778011559508741,
+            -0.08829422295093536,
+            -0.0050054253078997135,
+            0.015157821588218212
+        ]
+    ],
+    "position_instruction": "Place the apple behind the bottle on the table. ",
+    "rotation_instruction": "We also need to specify the rotation of the object after placement:  the object is placed upright on the table and corresponds with how humans usually place the object, bottom down and top up.",
+    "rotation_instruction_label": "upright",
+    "obj_codes": [
+        "006",
+        "dc4c91abf45342b4bb8822f50fa162b2",
+        "fbda0b25f41f40958ea984f460e4770b"
+    ],
+    "target_obj_code": "fbda0b25f41f40958ea984f460e4770b",
+    "anno_target": {
+        "category": "apple",
+        "annotation": {
+            " the object is placed upright on the table and corresponds with how humans usually place the object, bottom down and top up.": {
+                "quat": [
+                    [
+                        0.7071067690849304,
+                        0.0,
+                        0.0,
+                        0.7071067690849304
+                    ]
+                ],
+                "stage": 1,
+                "axis": "z"
+            }
+        }
+    },
+    "rot_tag_detail": "upright",
+    "rot_tag_level": 0,
+    "position_tag": "behind",
+    "rotation_tag": "upright"
+}
